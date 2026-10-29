@@ -1,0 +1,1647 @@
+/* ==========================================================================
+   DigiWave X — Virtual Hardware Trainer Kit / Circuit Workbench Styling
+   ========================================================================== */
+
+.workbench-wrapper {
+  position: relative;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 14px;
+  padding: 20px;
+  box-shadow: var(--shadow-md);
+  overflow: visible;
+}
+
+.workbench-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.workbench-title-area {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.workbench-title {
+  font-size: 16px;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
+}
+
+.wiring-validation-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 11px;
+  font-family: var(--font-mono);
+  font-weight: 600;
+  transition: all var(--transition-normal);
+}
+
+.wiring-validation-pill.valid {
+  background: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.4);
+}
+
+.wiring-validation-pill.fault {
+  background: rgba(244, 63, 94, 0.15);
+  color: #fb7185;
+  border: 1px solid rgba(244, 63, 94, 0.4);
+}
+
+.workbench-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Circuit Blocks Grid */
+.circuit-blocks-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  position: relative;
+  z-index: 10;
+}
+
+@media (max-width: 900px) {
+  .circuit-blocks-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* Individual Hardware Block / IC Module */
+.circuit-block {
+  background: linear-gradient(180deg, #162032 0%, #0e1625 100%);
+  border: 1px solid #1e293b;
+  border-radius: 12px;
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.4);
+  position: relative;
+  transition: transform var(--transition-fast), border-color var(--transition-fast);
+}
+
+.circuit-block:hover {
+  border-color: #38bdf8;
+  transform: translateY(-2px);
+}
+
+.block-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 10px;
+  margin-bottom: 14px;
+}
+
+.block-title-group {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.block-tag {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.15);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.block-label {
+  font-weight: 700;
+  font-size: 13px;
+  color: var(--text-primary);
+}
+
+.block-led {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #334155;
+  transition: all var(--transition-fast);
+}
+
+.block-led.on {
+  background: #10b981;
+  box-shadow: 0 0 10px #10b981;
+}
+
+/* Block Inputs & Parameters */
+.block-body {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-label {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-secondary);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.form-hint {
+  font-size: 10px;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+
+.form-input, .form-select {
+  background: var(--bg-input);
+  border: 1px solid #1e293b;
+  border-radius: 6px;
+  padding: 8px 12px;
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  outline: none;
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.form-input:focus, .form-select:focus {
+  border-color: var(--cyber-cyan);
+  box-shadow: 0 0 0 2px rgba(6, 182, 212, 0.2);
+}
+
+.bit-pill-container {
+  display: flex;
+  gap: 4px;
+  flex-wrap: wrap;
+  margin-top: 4px;
+}
+
+.bit-pill {
+  width: 28px;
+  height: 28px;
+  border-radius: 6px;
+  background: #1e293b;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-primary);
+  font-family: var(--font-mono);
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  user-select: none;
+  transition: all var(--transition-fast);
+}
+
+.bit-pill:hover {
+  transform: scale(1.08);
+  border-color: #38bdf8;
+}
+
+.bit-pill.bit-1 {
+  background: rgba(16, 185, 129, 0.2);
+  color: #34d399;
+  border-color: rgba(16, 185, 129, 0.5);
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.2);
+}
+
+.bit-pill.bit-0 {
+  background: rgba(30, 41, 59, 0.8);
+  color: #94a3b8;
+}
+
+/* Ports & Banana Plugs / BNC Jacks */
+.ports-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 14px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.port-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.port-label {
+  font-size: 9px;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  color: var(--text-muted);
+}
+
+.banana-jack {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: #0b101b;
+  border: 3px solid #334155;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  transition: all var(--transition-fast);
+}
+
+.banana-jack::after {
+  content: '';
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #1e293b;
+}
+
+.banana-jack:hover {
+  border-color: #38bdf8;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.6);
+  transform: scale(1.15);
+}
+
+.banana-jack.port-active {
+  border-color: #10b981;
+  box-shadow: 0 0 8px #10b981;
+}
+
+.banana-jack.port-active::after {
+  background: #10b981;
+}
+
+.banana-jack.port-selected {
+  border-color: #f59e0b;
+  box-shadow: 0 0 12px #f59e0b;
+  animation: pulse-jack 1s infinite alternate;
+}
+
+@keyframes pulse-jack {
+  from { transform: scale(1); border-color: #f59e0b; }
+  to { transform: scale(1.2); border-color: #fbbf24; }
+}
+
+/* SVG Patch Cord Canvas Overlay */
+#wiresOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 20;
+}
+
+.wire-path {
+  fill: none;
+  stroke-width: 4px;
+  stroke-linecap: round;
+  filter: drop-shadow(0 2px 6px rgba(0, 0, 0, 0.7));
+  transition: stroke var(--transition-fast);
+}
+
+.wire-path.wire-valid {
+  stroke: #38bdf8;
+  filter: drop-shadow(0 0 8px rgba(56, 189, 248, 0.6));
+}
+
+.wire-path.wire-active {
+  stroke: #10b981;
+  filter: drop-shadow(0 0 8px rgba(16, 185, 129, 0.6));
+}
+
+.wire-path.wire-unexpected {
+  stroke: #f43f5e;
+  stroke-dasharray: 6 3;
+  filter: drop-shadow(0 0 8px rgba(244, 63, 94, 0.6));
+}
+
+/* Quick Wire Control Toolbar */
+.wire-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 14px;
+  padding: 8px 12px;
+  background: rgba(15, 23, 42, 0.5);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.wire-list-preview {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-family: var(--font-mono);
+  color: var(--text-secondary);
+  flex-wrap: wrap;
+}
+
+.wire-tag {
+  background: rgba(30, 41, 59, 0.9);
+  padding: 2px 8px;
+  border-radius: 4px;
+  border: 1px solid #334155;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.wire-tag .wire-remove-btn {
+  cursor: pointer;
+  color: var(--alert-rose);
+  font-weight: bold;
+}
+
+/* ==========================================================================
+   SIGMA MODEL COM122L Trainer Kit Authentic Aesthetics
+   ========================================================================== */
+
+.trainer-pcb-chassis {
+  background: linear-gradient(180deg, #0e1726 0%, #080d17 100%);
+  border: 2px solid #263852;
+  border-radius: 12px;
+  position: relative;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+  padding: 16px;
+}
+
+/* Screen-printed PCB Traces & Screws */
+.pcb-screw {
+  position: absolute;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #94a3b8 30%, #475569 80%);
+  border: 1px solid #1e293b;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.4), 0 1px 3px rgba(0, 0, 0, 0.6);
+}
+.pcb-screw.tl { top: 8px; left: 8px; }
+.pcb-screw.tr { top: 8px; right: 8px; }
+.pcb-screw.bl { bottom: 8px; left: 8px; }
+.pcb-screw.br { bottom: 8px; right: 8px; }
+
+/* Sigma COM122L Nameplate */
+.trainer-plate-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(90deg, #1e1b4b 0%, #0f172a 50%, #1e1b4b 100%);
+  border: 1px solid #3b82f6;
+  border-radius: 8px;
+  padding: 10px 16px;
+  margin-bottom: 16px;
+  box-shadow: 0 4px 14px rgba(30, 27, 75, 0.5);
+}
+
+.sigma-badge-wrap {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sigma-oval-logo {
+  border: 2px solid #38bdf8;
+  border-radius: 20px;
+  padding: 2px 10px;
+  font-family: var(--font-ui);
+  font-weight: 900;
+  font-size: 14px;
+  letter-spacing: 0.12em;
+  color: #38bdf8;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.4);
+}
+
+.trainer-title-text {
+  display: flex;
+  flex-direction: column;
+}
+
+.trainer-title-text h3 {
+  font-size: 13px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  color: #f8fafc;
+  text-transform: uppercase;
+}
+
+.trainer-title-text span {
+  font-size: 10px;
+  font-family: var(--font-mono);
+  color: #94a3b8;
+  letter-spacing: 0.04em;
+}
+
+.trainer-specs-pills {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.spec-pill {
+  font-size: 10px;
+  font-family: var(--font-mono);
+  padding: 3px 8px;
+  border-radius: 4px;
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid #334155;
+  color: #38bdf8;
+}
+
+/* 8-Bit Hardware Switch Bank (D7 to D0) */
+.switch-bank-8bit {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 6px;
+  background: #090e18;
+  padding: 10px 8px;
+  border-radius: 8px;
+  border: 1px solid #1e293b;
+  margin-top: 6px;
+}
+
+.switch-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.switch-led {
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  background: #450a0a;
+  border: 1px solid #7f1d1d;
+  transition: all var(--transition-fast);
+}
+
+.switch-led.high {
+  background: #10b981;
+  border-color: #34d399;
+  box-shadow: 0 0 10px #10b981;
+}
+
+.hardware-toggle-switch {
+  width: 26px;
+  height: 44px;
+  background: #1e293b;
+  border: 1px solid #334155;
+  border-radius: 4px;
+  position: relative;
+  cursor: pointer;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.8), 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.toggle-lever {
+  width: 22px;
+  height: 20px;
+  border-radius: 3px;
+  background: linear-gradient(180deg, #e2e8f0 0%, #94a3b8 100%);
+  position: absolute;
+  left: 1px;
+  transition: top var(--transition-fast), background var(--transition-fast);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+/* Toggle UP = Logic 1 */
+.hardware-toggle-switch.switch-up .toggle-lever {
+  top: 2px;
+  background: linear-gradient(180deg, #ffffff 0%, #cbd5e1 100%);
+}
+
+/* Toggle DOWN = Logic 0 */
+.hardware-toggle-switch.switch-down .toggle-lever {
+  top: 20px;
+  background: linear-gradient(180deg, #94a3b8 0%, #475569 100%);
+}
+
+.switch-label {
+  font-size: 9px;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: #94a3b8;
+}
+
+/* Recovered Data 8-Bit LED Array (Decoder Section) */
+.recovered-led-bank {
+  display: grid;
+  grid-template-columns: repeat(8, 1fr);
+  gap: 6px;
+  background: #090e18;
+  padding: 8px;
+  border-radius: 8px;
+  border: 1px solid #1e293b;
+  margin-top: 6px;
+}
+
+.recovered-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+}
+
+.recovered-led {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: #1e293b;
+  border: 1px solid #334155;
+  transition: all var(--transition-fast);
+}
+
+.recovered-led.on {
+  background: #00f2fe;
+  border-color: #38bdf8;
+  box-shadow: 0 0 10px #00f2fe;
+}
+
+.decode-match-badge {
+  font-size: 11px;
+  font-family: var(--font-mono);
+  padding: 4px 10px;
+  border-radius: 6px;
+  margin-top: 8px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  justify-content: center;
+}
+
+.decode-match-badge.matched {
+  background: rgba(16, 185, 129, 0.15);
+  color: #34d399;
+  border: 1px solid rgba(16, 185, 129, 0.4);
+}
+
+.decode-match-badge.mismatched {
+  background: rgba(244, 63, 94, 0.15);
+  color: #fb7185;
+  border: 1px solid rgba(244, 63, 94, 0.4);
+}
+
+/* Power Section Components */
+.power-section-box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(15, 23, 42, 0.7);
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid #1e293b;
+}
+
+.power-rocker-btn {
+  background: #1e293b;
+  border: 1px solid #334155;
+  color: #94a3b8;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.power-rocker-btn.on {
+  background: #dc2626;
+  color: #ffffff;
+  border-color: #ef4444;
+  box-shadow: 0 0 10px rgba(220, 38, 38, 0.6);
+}
+
+/* 6 Line Codes Format Pills */
+.format-grid-6 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 6px;
+}
+
+.format-choice-btn {
+  background: #0f172a;
+  border: 1px solid #1e293b;
+  border-radius: 6px;
+  padding: 6px 8px;
+  color: var(--text-secondary);
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  text-align: left;
+  transition: all var(--transition-fast);
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.format-choice-btn:hover {
+  border-color: #38bdf8;
+  color: var(--text-primary);
+}
+
+.format-choice-btn.active {
+  background: rgba(6, 182, 212, 0.18);
+  border-color: #06b6d4;
+  color: #38bdf8;
+  box-shadow: 0 0 10px rgba(6, 182, 212, 0.2);
+}
+
+/* ==========================================================================
+   COM122L Training Manual Modal Styles
+   ========================================================================== */
+
+.manual-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(4, 8, 16, 0.85);
+  backdrop-filter: blur(12px);
+  z-index: 1000;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.manual-modal-overlay.open {
+  display: flex;
+}
+
+.manual-modal-dialog {
+  background: #0d1524;
+  border: 1px solid #3b82f6;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 30px rgba(59, 130, 246, 0.3);
+  border-radius: 14px;
+  width: 100%;
+  max-width: 900px;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.manual-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px;
+  background: linear-gradient(90deg, #1e1b4b 0%, #0f172a 100%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.manual-modal-nav {
+  display: flex;
+  gap: 8px;
+  padding: 8px 20px;
+  background: #0a0f1a;
+  border-bottom: 1px solid #1e293b;
+  overflow-x: auto;
+}
+
+.manual-nav-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: all var(--transition-fast);
+}
+
+.manual-nav-btn.active {
+  background: rgba(56, 189, 248, 0.2);
+  color: #38bdf8;
+  border: 1px solid rgba(56, 189, 248, 0.4);
+}
+
+.manual-modal-body {
+  padding: 20px;
+  overflow-y: auto;
+  flex: 1;
+  color: var(--text-primary);
+  line-height: 1.6;
+}
+
+.manual-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 12px;
+  margin-top: 12px;
+  margin-bottom: 16px;
+}
+
+.manual-table th, .manual-table td {
+  border: 1px solid #1e293b;
+  padding: 8px 12px;
+  text-align: left;
+}
+
+.manual-table th {
+  background: #162032;
+  color: #38bdf8;
+  font-family: var(--font-mono);
+  font-weight: 700;
+}
+
+.manual-table tr:nth-child(even) {
+  background: rgba(15, 23, 42, 0.4);
+}
+
+.manual-viva-card {
+  background: #111a2c;
+  border: 1px solid #1e293b;
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin-bottom: 10px;
+}
+
+.manual-viva-q {
+  font-weight: 700;
+  color: #f8fafc;
+  font-size: 13px;
+  margin-bottom: 6px;
+}
+
+.manual-viva-a {
+  font-size: 12px;
+  color: #94a3b8;
+}
+
+/* ==========================================================================
+   Physical Hardware Kit Digital Twin (SIGMA MODEL COM122N Front Panel)
+   ========================================================================== */
+
+.panel-view-switcher {
+  display: inline-flex;
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid #1e293b;
+  border-radius: 20px;
+  padding: 2px;
+  gap: 2px;
+}
+
+.view-switch-btn {
+  background: transparent;
+  border: none;
+  border-radius: 16px;
+  padding: 4px 12px;
+  color: var(--text-muted);
+  font-size: 11px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.view-switch-btn:hover {
+  color: #ffffff;
+}
+
+.view-switch-btn.active {
+  background: var(--cyber-cyan);
+  color: #041019;
+  font-weight: 700;
+  box-shadow: 0 0 10px rgba(6, 182, 212, 0.4);
+}
+
+/* Probe Station Dock: Instrument Terminals at top of workbench */
+.probe-station-dock {
+  background: linear-gradient(180deg, #162032 0%, #0c1421 100%);
+  border: 1px solid #1e293b;
+  border-radius: 8px;
+  padding: 8px 14px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.probe-station-title {
+  display: flex;
+  flex-direction: column;
+}
+
+.probe-station-title span:first-child {
+  font-size: 11px;
+  font-weight: 700;
+  color: #f8fafc;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.probe-station-title span:last-child {
+  font-size: 9px;
+  font-family: var(--font-mono);
+  color: #94a3b8;
+}
+
+.probe-jacks-group {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.probe-dock-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  padding: 4px 10px;
+}
+
+.probe-dock-label {
+  display: flex;
+  flex-direction: column;
+}
+
+.probe-dock-label span:first-child {
+  font-size: 10px;
+  font-weight: 700;
+  color: #e2e8f0;
+}
+
+.probe-dock-label span:last-child {
+  font-size: 8px;
+  font-family: var(--font-mono);
+  color: #94a3b8;
+}
+
+/* Banana Jack Color Accents */
+.probe-dock-item.ch1 .banana-jack {
+  border-color: #f59e0b;
+}
+.probe-dock-item.ch1 .banana-jack:hover {
+  box-shadow: 0 0 10px #f59e0b;
+}
+
+.probe-dock-item.ch2 .banana-jack {
+  border-color: #38bdf8;
+}
+.probe-dock-item.ch2 .banana-jack:hover {
+  box-shadow: 0 0 10px #38bdf8;
+}
+
+.probe-dock-item.spectrum .banana-jack {
+  border-color: #10b981;
+}
+.probe-dock-item.spectrum .banana-jack:hover {
+  box-shadow: 0 0 10px #10b981;
+}
+
+.probe-dock-item.decoder .banana-jack {
+  border-color: #ec4899;
+}
+.probe-dock-item.decoder .banana-jack:hover {
+  box-shadow: 0 0 10px #ec4899;
+}
+
+/* Physical Board Container & Image Overlay */
+.physical-trainer-chassis {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.physical-board-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 950px;
+  margin: 0 auto;
+  aspect-ratio: 819 / 617;
+  background: #ffffff;
+  border: 3px solid #334155;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), inset 0 0 12px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+
+.physical-board-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  display: block;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* Active Line Code Execution Badge */
+.active-linecode-banner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: linear-gradient(90deg, rgba(14, 165, 233, 0.15) 0%, rgba(16, 185, 129, 0.15) 100%);
+  border: 1px solid rgba(14, 165, 233, 0.3);
+  border-radius: 6px;
+  padding: 6px 14px;
+  margin-bottom: 10px;
+  font-size: 11px;
+  color: #f8fafc;
+}
+
+.active-linecode-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-weight: 700;
+}
+
+.active-code-chip {
+  background: #0284c7;
+  color: #ffffff;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-family: var(--font-mono);
+  font-weight: 800;
+  box-shadow: 0 0 8px rgba(2, 132, 199, 0.6);
+}
+
+.line-code-jack {
+  border-color: #38bdf8 !important;
+}
+
+.line-code-jack.active-probed {
+  border-color: #f59e0b !important;
+  box-shadow: 0 0 14px #f59e0b, 0 0 24px rgba(245, 158, 11, 0.6) !important;
+  animation: pulse-jack 1s infinite alternate;
+}
+
+.physical-hotspots-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: auto;
+  z-index: 15;
+}
+
+/* Physical Jack Hotspot Styling */
+.physical-jack {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #475569 0%, #1e293b 60%, #0f172a 100%);
+  border: 2px solid #0284c7;
+  cursor: pointer;
+  box-shadow: 0 0 6px rgba(2, 132, 199, 0.5), inset 0 2px 4px rgba(0,0,0,0.8);
+  transition: transform 0.15s ease, border-color 0.15s ease, box-shadow 0.15s ease;
+  z-index: 25;
+}
+
+.physical-jack::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #000000;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.physical-jack:hover {
+  transform: translate(-50%, -50%) scale(1.3);
+  border-color: #38bdf8;
+  box-shadow: 0 0 12px #38bdf8;
+  z-index: 35;
+}
+
+.physical-jack.port-active {
+  border-color: #10b981 !important;
+  box-shadow: 0 0 10px #10b981 !important;
+}
+
+.physical-jack.port-active::after {
+  background: #10b981;
+}
+
+.physical-jack.port-selected {
+  border-color: #f59e0b !important;
+  box-shadow: 0 0 16px #f59e0b !important;
+  animation: pulse-jack 0.8s infinite alternate;
+}
+
+/* Tooltip for physical jacks */
+.physical-jack[title]:hover::before {
+  content: attr(title);
+  position: absolute;
+  bottom: 120%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(15, 23, 42, 0.95);
+  color: #ffffff;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 10px;
+  font-family: var(--font-mono);
+  white-space: nowrap;
+  pointer-events: none;
+  border: 1px solid #38bdf8;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.5);
+  z-index: 50;
+}
+
+/* 8-Bit Hardware DIP Switches Overlaid on Front Panel */
+.physical-dip-bank {
+  position: absolute;
+  top: 51.0%;
+  left: 8.8%;
+  width: 34.0%;
+  height: 10.0%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  z-index: 30;
+  pointer-events: auto;
+}
+
+.physical-dip-unit {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2px;
+  width: 12%;
+}
+
+.physical-dip-led {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #334155;
+  transition: all 0.2s ease;
+}
+
+.physical-dip-led.on {
+  background: #10b981;
+  box-shadow: 0 0 8px #10b981;
+}
+
+.physical-dip-switch {
+  width: 14px;
+  height: 24px;
+  background: #0f172a;
+  border: 1px solid #475569;
+  border-radius: 3px;
+  position: relative;
+  cursor: pointer;
+  box-shadow: inset 0 2px 4px rgba(0,0,0,0.8);
+  transition: all 0.15s ease;
+}
+
+.physical-dip-switch:hover {
+  border-color: #38bdf8;
+}
+
+.physical-dip-lever {
+  position: absolute;
+  left: 1px;
+  right: 1px;
+  height: 10px;
+  border-radius: 2px;
+  transition: top 0.15s ease;
+}
+
+.physical-dip-switch.up .physical-dip-lever {
+  top: 2px;
+  background: #10b981;
+  box-shadow: 0 0 5px rgba(16, 185, 129, 0.6);
+}
+
+.physical-dip-switch.down .physical-dip-lever {
+  top: 11px;
+  background: #64748b;
+}
+
+.physical-dip-label {
+  font-size: 8px;
+  font-weight: 700;
+  font-family: var(--font-mono);
+  color: #0f172a;
+}
+
+/* Power Switch S1 Overlaid on Power Supply */
+.physical-power-toggle {
+  position: absolute;
+  left: 7.92%;
+  top: 76.67%;
+  transform: translate(-50%, -50%);
+  width: 22px;
+  height: 22px;
+  background: #0f172a;
+  border: 2px solid #64748b;
+  border-radius: 4px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 30;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+}
+
+.physical-power-toggle:hover {
+  border-color: #38bdf8;
+}
+
+.physical-power-toggle.on {
+  border-color: #10b981;
+  box-shadow: 0 0 8px rgba(16, 185, 129, 0.4);
+}
+
+.physical-power-lever {
+  width: 10px;
+  height: 14px;
+  background: #94a3b8;
+  border-radius: 2px;
+  transition: transform 0.15s ease, background-color 0.15s ease;
+}
+
+.physical-power-toggle.on .physical-power-lever {
+  background: #10b981;
+  transform: translateY(-2px);
+}
+
+/* Power Pilot LED */
+.physical-power-led {
+  position: absolute;
+  left: 13.0%;
+  top: 86.93%;
+  transform: translate(-50%, -50%);
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: #334155;
+  border: 1px solid #1e293b;
+  z-index: 30;
+  transition: all 0.2s ease;
+}
+
+.physical-power-led.on {
+  background: #22c55e;
+  box-shadow: 0 0 10px #22c55e, 0 0 20px #22c55e;
+}
+
+/* ==========================================================================
+   Experiment Selector Dropdown in Navbar
+   ========================================================================== */
+.experiment-dropdown-wrap {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(15, 23, 42, 0.85);
+  padding: 5px 12px;
+  border-radius: 8px;
+  border: 1px solid #38bdf8;
+  box-shadow: 0 0 12px rgba(56, 189, 248, 0.25);
+}
+
+.experiment-dropdown-wrap label {
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  color: #38bdf8;
+  font-family: var(--font-mono);
+  white-space: nowrap;
+}
+
+.experiment-select {
+  background: #0b1320;
+  color: #f8fafc;
+  border: 1px solid #1e293b;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  cursor: pointer;
+  outline: none;
+  transition: all 0.2s ease;
+}
+
+.experiment-select:hover,
+.experiment-select:focus {
+  border-color: #38bdf8;
+  box-shadow: 0 0 8px rgba(56, 189, 248, 0.4);
+}
+
+/* ==========================================================================
+   SIGMA MODEL COM101N: AM/DSB/SSB MODULATOR & DEMODULATOR TRAINER STYLES
+   ========================================================================== */
+
+.physical-trainer-chassis-am {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.physical-trainer-chassis-am .physical-board-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 950px;
+  margin: 0 auto;
+  aspect-ratio: 1600 / 1203;
+  background: #ffffff;
+  border: 3px solid #334155;
+  border-radius: 10px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), inset 0 0 12px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+}
+
+.physical-trainer-chassis-am .physical-board-bg {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+  display: block;
+  user-select: none;
+}
+
+/* Authentic Banana Jacks for COM101N Front Panel */
+.physical-trainer-chassis-am .physical-jack {
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  background: radial-gradient(circle, #0f172a 35%, #1e293b 85%);
+  border: 2.5px solid #ef4444; /* Red standard */
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.45);
+  cursor: pointer;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  z-index: 10;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.physical-trainer-chassis-am .physical-jack.jack-blue {
+  border-color: #0284c7;
+}
+
+.physical-trainer-chassis-am .physical-jack.jack-yellow {
+  border-color: #f59e0b;
+}
+
+.physical-trainer-chassis-am .physical-jack.jack-red {
+  border-color: #ef4444;
+}
+
+.physical-trainer-chassis-am .physical-jack.jack-green {
+  border-color: #10b981;
+}
+
+.physical-trainer-chassis-am .physical-jack:hover {
+  transform: translate(-50%, -50%) scale(1.22);
+  box-shadow: 0 0 12px #38bdf8, 0 2px 8px rgba(0, 0, 0, 0.6);
+}
+
+.physical-trainer-chassis-am .physical-jack.port-selected {
+  border-color: #facc15 !important;
+  box-shadow: 0 0 14px #facc15, 0 0 25px rgba(250, 204, 21, 0.8) !important;
+  animation: pulse-jack 1s infinite alternate;
+}
+
+/* Mechanical RF LINK Carrier Insertion Toggle / Jumper */
+.physical-rf-link-toggle {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 32px;
+  height: 20px;
+  background: #1e293b;
+  border: 1.5px solid #64748b;
+  border-radius: 4px;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.4);
+  transition: all 0.2s ease;
+}
+
+.physical-rf-link-toggle .rf-link-bar {
+  width: 20px;
+  height: 6px;
+  border-radius: 3px;
+  background: #ef4444;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.physical-rf-link-toggle.closed {
+  border-color: #10b981;
+  background: #064e3b;
+}
+
+.physical-rf-link-toggle.closed .rf-link-bar {
+  background: #34d399;
+  box-shadow: 0 0 8px #10b981;
+}
+
+.physical-rf-link-toggle .rf-link-label {
+  position: absolute;
+  bottom: -13px;
+  font-size: 8px;
+  font-weight: 800;
+  font-family: var(--font-mono);
+  color: #0f172a;
+  background: rgba(255, 255, 255, 0.85);
+  padding: 0 2px;
+  border-radius: 2px;
+  white-space: nowrap;
+}
+
+/* Polarity & Selector Switches */
+.physical-polarity-toggle {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 18px;
+  height: 28px;
+  background: #1e293b;
+  border: 1px solid #475569;
+  border-radius: 3px;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.physical-polarity-toggle .polarity-lever {
+  width: 14px;
+  height: 12px;
+  background: #94a3b8;
+  border-radius: 2px;
+  position: absolute;
+  left: 1px;
+  top: 2px;
+  transition: top 0.15s ease;
+}
+
+.physical-polarity-toggle.down .polarity-lever {
+  top: 12px;
+}
+
+/* Rotary Knob Hotspots */
+.physical-knob-hotspot {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+  background: rgba(15, 23, 42, 0.4);
+  border: 1.5px solid rgba(255, 255, 255, 0.6);
+  transition: all 0.2s;
+}
+
+.physical-knob-hotspot:hover {
+  background: rgba(56, 189, 248, 0.3);
+  border-color: #38bdf8;
+  box-shadow: 0 0 10px #38bdf8;
+}
+
+/* Calibration & Control Dashboard Under Front Panel */
+.am-calibration-dashboard {
+  background: #0b1120;
+  border-top: 1px solid #1e293b;
+  padding: 14px 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.am-controls-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+}
+
+.am-control-group {
+  background: rgba(15, 23, 42, 0.85);
+  border: 1px solid #1e293b;
+  border-radius: 6px;
+  padding: 10px 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.am-group-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 6px;
+}
+
+.am-group-title {
+  font-size: 11px;
+  font-weight: 700;
+  color: #38bdf8;
+  font-family: var(--font-mono);
+}
+
+.am-group-sub {
+  font-size: 9px;
+  color: #64748b;
+  font-family: var(--font-mono);
+}
+
+.am-control-inputs {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.am-input-pair {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.am-input-pair label {
+  font-size: 10px;
+  font-weight: 600;
+  color: #94a3b8;
+  font-family: var(--font-mono);
+  white-space: nowrap;
+}
+
+.am-val-badge {
+  font-size: 10px;
+  font-weight: 800;
+  font-family: var(--font-mono);
+  color: #38bdf8;
+  background: rgba(56, 189, 248, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  padding: 1px 6px;
+  border-radius: 4px;
+  min-width: 58px;
+  text-align: right;
+}
+
+.am-slider-control {
+  flex: 1;
+  accent-color: #38bdf8;
+  cursor: pointer;
+  height: 5px;
+}
+
+.am-select-mini {
+  font-size: 10px;
+  padding: 2px 6px;
+  background: #0f172a;
+  color: #ffffff;
+  border: 1px solid #334155;
+  border-radius: 4px;
+}
+
+.am-filter-btn {
+  font-size: 10px;
+  padding: 2px 8px;
+  border-color: #475569;
+  color: #e2e8f0;
+}
+
+/* Presets Strip */
+.am-presets-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(15, 23, 42, 0.95);
+  border: 1px solid #1e293b;
+  padding: 8px 14px;
+  border-radius: 6px;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.am-preset-title {
+  font-size: 11px;
+  font-weight: 800;
+  font-family: var(--font-mono);
+  color: #facc15;
+}
+
+.am-presets-buttons {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.am-preset-btn {
+  background: rgba(255, 255, 255, 0.08);
+  color: #f8fafc;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 4px;
+  padding: 4px 10px;
+  font-size: 11px;
+  font-weight: 600;
+  font-family: var(--font-mono);
+  cursor: pointer;
+  transition: all 0.15s ease;
+}
+
+.am-preset-btn:hover {
+  background: rgba(56, 189, 248, 0.25);
+  border-color: #38bdf8;
+  color: #ffffff;
+}
+
+.am-preset-btn.active {
+  background: #0284c7;
+  border-color: #38bdf8;
+  color: #ffffff;
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.6);
+}
+
+.am-live-summary {
+  font-size: 11px;
+  font-family: var(--font-mono);
+  color: #38bdf8;
+}
+
+/* ==========================================================================
+   EXPERIMENT 1: SCHEMATIC CIRCUIT BLOCKS GRID (Matching Manual Page 1.2 & 1.4)
+   ========================================================================== */
+.circuit-blocks-grid-am {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  width: 100%;
+}
+
+.circuit-blocks-grid-am .circuit-block {
+  background: #0b1120;
+  border: 1px solid #1e293b;
+  border-radius: 8px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.circuit-blocks-grid-am .schematic-formula-box {
+  background: rgba(15, 23, 42, 0.7);
+  padding: 6px 10px;
+  border-radius: 4px;
+  border-left: 3px solid #38bdf8;
+  margin-bottom: 8px;
+}
+
+.circuit-blocks-grid-am .formula-label {
+  font-size: 9px;
+  color: #94a3b8;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.circuit-blocks-grid-am .schematic-formula-box code {
+  font-size: 10px;
+  font-family: var(--font-mono);
+  color: #38bdf8;
+}
+
+.circuit-blocks-grid-am .schematic-diagram-wrap {
+  background: rgba(2, 6, 23, 0.6);
+  border: 1px solid #1e293b;
+  border-radius: 6px;
+  padding: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.schematic-vector-svg {
+  width: 100%;
+  height: 80px;
+  display: block;
+}

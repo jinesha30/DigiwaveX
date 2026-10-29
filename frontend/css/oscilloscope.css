@@ -1,0 +1,373 @@
+/* ==========================================================================
+   DigiWave X — Virtual Digital Storage Oscilloscope (DSO) Styling
+   ========================================================================== */
+
+.dso-container {
+  display: flex;
+  flex-direction: column;
+  background: #090e17;
+  border: 1px solid #1e293b;
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 12px 36px rgba(0, 0, 0, 0.7);
+  position: relative;
+}
+
+/* DSO Top Bar / Hardware Header */
+.dso-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  background: linear-gradient(180deg, #162032 0%, #0d1522 100%);
+  border-bottom: 1px solid #1e293b;
+}
+
+.dso-brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.dso-model {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  font-weight: 700;
+  color: #38bdf8;
+  letter-spacing: 0.08em;
+}
+
+.dso-specs {
+  font-size: 10px;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.dso-status-group {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.dso-indicator {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 11px;
+  font-family: var(--font-mono);
+  color: var(--text-secondary);
+}
+
+/* Screen Wrapper */
+.dso-screen-wrapper {
+  position: relative;
+  background: var(--crt-screen-bg);
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #1e293b;
+  overflow: hidden;
+}
+
+/* CRT Glass Bezel and Vignette */
+.dso-screen-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: radial-gradient(circle at center, transparent 65%, rgba(0, 0, 0, 0.6) 100%);
+  box-shadow: inset 0 0 40px rgba(0, 0, 0, 0.8), inset 0 0 10px rgba(16, 185, 129, 0.15);
+  border-radius: 6px;
+  z-index: 2;
+}
+
+/* CRT Scanlines Effect */
+.dso-screen-wrapper::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0, 0, 0, 0.15),
+    rgba(0, 0, 0, 0.15) 1px,
+    transparent 1px,
+    transparent 2px
+  );
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* DSO Canvas */
+#oscilloscopeCanvas {
+  display: block;
+  width: 100%;
+  height: 240px;
+  border-radius: 4px;
+  background-color: #030806;
+  position: relative;
+  z-index: 1;
+}
+
+/* On-Screen Measurement HUD */
+.dso-hud-overlay {
+  position: absolute;
+  top: 20px;
+  left: 24px;
+  right: 24px;
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none;
+  z-index: 4;
+  font-family: var(--font-mono);
+  font-size: 11px;
+}
+
+.dso-hud-ch1 {
+  color: var(--crt-trace-ch1);
+  text-shadow: 0 0 6px var(--phosphor-glow);
+  background: rgba(0, 20, 10, 0.6);
+  padding: 3px 8px;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 255, 136, 0.3);
+}
+
+.dso-hud-ch2 {
+  color: var(--crt-trace-ch2);
+  text-shadow: 0 0 6px var(--cyber-glow);
+  background: rgba(0, 20, 25, 0.6);
+  padding: 3px 8px;
+  border-radius: 4px;
+  border: 1px solid rgba(0, 229, 255, 0.3);
+}
+
+.dso-hud-metrics {
+  position: absolute;
+  bottom: 20px;
+  left: 24px;
+  right: 24px;
+  display: flex;
+  justify-content: space-between;
+  pointer-events: none;
+  z-index: 4;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: #a7f3d0;
+  text-shadow: 0 0 4px var(--phosphor-glow);
+}
+
+/* Controls Panel */
+.dso-controls-panel {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 12px;
+  padding: 14px 16px;
+  background: #0f172a;
+}
+
+.dso-knob-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgba(15, 23, 42, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  padding: 8px;
+}
+
+.dso-knob-label {
+  font-size: 10px;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 6px;
+}
+
+.dso-knob-value {
+  font-size: 12px;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-top: 4px;
+}
+
+.dso-btn-group {
+  display: flex;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+/* Telemetry Card Strip below Scope */
+.telemetry-strip {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  padding: 12px 16px;
+  background: #0b111d;
+  border-top: 1px solid #1e293b;
+}
+
+.telemetry-item {
+  display: flex;
+  flex-direction: column;
+  padding: 8px 12px;
+  background: rgba(15, 23, 42, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  border-radius: 6px;
+}
+
+.telemetry-label {
+  font-size: 10px;
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.telemetry-val {
+  font-family: var(--font-mono);
+  font-size: 15px;
+  font-weight: 700;
+  color: #38bdf8;
+  margin-top: 2px;
+}
+
+.telemetry-val.positive {
+  color: #34d399;
+}
+
+.telemetry-val.zero {
+  color: #38bdf8;
+}
+
+.telemetry-val.warning {
+  color: #fbbf24;
+}
+
+.telemetry-sub {
+  font-size: 10px;
+  color: var(--text-muted);
+  margin-top: 2px;
+}
+
+/* ==========================================================================
+   Instrument Mode Selector & Spectrum Analyzer Extensions
+   ========================================================================== */
+
+.instrument-mode-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 16px;
+  background: #0d1524;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.instrument-mode-tabs {
+  display: flex;
+  gap: 6px;
+  background: rgba(15, 23, 42, 0.8);
+  padding: 3px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.inst-tab-btn {
+  background: transparent;
+  border: none;
+  color: var(--text-secondary);
+  font-family: var(--font-ui);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 5px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  transition: all var(--transition-fast);
+}
+
+.inst-tab-btn:hover {
+  color: var(--text-primary);
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.inst-tab-btn.active {
+  background: linear-gradient(135deg, #0284c7, #0369a1);
+  color: #ffffff;
+  box-shadow: 0 2px 8px rgba(2, 132, 199, 0.4);
+}
+
+.instrument-screens-grid {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.instrument-screens-grid.split-mode {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2px;
+  background: #1e293b;
+}
+
+@media (max-width: 992px) {
+  .instrument-screens-grid.split-mode {
+    grid-template-columns: 1fr;
+  }
+}
+
+.spectrum-screen-wrapper {
+  position: relative;
+  background: #020907;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-bottom: 1px solid #1e293b;
+  overflow: hidden;
+}
+
+.spectrum-screen-wrapper::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  background: radial-gradient(circle at center, transparent 70%, rgba(0, 0, 0, 0.65) 100%);
+  box-shadow: inset 0 0 35px rgba(0, 0, 0, 0.8), inset 0 0 10px rgba(0, 242, 254, 0.15);
+  border-radius: 6px;
+  z-index: 2;
+}
+
+.spectrum-controls-panel {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  background: #0d1522;
+  border-bottom: 1px solid #1e293b;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.active-chip {
+  background: rgba(6, 182, 212, 0.25) !important;
+  color: #38bdf8 !important;
+  border-color: #38bdf8 !important;
+}
+

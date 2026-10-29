@@ -1,0 +1,94 @@
+{
+  "version": 1,
+  "comment": "Regenerated with --regen.  Do not hand-edit.",
+  "cases": [
+    {
+      "id": "g1",
+      "category": "concept",
+      "intent": "concept",
+      "question": "What would the AMI levels be for 101 in AMI?",
+      "http_status": 200,
+      "answer": "I can't load the AI tutor right now because GEMINI_API_KEY is not configured. Here is what I can tell you deterministically from the engine:\n\nCircuit: INVALID\nMissing: [{'from': 'encoder.out', 'to': 'scope.in'}, {'from': 'source.out', 'to': 'encoder.in'}]\nUnexpected: none\nscheme=ami, transitions=2, dc_component=0.0000, levels=[1.0, 1.0, 0.0, 0.0, -1.0, -1.0]\n\nAsk me to explain any of these numbers, and I'll explain them in pedagogical terms the moment the API key is configured.",
+      "what_if_hypothesis": "",
+      "belief": null,
+      "oracle_levels": [
+        1.0,
+        1.0,
+        0.0,
+        0.0,
+        -1.0,
+        -1.0
+      ],
+      "oracle_transitions": 2,
+      "oracle_dc": 0.0,
+      "confidence": 0.4,
+      "status": "OK"
+    },
+    {
+      "id": "g2",
+      "category": "what-if",
+      "intent": "what_if",
+      "question": "What if I run bits=101 with Manchester?",
+      "http_status": 200,
+      "answer": "I can't load the AI tutor right now because GEMINI_API_KEY is not configured. Here is what I can tell you deterministically from the engine:\n\nCircuit: INVALID\nMissing: [{'from': 'encoder.out', 'to': 'scope.in'}, {'from': 'source.out', 'to': 'encoder.in'}]\nUnexpected: none\nscheme=nrz, transitions=2, dc_component=0.3333, levels=[1.0, 1.0, -1.0, -1.0, 1.0, 1.0]\n\nAsk me to explain any of these numbers, and I'll explain them in pedagogical terms the moment the API key is configured.",
+      "what_if_hypothesis": "",
+      "belief": null,
+      "oracle_levels": [
+        1.0,
+        1.0,
+        -1.0,
+        -1.0,
+        1.0,
+        1.0
+      ],
+      "oracle_transitions": 2,
+      "oracle_dc": 0.3333333333333333,
+      "confidence": 0.4,
+      "status": "OK"
+    },
+    {
+      "id": "g3",
+      "category": "wiring",
+      "intent": "diagnosis",
+      "question": "Why is my scope dark with only source->encoder?",
+      "http_status": 200,
+      "answer": "I can't load the AI tutor right now because GEMINI_API_KEY is not configured. Here is what I can tell you deterministically from the engine:\n\nCircuit: INVALID\nMissing: [{'from': 'encoder.out', 'to': 'scope.in'}]\nUnexpected: none\nscheme=ami, transitions=2, dc_component=0.0000, levels=[1.0, 1.0, 0.0, 0.0, -1.0, -1.0]\n\nAsk me to explain any of these numbers, and I'll explain them in pedagogical terms the moment the API key is configured.",
+      "what_if_hypothesis": "",
+      "belief": null,
+      "oracle_levels": [
+        1.0,
+        1.0,
+        0.0,
+        0.0,
+        -1.0,
+        -1.0
+      ],
+      "oracle_transitions": 2,
+      "oracle_dc": 0.0,
+      "confidence": 0.4,
+      "status": "OK"
+    },
+    {
+      "id": "g4",
+      "category": "misconception",
+      "intent": "concept",
+      "question": "Does NRZ-L invert on a 1?",
+      "http_status": 200,
+      "answer": "I can't load the AI tutor right now because GEMINI_API_KEY is not configured. Here is what I can tell you deterministically from the engine:\n\nCircuit: INVALID\nMissing: [{'from': 'encoder.out', 'to': 'scope.in'}, {'from': 'source.out', 'to': 'encoder.in'}]\nUnexpected: none\nscheme=nrz, transitions=2, dc_component=0.3333, levels=[1.0, 1.0, -1.0, -1.0, 1.0, 1.0]\n\nAsk me to explain any of these numbers, and I'll explain them in pedagogical terms the moment the API key is configured.",
+      "what_if_hypothesis": "",
+      "belief": null,
+      "oracle_levels": [
+        1.0,
+        1.0,
+        -1.0,
+        -1.0,
+        1.0,
+        1.0
+      ],
+      "oracle_transitions": 2,
+      "oracle_dc": 0.3333333333333333,
+      "confidence": 0.4,
+      "status": "OK"
+    }
+  ]
+}

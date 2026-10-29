@@ -1,0 +1,1601 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="DigiWave X — Virtual Laboratory for SIGMA MODEL COM122L: Study of Line Codes & Their Spectral Analysis. Dual CRT Oscilloscope, RF Spectrum Analyzer, 8-Bit Word Generator, and AI Socratic Tutor.">
+  <meta name="keywords" content="SIGMA COM122L, Line Coding, Spectral Analysis, Spectrum Analyzer, Oscilloscope, Unipolar NRZ, Unipolar RZ, Bipolar NRZ, AMI, Polar NRZ, Polar RZ, Manchester, Digital Communications">
+  <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+  <meta http-equiv="Pragma" content="no-cache">
+  <meta http-equiv="Expires" content="0">
+  <title>SIGMA COM122L — Study of Line Codes &amp; Their Spectral Analysis | DigiWave X</title>
+
+  <!-- Google Fonts Preconnect -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  
+  <!-- Master Stylesheets -->
+  <link rel="stylesheet" href="css/style.css?v=18">
+  <link rel="stylesheet" href="css/tutor.css?v=18">
+</head>
+<body>
+  <!-- Ambient Glow Orbs -->
+  <div class="ambient-glow ambient-glow-1"></div>
+  <div class="ambient-glow ambient-glow-2"></div>
+
+  <div class="app-container">
+    <!-- Top Hardware Header / Navbar -->
+    <header class="app-header">
+      <div class="brand-section">
+        <div class="sigma-oval-logo">SIGMA</div>
+        <div class="brand-title-wrap">
+          <span class="brand-title">COM122L &bull; STUDY OF LINE CODES &amp; SPECTRAL ANALYSIS</span>
+          <span class="brand-subtitle">Virtual Hardware Laboratory &bull; 230V AC, 50 Hz &bull; 10 KHz Clock</span>
+        </div>
+      </div>
+
+      <div class="header-center">
+        <!-- Experiment Selector Dropdown -->
+        <div class="experiment-dropdown-wrap" title="Select Virtual Laboratory Experiment">
+          <label for="experimentSelect">&#9881; EXPERIMENT:</label>
+          <select id="experimentSelect" class="experiment-select">
+            <option value="line_coding" selected>EXPT 7: Line Codes &amp; Spectral Analysis (COM122N)</option>
+            <option value="am_modulation">EXPT 1: AM (DSB-FC) Generation &amp; Trapezoid (COM101N)</option>
+          </select>
+        </div>
+
+        <div class="backend-status-pill" id="backendStatusPill" title="Backend Synchronization Status">
+          <span class="status-dot active-cyan" id="backendStatusDot"></span>
+          <span id="backendStatusText">Checking Backend...</span>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <button class="btn btn-outline btn-sm" id="openManualBtn" title="Open COM122L Training Manual (Standard Accessory 1)">
+          &#128214; Training Manual
+        </button>
+        <button class="audio-toggle-btn" id="audioSynthBtn" title="Synthesize acoustic frequency tone of line code">
+          &#128264; Synth OFF
+        </button>
+        <button class="btn btn-primary btn-sm" onclick="window.DigiWaveWalkthrough.openModal()" id="btnJudgeWalkthrough">
+          &#127942; Judge Presentation Mode
+        </button>
+      </div>
+    </header>
+
+    <!-- Main Workspace Dashboard -->
+    <main class="dashboard-main">
+      
+      <!-- Left Column: Hardware Trainer Circuit Diagram & Virtual Test Instrumentation -->
+      <section class="left-column" aria-label="Hardware Trainer and Virtual Instrumentation">
+        
+        <!-- 1. Virtual Hardware Trainer Kit (SIGMA MODEL COM122L Screen-Printed PCB & Circuit Diagram) -->
+        <div class="workbench-wrapper trainer-pcb-chassis">
+          <!-- PCB Corner Mounting Screws -->
+          <div class="pcb-screw tl"></div>
+          <div class="pcb-screw tr"></div>
+          <div class="pcb-screw bl"></div>
+          <div class="pcb-screw br"></div>
+
+          <!-- SVG Patch Cord Wire Overlay -->
+          <svg id="wiresOverlay"></svg>
+
+          <!-- Authentic Sigma COM122L Model Nameplate Banner -->
+          <div class="trainer-plate-header">
+            <div class="sigma-badge-wrap">
+              <div class="sigma-oval-logo">SIGMA</div>
+              <div class="trainer-title-text">
+                <h3>STUDY OF LINE CODES &amp; THEIR SPECTRAL ANALYSIS</h3>
+                <span>MODEL - COM122L &bull; DIGITAL COMMUNICATION PRACTICALS</span>
+              </div>
+            </div>
+
+            <div class="trainer-specs-pills">
+              <span class="spec-pill">&#9889; 230V AC, 50 Hz</span>
+              <span class="spec-pill">&#128421; 8-Bit Word Generator</span>
+              <span class="spec-pill">&#9201; 10 KHz Word Clock</span>
+              <div class="wiring-validation-pill valid" id="wiringValidationPill">
+                <span class="status-dot active-green"></span>
+                <span>Circuit Valid</span>
+              </div>
+            </div>
+
+            <div class="panel-view-switcher">
+              <button class="view-switch-btn active" id="btnViewPhysical" title="Authentic SIGMA COM122N Front Panel Image with interactive terminals">
+                &#128247; Physical Kit Panel
+              </button>
+              <button class="view-switch-btn" id="btnViewBlocks" title="Schematic Circuit Block Diagram">
+                &#128203; Schematic Blocks
+              </button>
+            </div>
+
+            <div class="workbench-actions">
+              <button class="btn btn-outline btn-sm" id="autoWireBtn" title="Auto-patch required COM122N connections">
+                &#9889; Auto-Wire
+              </button>
+              <button class="btn btn-danger btn-sm" id="clearWiresBtn" title="Remove all patch cords">
+                &#10005; Disconnect All
+              </button>
+            </div>
+          </div>
+
+          <!-- Instrument Probing Dock (Connected to CRT DSO & RF Spectrum Analyzer) -->
+          <div class="probe-station-dock" id="probeStationDock">
+            <div class="probe-station-title">
+              <span>&#128268; Test Instrument Probe Dock</span>
+              <span>Patch cords route signals directly from kit terminals to virtual test equipment</span>
+            </div>
+            <div class="probe-jacks-group">
+              <div class="probe-dock-item ch1" title="DSO Channel 1 (Clock / Word Sync Reference)">
+                <div class="banana-jack" data-port="scope.ch1_in"></div>
+                <div class="probe-dock-label">
+                  <span>DSO CH1</span>
+                  <span>CLK / SYNC</span>
+                </div>
+              </div>
+              <div class="probe-dock-item ch2" title="DSO Channel 2 (Line Coded Waveform Input)">
+                <div class="banana-jack" data-port="scope.in"></div>
+                <div class="probe-dock-label">
+                  <span>DSO CH2</span>
+                  <span id="probeCh2Label">AMI BIPOLAR</span>
+                </div>
+              </div>
+              <div class="probe-dock-item spectrum" title="RF Spectrum Analyzer 0 - 80 kHz Input">
+                <div class="banana-jack" data-port="spectrum.in"></div>
+                <div class="probe-dock-label">
+                  <span>SPECTRUM IN</span>
+                  <span>0 - 80 kHz</span>
+                </div>
+              </div>
+              <div class="probe-dock-item decoder" title="Line Decoder & Clock Recovery Input (Experiment 1)">
+                <div class="banana-jack" data-port="decoder.in"></div>
+                <div class="probe-dock-label">
+                  <span>DEC IN</span>
+                  <span>RECEIVER</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Active Line Code Execution Banner -->
+          <div class="active-linecode-banner" id="activeLineCodeBanner">
+            <div class="active-linecode-title">
+              <span>&#9889; Executing Line Code:</span>
+              <span class="active-code-chip" id="activeLineCodeChip">Bipolar NRZ (AMI)</span>
+            </div>
+            <span style="font-size: 10px; font-family: var(--font-mono); color: #94a3b8;">
+              Probed on DSO CH2 &bull; Click any Line Code Jack below to switch execution
+            </span>
+          </div>
+
+          <!-- 1. Authentic Physical Hardware Digital Twin (SIGMA COM122N Front Panel) -->
+          <div class="physical-trainer-chassis" id="physicalTrainerChassis">
+            <div class="physical-board-wrapper">
+              <img src="assets/sigma_com122n_front_panel.png" class="physical-board-bg" alt="SIGMA MODEL COM122N Front Panel Schematic">
+              
+              <div class="physical-hotspots-layer">
+                <!-- Digital Data Generator Section Jacks -->
+                <div class="physical-jack" data-port="gen_ck" style="left: 39.68%; top: 11.67%;" title="Generator CK (Master Clock Output)"></div>
+                <div class="physical-jack" data-port="gen_bk" style="left: 39.68%; top: 19.61%;" title="Generator BK (Bit Clock Output)"></div>
+                <div class="physical-jack" data-port="gen_wk" style="left: 39.68%; top: 27.39%;" title="Generator WK (Word Clock Output)"></div>
+                <div class="physical-jack" data-port="source.out" style="left: 39.68%; top: 35.17%;" title="Generator NRZ (8-Bit Serial Data Out)"></div>
+                <div class="physical-jack" data-port="gen_gnd" style="left: 39.68%; top: 42.95%;" title="Generator GND (Ground)"></div>
+
+                <!-- Line Coding Section Outputs (7 Formats - Click any jack to execute on DSO CH2) -->
+                <div class="physical-jack line-code-jack" data-port="line_nrz_unipolar" data-scheme="nrz_unipolar" style="left: 72.53%; top: 12.64%;" title="Execute: NRZ UNIPOLAR (Click to probe on DSO CH2)"></div>
+                <div class="physical-jack line-code-jack" data-port="line_nrz_m" data-scheme="nrzm" style="left: 72.65%; top: 20.75%;" title="Execute: NRZ-M (Differential Mark) (Click to probe on DSO CH2)"></div>
+                <div class="physical-jack line-code-jack" data-port="line_nrz_bipolar" data-scheme="nrz" style="left: 72.65%; top: 27.71%;" title="Execute: NRZ BIPOLAR / Polar NRZ (Click to probe on DSO CH2)"></div>
+                <div class="physical-jack line-code-jack" data-port="line_rz_unipolar" data-scheme="rz_unipolar" style="left: 72.53%; top: 36.47%;" title="Execute: RZ UNIPOLAR (Click to probe on DSO CH2)"></div>
+                <div class="physical-jack line-code-jack" data-port="line_rz_bipolar" data-scheme="bipolar_rz" style="left: 72.65%; top: 44.41%;" title="Execute: RZ BIPOLAR / Polar RZ (Click to probe on DSO CH2)"></div>
+                <div class="physical-jack line-code-jack" data-port="line_biphase_manchester" data-scheme="manchester" style="left: 72.53%; top: 52.51%;" title="Execute: Bi-Phase Manchester (Click to probe on DSO CH2)"></div>
+                <div class="physical-jack line-code-jack" data-port="line_biphase_mark" data-scheme="manchester" style="left: 73.50%; top: 61.43%;" title="Execute: Bi-Phase Mark (Click to probe on DSO CH2)"></div>
+                <div class="physical-jack line-code-jack" data-port="line_ami_bipolar" data-scheme="ami" style="left: 72.41%; top: 69.37%;" title="Execute: AMI BIPOLAR (Alternate Mark Inversion, Zero DC)"></div>
+
+                <!-- Comparators Section Jacks -->
+                <div class="physical-jack" data-port="comp_ip1" style="left: 77.90%; top: 12.16%;" title="Comparator I/P 1 (Level Slicer Input)"></div>
+                <div class="physical-jack" data-port="comp_ip2" style="left: 77.90%; top: 20.58%;" title="Comparator I/P 2 (Threshold Input)"></div>
+                <div class="physical-jack" data-port="comp_gnd" style="left: 78.02%; top: 25.61%;" title="Comparator GND"></div>
+                <div class="physical-jack" data-port="comp_op1" style="left: 95.12%; top: 27.39%;" title="Comparator O/P 1"></div>
+                <div class="physical-jack" data-port="comp_op2" style="left: 94.99%; top: 34.04%;" title="Comparator O/P 2"></div>
+                <div class="physical-jack" data-port="comp_op3" style="left: 95.12%; top: 40.84%;" title="Comparator O/P 3"></div>
+
+                <!-- Bit Clock Decoder Section Jacks -->
+                <div class="physical-jack" data-port="dec_sw" style="left: 80.46%; top: 49.59%;" title="Decoder Selector Switch SW (1 <-> 2)"></div>
+                <div class="physical-jack" data-port="dec_ip" style="left: 80.71%; top: 62.88%;" title="Bit Clock Decoder I/P"></div>
+                <div class="physical-jack" data-port="dec_nrz_op" style="left: 95.12%; top: 50.08%;" title="Decoded NRZ O/P (Recovered Data)"></div>
+                <div class="physical-jack" data-port="dec_gnd" style="left: 94.63%; top: 63.70%;" title="Decoder GND"></div>
+
+                <!-- Bit Clock Recovery Section Jacks -->
+                <div class="physical-jack" data-port="rec_ip" style="left: 77.78%; top: 78.93%;" title="Bit Clock Recovery I/P (IC 4046 PLL)"></div>
+                <div class="physical-jack" data-port="rec_bk_op" style="left: 95.12%; top: 79.25%;" title="Recovered Bit Clock BK O/P"></div>
+                <div class="physical-jack" data-port="rec_gnd" style="left: 94.99%; top: 86.71%;" title="Recovery GND"></div>
+
+                <!-- 230V AC Mains Rocker Switch S1 & Pilot LED -->
+                <div class="physical-power-toggle on" id="physicalPowerToggle" style="left: 4.88%; top: 83.95%;" title="Click to toggle 230V AC Power Switch S1">
+                  <div class="physical-power-lever"></div>
+                </div>
+                <div class="physical-power-led on" id="physicalPowerLed" style="left: 9.77%; top: 94.33%;" title="230V AC Power Pilot Status (ON)"></div>
+
+                <!-- 8 Physical Hardware DIP Switches (D8 MSB down to D1 LSB) -->
+                <div class="physical-dip-bank" id="physicalDipBank" style="left: 6.0%; top: 56.5%; width: 33.8%; height: 7.5%;">
+                  <div class="physical-dip-unit" title="Switch D8 (MSB)">
+                    <div class="physical-dip-led on" id="physLedD8"></div>
+                    <div class="physical-dip-switch up" id="physSwitchD8" data-bit-index="0"><div class="physical-dip-lever"></div></div>
+                    <span class="physical-dip-label">D8</span>
+                  </div>
+                  <div class="physical-dip-unit" title="Switch D7">
+                    <div class="physical-dip-led" id="physLedD7"></div>
+                    <div class="physical-dip-switch down" id="physSwitchD7" data-bit-index="1"><div class="physical-dip-lever"></div></div>
+                    <span class="physical-dip-label">D7</span>
+                  </div>
+                  <div class="physical-dip-unit" title="Switch D6">
+                    <div class="physical-dip-led on" id="physLedD6"></div>
+                    <div class="physical-dip-switch up" id="physSwitchD6" data-bit-index="2"><div class="physical-dip-lever"></div></div>
+                    <span class="physical-dip-label">D6</span>
+                  </div>
+                  <div class="physical-dip-unit" title="Switch D5">
+                    <div class="physical-dip-led on" id="physLedD5"></div>
+                    <div class="physical-dip-switch up" id="physSwitchD5" data-bit-index="3"><div class="physical-dip-lever"></div></div>
+                    <span class="physical-dip-label">D5</span>
+                  </div>
+                  <div class="physical-dip-unit" title="Switch D4">
+                    <div class="physical-dip-led" id="physLedD4"></div>
+                    <div class="physical-dip-switch down" id="physSwitchD4" data-bit-index="4"><div class="physical-dip-lever"></div></div>
+                    <span class="physical-dip-label">D4</span>
+                  </div>
+                  <div class="physical-dip-unit" title="Switch D3">
+                    <div class="physical-dip-led" id="physLedD3"></div>
+                    <div class="physical-dip-switch down" id="physSwitchD3" data-bit-index="5"><div class="physical-dip-lever"></div></div>
+                    <span class="physical-dip-label">D3</span>
+                  </div>
+                  <div class="physical-dip-unit" title="Switch D2">
+                    <div class="physical-dip-led on" id="physLedD2"></div>
+                    <div class="physical-dip-switch up" id="physSwitchD2" data-bit-index="6"><div class="physical-dip-lever"></div></div>
+                    <span class="physical-dip-label">D2</span>
+                  </div>
+                  <div class="physical-dip-unit" title="Switch D1 (LSB)">
+                    <div class="physical-dip-led" id="physLedD1"></div>
+                    <div class="physical-dip-switch down" id="physSwitchD1" data-bit-index="7"><div class="physical-dip-lever"></div></div>
+                    <span class="physical-dip-label">D1</span>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+
+          <!-- 1B. Authentic Physical Hardware Digital Twin (SIGMA MODEL COM101N AM/DSB/SSB Trainer) -->
+          <div class="physical-trainer-chassis-am" id="physicalTrainerChassisAM" style="display: none;">
+            <div class="physical-board-wrapper">
+              <img src="assets/sigma_com101n_front_panel.png" class="physical-board-bg" alt="SIGMA MODEL COM101N AM/DSB/SSB Modulator & Demodulator Trainer Front Panel (PICT PCS Expt 1)">
+              
+              <div class="physical-hotspots-layer">
+                <!-- 1. BALANCED MODULATOR SECTION (IC 1496) -->
+                <!-- MOD I/P: Modulating signal input from Audio Generator -->
+                <div class="physical-jack jack-blue" data-port="mod_ip" style="left: 13.9%; top: 9.8%;" title="Balanced Modulator: MOD I/P (Modulating Audio Signal Input)"></div>
+                
+                <!-- RF LINK: Carrier Insertion Jumper / Switch (Closed = DSB-FC AM, Open = DSB-SC) -->
+                <div class="physical-rf-link-toggle closed" id="amPhysicalRfLink" style="left: 10.7%; top: 24.3%;" title="Click to toggle RF LINK: CLOSED = DSB-FC (Standard AM), OPEN = DSB-SC (Carrier Suppressed)">
+                  <div class="rf-link-bar"></div>
+                  <span class="rf-link-label">RF LINK</span>
+                </div>
+
+                <!-- RF CARRIER I/P: High frequency carrier input -->
+                <div class="physical-jack jack-yellow" data-port="carrier_ip" style="left: 23.3%; top: 38.6%;" title="Balanced Modulator: RF CARRIER I/P (Connect from RF O/P)"></div>
+
+                <!-- AM MOD O/P: Modulated waveform output to DSO CH2 / Spectrum / Diode Detector -->
+                <div class="physical-jack jack-red" data-port="am_mod_out" style="left: 39.8%; top: 9.8%;" title="Balanced Modulator: AM MOD O/P (AM / DSB Modulated Output)"></div>
+
+                <!-- 2. AUDIO GENERATOR (IC 8038 & LF356) -->
+                <!-- SINE O/P: Audio modulating signal output -->
+                <div class="physical-jack jack-blue" data-port="audio_sine_out" style="left: 39.6%; top: 49.8%;" title="Audio Generator: SINE O/P (300 Hz - 3.4 kHz Sinusoidal Modulating Signal)"></div>
+                
+                <!-- AUDIO GEN GND -->
+                <div class="physical-jack jack-green" data-port="audio_gnd" style="left: 40.8%; top: 85.5%;" title="Kit Common Ground (GND)"></div>
+
+                <!-- 3. RF CARRIER OSCILLATOR (455 kHz) -->
+                <!-- RF O/P: High frequency carrier output -->
+                <div class="physical-jack jack-yellow" data-port="rf_osc_out" style="left: 75.8%; top: 88.0%;" title="RF Oscillator: RF CARRIER O/P (455 kHz Crystal / LC Carrier)"></div>
+                <div class="physical-jack jack-green" data-port="rf_gnd" style="left: 40.8%; top: 85.5%;" title="RF Ground (GND)"></div>
+
+                <!-- 4. DIODE ENVELOPE DETECTOR (OA79 GERMANIUM DIODE) -->
+                <!-- AM MOD I/P: Input from AM MOD O/P -->
+                <div class="physical-jack jack-red" data-port="am_det_in" style="left: 80.6%; top: 46.5%;" title="Diode Envelope Detector: AM MOD I/P (OA79 Diode Input)"></div>
+
+                <!-- DET O/P: Demodulated audio signal to DSO CH1 / Receiver -->
+                <div class="physical-jack jack-blue" data-port="det_op" style="left: 94.8%; top: 46.5%;" title="Diode Envelope Detector: DET O/P (Demodulated Audio Output)"></div>
+                <div class="physical-jack jack-green" data-port="det_gnd" style="left: 87.0%; top: 72.0%;" title="Detector Ground (GND)"></div>
+
+                <!-- Diode Polarity Toggle -->
+                <div class="physical-polarity-toggle up" id="amPhysDiodePolarity" style="left: 80.6%; top: 62.5%;" title="Diode Polarity (+ / - Envelope Detection)">
+                  <div class="polarity-lever"></div>
+                </div>
+
+                <!-- VAR C (Variable Capacitor Selector) -->
+                <div class="physical-knob-hotspot" id="amPhysVarC" style="left: 87.0%; top: 62.5%;" title="VAR C: Variable Filter Capacitor (Click to cycle: 0.001µF, 0.01µF, 0.047µF, 0.1µF)">
+                  <div class="knob-marker-indicator" id="indVarC"></div>
+                </div>
+
+                <!-- VAR R (Variable Resistor Pot) -->
+                <div class="physical-knob-hotspot" id="amPhysVarR" style="left: 93.6%; top: 62.5%;" title="VAR R: Variable Load Resistor (Click to adjust load resistance)">
+                  <div class="knob-marker-indicator" id="indVarR"></div>
+                </div>
+
+                <!-- 5. PRODUCT DETECTOR & FILTERS (Physical Kit Expansion) -->
+                <div class="physical-jack jack-red" data-port="prod_mod_in" style="left: 47.8%; top: 9.8%;" title="Product Detector: AM MOD I/P"></div>
+                <div class="physical-jack jack-blue" data-port="prod_demod_out" style="left: 73.2%; top: 14.5%;" title="Product Detector: DEMOD O/P"></div>
+                <div class="physical-jack jack-yellow" data-port="bpf_in" style="left: 82.5%; top: 17.5%;" title="Band Pass Filter: INPUT (455 kHz)"></div>
+                <div class="physical-jack jack-yellow" data-port="bpf_out" style="left: 79.2%; top: 35.8%;" title="Band Pass Filter: OUTPUT"></div>
+                <div class="physical-jack jack-blue" data-port="lpf_in" style="left: 89.8%; top: 17.5%;" title="Low Pass Filter: INPUT (6k8 + 22nF)"></div>
+                <div class="physical-jack jack-blue" data-port="lpf_out" style="left: 95.8%; top: 35.8%;" title="Low Pass Filter: OUTPUT"></div>
+
+                <!-- 6. POWER SUPPLY 18V / 500mA -->
+                <!-- S1 230V AC Power Switch -->
+                <div class="physical-power-toggle on" id="amPhysicalPowerToggle" style="left: 9.4%; top: 94.0%;" title="Click to toggle 230V AC Power Switch S1">
+                  <div class="physical-power-lever"></div>
+                </div>
+                <!-- Power Pilot Status LED -->
+                <div class="physical-power-led on" id="amPhysicalPowerLed" style="left: 14.3%; top: 94.0%;" title="230V AC Power Pilot Status (ON)"></div>
+
+                <!-- Power Supply Rails -->
+                <div class="physical-jack jack-red" data-port="pwr_pos15" style="left: 40.8%; top: 80.2%;" title="+15V Regulated DC Supply (7815)"></div>
+                <div class="physical-jack jack-green" data-port="pwr_gnd" style="left: 40.8%; top: 85.5%;" title="DC Power Supply Ground (GND)"></div>
+                <div class="physical-jack jack-blue" data-port="pwr_neg15" style="left: 40.8%; top: 93.5%;" title="-15V Regulated DC Supply (7915)"></div>
+              </div>
+            </div>
+
+            <!-- Authentic Signal Calibration & Control Bar -->
+            <div class="am-calibration-dashboard">
+              <div class="am-controls-row">
+                <!-- Audio Generator Controls (IC 8038) -->
+                <div class="am-control-group">
+                  <div class="am-group-header">
+                    <span class="am-group-title">&#127911; AUDIO GENERATOR (IC 8038)</span>
+                    <span class="am-group-sub">e_m(t) = E_m &bull; cos(2&pi; f_m t)</span>
+                  </div>
+                  <div class="am-control-inputs">
+                    <div class="am-input-pair">
+                      <label for="amAudioAmpSlider">MODULATING AMP (Em):</label>
+                      <input type="range" class="am-slider-control" id="amAudioAmpSlider" min="0.0" max="5.0" step="0.25" value="2.5">
+                      <span class="am-val-badge" id="amAudioAmpVal">2.50 V</span>
+                    </div>
+                    <div class="am-input-pair">
+                      <label for="amAudioFreqSlider">MODULATING FREQ (fm):</label>
+                      <input type="range" class="am-slider-control" id="amAudioFreqSlider" min="300" max="3400" step="100" value="1000">
+                      <span class="am-val-badge" id="amAudioFreqVal">1.00 kHz</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- RF Carrier Oscillator Controls -->
+                <div class="am-control-group">
+                  <div class="am-group-header">
+                    <span class="am-group-title">&#128225; RF CARRIER OSCILLATOR</span>
+                    <span class="am-group-sub">e_c(t) = E_c &bull; cos(2&pi; f_c t)</span>
+                  </div>
+                  <div class="am-control-inputs">
+                    <div class="am-input-pair">
+                      <label for="amRfAmpSlider">CARRIER AMP (Ec):</label>
+                      <input type="range" class="am-slider-control" id="amRfAmpSlider" min="0.5" max="10.0" step="0.5" value="5.0">
+                      <span class="am-val-badge" id="amRfAmpVal">5.00 V</span>
+                    </div>
+                    <div class="am-input-pair">
+                      <label for="amRfFreqSlider">CARRIER FREQ (fc):</label>
+                      <input type="range" class="am-slider-control" id="amRfFreqSlider" min="400" max="1000" step="5" value="455">
+                      <span class="am-val-badge" id="amRfFreqVal">455 kHz</span>
+                    </div>
+                  </div>
+                </div>
+
+                <!-- Balanced Modulator & Detector Controls -->
+                <div class="am-control-group">
+                  <div class="am-group-header">
+                    <span class="am-group-title">&#128260; BALANCED MODULATOR &amp; DETECTOR</span>
+                    <span class="am-group-sub">IC 1496 &bull; OA79 Germanium Diode</span>
+                  </div>
+                  <div class="am-control-inputs">
+                    <div class="am-input-pair">
+                      <label for="amRfLinkSelect">CARRIER INSERTION (RF LINK):</label>
+                      <select id="amRfLinkSelect" class="form-select am-select-mini">
+                        <option value="closed_dsbfc" selected>CLOSED (DSB-FC Standard AM)</option>
+                        <option value="open_dsbsc">OPEN (DSB-SC Carrier Suppressed)</option>
+                      </select>
+                    </div>
+                    <div class="am-input-pair">
+                      <label>DIODE FILTER CAP (VAR C):</label>
+                      <div style="display: flex; gap: 6px; align-items: center;">
+                        <button class="btn btn-outline btn-sm am-filter-btn" id="amDetFilterBtn">C = 0.01 &mu;F</button>
+                        <span class="badge badge-green" id="amDetStatusBadge" style="font-size: 10px;">RC &le; 1/(&omega;m&bull;m) OK</span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- PICT Manual Test Cases Presets Quick-Bar -->
+              <div class="am-presets-bar">
+                <span class="am-preset-title">&#9889; PICT EXPT 1 CASES:</span>
+                <div class="am-presets-buttons">
+                  <button class="am-preset-btn" data-am-preset="m0" id="presetM0" title="Case 1: No Modulation: Em = 0V, Ec = 5.0V (m = 0, Rectangle Trapezoid)">
+                    m = 0.0 (Unmodulated &bull; Rectangle)
+                  </button>
+                  <button class="am-preset-btn active" data-am-preset="munder" id="presetMUnder" title="Case 2: Under-modulation: Em = 2.5V, Ec = 5.0V (m = 0.50, Clean Trapezoid)">
+                    m = 0.50 (Under-Mod &bull; Trapezoid)
+                  </button>
+                  <button class="am-preset-btn" data-am-preset="m1" id="presetM1" title="Case 3: Critical 100% Modulation: Em = 5.0V, Ec = 5.0V (m = 1.0, Triangle L2 = 0)">
+                    m = 1.00 (Critical &bull; Triangle)
+                  </button>
+                  <button class="am-preset-btn" data-am-preset="mover" id="presetMOver" title="Case 4: Over-modulation: Em = 7.5V, Ec = 5.0V (m = 1.50, Crossed Bow-tie Envelope Distortion)">
+                    m = 1.50 (Over-Mod &bull; Bow-Tie)
+                  </button>
+                </div>
+                <div class="am-live-summary" id="amLiveMReadout">
+                  Theoretical m: <strong>0.50</strong> &bull; Pattern: <strong>Trapezoid</strong> &bull; PT: <strong>281.3 mW</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- 1C. Schematic Circuit Diagram View for Experiment 1 (Matching Manual Page 1.2 & Page 1.4) -->
+          <div class="circuit-blocks-grid-am" id="circuitBlocksGridAM" style="display: none;">
+            
+            <!-- Block 1: Audio Signal Generator (IC 8038) -->
+            <div class="circuit-block" id="schemAudioGen">
+              <div class="block-header">
+                <div class="block-title-group">
+                  <span class="block-tag">SECTION 1</span>
+                  <span class="block-label">Audio Oscillator (IC 8038)</span>
+                </div>
+                <span class="badge badge-cyan">300 Hz - 3.4 kHz</span>
+              </div>
+              <div class="block-body">
+                <div class="schematic-formula-box">
+                  <span class="formula-label">Modulating Signal:</span>
+                  <code>e_m(t) = E_m &bull; cos(2&pi; f_m t)</code>
+                </div>
+                <div class="schematic-diagram-wrap">
+                  <svg class="schematic-vector-svg" viewBox="0 0 240 80">
+                    <!-- Sine Generator Symbol -->
+                    <circle cx="50" cy="40" r="26" fill="rgba(56, 189, 248, 0.08)" stroke="#38bdf8" stroke-width="2"/>
+                    <path d="M 32 40 Q 41 22 50 40 T 68 40" fill="none" stroke="#38bdf8" stroke-width="2.5"/>
+                    <text x="50" y="72" fill="#94a3b8" font-size="9" text-anchor="middle" font-family="monospace">IC 8038 AF</text>
+                    <!-- Buffer Op-Amp (LF356) -->
+                    <path d="M 100 20 L 150 40 L 100 60 Z" fill="rgba(16, 185, 129, 0.1)" stroke="#10b981" stroke-width="2"/>
+                    <text x="115" y="44" fill="#10b981" font-size="10" font-weight="bold">356</text>
+                    <line x1="76" y1="40" x2="100" y2="40" stroke="#38bdf8" stroke-width="2"/>
+                    <line x1="150" y1="40" x2="200" y2="40" stroke="#10b981" stroke-width="2" marker-end="url(#arrow)"/>
+                    <circle cx="200" cy="40" r="4" fill="#38bdf8"/>
+                    <text x="195" y="30" fill="#38bdf8" font-size="8" font-family="monospace">SINE OUT</text>
+                  </svg>
+                </div>
+              </div>
+              <div class="ports-container">
+                <div class="port-item">
+                  <div class="banana-jack jack-blue" data-port="audio_sine_out" title="Audio Generator Sine Output"></div>
+                  <span class="port-label">AF SINE OUT</span>
+                </div>
+                <div class="port-item">
+                  <div class="banana-jack jack-green" data-port="audio_gnd" title="Audio Generator Ground"></div>
+                  <span class="port-label">GND</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Block 2: RF Carrier Oscillator (455 kHz) -->
+            <div class="circuit-block" id="schemRfOsc">
+              <div class="block-header">
+                <div class="block-title-group">
+                  <span class="block-tag">SECTION 2</span>
+                  <span class="block-label">RF Carrier Oscillator</span>
+                </div>
+                <span class="badge badge-yellow" style="color: #facc15; border-color: #facc15;">455 kHz IF</span>
+              </div>
+              <div class="block-body">
+                <div class="schematic-formula-box">
+                  <span class="formula-label">RF Carrier Signal:</span>
+                  <code>e_c(t) = E_c &bull; cos(2&pi; f_c t)</code>
+                </div>
+                <div class="schematic-diagram-wrap">
+                  <svg class="schematic-vector-svg" viewBox="0 0 240 80">
+                    <!-- Crystal Oscillator Symbol -->
+                    <rect x="25" y="25" width="50" height="30" rx="4" fill="rgba(250, 204, 21, 0.08)" stroke="#facc15" stroke-width="2"/>
+                    <line x1="40" y1="20" x2="40" y2="60" stroke="#facc15" stroke-width="1.5"/>
+                    <line x1="60" y1="20" x2="60" y2="60" stroke="#facc15" stroke-width="1.5"/>
+                    <rect x="46" y="28" width="8" height="24" fill="#facc15"/>
+                    <text x="50" y="72" fill="#94a3b8" font-size="9" text-anchor="middle" font-family="monospace">455 kHz XTAL</text>
+                    <!-- Colpitts Tank Buffer -->
+                    <circle cx="130" cy="40" r="18" fill="rgba(245, 158, 11, 0.1)" stroke="#f59e0b" stroke-width="1.5"/>
+                    <text x="130" y="43" fill="#f59e0b" font-size="9" text-anchor="middle" font-family="monospace">BC547</text>
+                    <line x1="75" y1="40" x2="112" y2="40" stroke="#facc15" stroke-width="2"/>
+                    <line x1="148" y1="40" x2="200" y2="40" stroke="#facc15" stroke-width="2"/>
+                    <circle cx="200" cy="40" r="4" fill="#facc15"/>
+                    <text x="195" y="30" fill="#facc15" font-size="8" font-family="monospace">RF OUT</text>
+                  </svg>
+                </div>
+              </div>
+              <div class="ports-container">
+                <div class="port-item">
+                  <div class="banana-jack jack-yellow" data-port="rf_osc_out" title="RF Carrier Output"></div>
+                  <span class="port-label">RF CARRIER OUT</span>
+                </div>
+                <div class="port-item">
+                  <div class="banana-jack jack-green" data-port="rf_gnd" title="Carrier Ground"></div>
+                  <span class="port-label">GND</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Block 3: Balanced Modulator (IC 1496) -->
+            <div class="circuit-block" id="schemBalancedMod">
+              <div class="block-header">
+                <div class="block-title-group">
+                  <span class="block-tag">SECTION 3</span>
+                  <span class="block-label">Balanced Modulator (IC 1496)</span>
+                </div>
+                <span class="badge badge-green">DSB-FC / DSB-SC</span>
+              </div>
+              <div class="block-body">
+                <div class="schematic-formula-box">
+                  <span class="formula-label">Standard AM (DSB-FC) Output:</span>
+                  <code>e_{am}(t) = E_c [1 + m &bull; cos(&omega;_m t)] cos(&omega;_c t)</code>
+                </div>
+                <div class="schematic-diagram-wrap">
+                  <svg class="schematic-vector-svg" viewBox="0 0 240 80">
+                    <!-- Multiplier Circle -->
+                    <circle cx="120" cy="40" r="24" fill="rgba(239, 68, 68, 0.08)" stroke="#ef4444" stroke-width="2"/>
+                    <line x1="106" y1="26" x2="134" y2="54" stroke="#ef4444" stroke-width="2.5"/>
+                    <line x1="134" y1="26" x2="106" y2="54" stroke="#ef4444" stroke-width="2.5"/>
+                    <text x="120" y="74" fill="#94a3b8" font-size="9" text-anchor="middle" font-family="monospace">IC 1496 MULTIPLIER</text>
+                    <!-- Audio Mod In -->
+                    <line x1="30" y1="40" x2="96" y2="40" stroke="#38bdf8" stroke-width="2"/>
+                    <text x="35" y="32" fill="#38bdf8" font-size="8" font-family="monospace">MOD I/P</text>
+                    <!-- RF Carrier In -->
+                    <line x1="120" y1="8" x2="120" y2="16" stroke="#facc15" stroke-width="2"/>
+                    <!-- RF Link Switch -->
+                    <line x1="120" y1="16" x2="120" y2="28" stroke="#facc15" stroke-width="2" stroke-dasharray="2,2"/>
+                    <circle cx="120" cy="16" r="2.5" fill="#facc15"/>
+                    <circle cx="120" cy="28" r="2.5" fill="#facc15"/>
+                    <text x="135" y="24" fill="#facc15" font-size="8" font-family="monospace">RF LINK</text>
+                    <!-- AM Out -->
+                    <line x1="144" y1="40" x2="200" y2="40" stroke="#ef4444" stroke-width="2"/>
+                    <circle cx="200" cy="40" r="4" fill="#ef4444"/>
+                    <text x="180" y="32" fill="#ef4444" font-size="8" font-family="monospace">AM OUT</text>
+                  </svg>
+                </div>
+              </div>
+              <div class="ports-container">
+                <div class="port-item">
+                  <div class="banana-jack jack-blue" data-port="mod_ip" title="Modulating Signal Input"></div>
+                  <span class="port-label">MOD I/P</span>
+                </div>
+                <div class="port-item">
+                  <div class="banana-jack jack-yellow" data-port="carrier_ip" title="Carrier Input"></div>
+                  <span class="port-label">CARRIER I/P</span>
+                </div>
+                <div class="port-item">
+                  <div class="banana-jack jack-red" data-port="am_mod_out" title="AM Modulated Waveform Output"></div>
+                  <span class="port-label">AM / DSB OUT</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Block 4: Diode Envelope Detector (OA79 Diode) -->
+            <div class="circuit-block" id="schemDiodeDetector">
+              <div class="block-header">
+                <div class="block-title-group">
+                  <span class="block-tag">SECTION 4</span>
+                  <span class="block-label">Envelope Detector (OA79)</span>
+                </div>
+                <span class="badge badge-cyan">Demodulation</span>
+              </div>
+              <div class="block-body">
+                <div class="schematic-formula-box">
+                  <span class="formula-label">Diagonal Peak Clipping Condition:</span>
+                  <code>R_L &bull; C &le; &radic;(1 - m&sup2;) / (m &bull; &omega;_m)</code>
+                </div>
+                <div class="schematic-diagram-wrap">
+                  <svg class="schematic-vector-svg" viewBox="0 0 240 80">
+                    <!-- Diode Symbol (OA79) -->
+                    <line x1="30" y1="35" x2="70" y2="35" stroke="#ef4444" stroke-width="2"/>
+                    <polygon points="70,25 90,35 70,45" fill="#ef4444"/>
+                    <line x1="90" y1="23" x2="90" y2="47" stroke="#ef4444" stroke-width="2.5"/>
+                    <line x1="90" y1="35" x2="190" y2="35" stroke="#34d399" stroke-width="2"/>
+                    <text x="80" y="18" fill="#ef4444" font-size="9" text-anchor="middle" font-family="monospace">OA79</text>
+                    <!-- Shunt Capacitor VAR C -->
+                    <line x1="130" y1="35" x2="130" y2="48" stroke="#34d399" stroke-width="1.5"/>
+                    <line x1="120" y1="48" x2="140" y2="48" stroke="#34d399" stroke-width="2"/>
+                    <line x1="120" y1="53" x2="140" y2="53" stroke="#34d399" stroke-width="2"/>
+                    <line x1="130" y1="53" x2="130" y2="65" stroke="#34d399" stroke-width="1.5"/>
+                    <text x="130" y="74" fill="#94a3b8" font-size="8" text-anchor="middle" font-family="monospace">VAR C</text>
+                    <!-- Shunt Resistor VAR R -->
+                    <line x1="165" y1="35" x2="165" y2="44" stroke="#34d399" stroke-width="1.5"/>
+                    <rect x="160" y="44" width="10" height="20" fill="none" stroke="#34d399" stroke-width="1.5"/>
+                    <line x1="165" y1="64" x2="165" y2="68" stroke="#34d399" stroke-width="1.5"/>
+                    <text x="165" y="76" fill="#94a3b8" font-size="8" text-anchor="middle" font-family="monospace">VAR R</text>
+                    <!-- Output Terminal -->
+                    <circle cx="190" cy="35" r="4" fill="#38bdf8"/>
+                    <text x="180" y="25" fill="#38bdf8" font-size="8" font-family="monospace">AUDIO OUT</text>
+                  </svg>
+                </div>
+              </div>
+              <div class="ports-container">
+                <div class="port-item">
+                  <div class="banana-jack jack-red" data-port="am_det_in" title="Diode Detector Input"></div>
+                  <span class="port-label">AM DET IN</span>
+                </div>
+                <div class="port-item">
+                  <div class="banana-jack jack-blue" data-port="det_op" title="Demodulated Audio Output"></div>
+                  <span class="port-label">AUDIO DEMOD OUT</span>
+                </div>
+                <div class="port-item">
+                  <div class="banana-jack jack-green" data-port="det_gnd" title="Detector Ground"></div>
+                  <span class="port-label">GND</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Block 5: Dual Trace CRO OS-9020B (Time Domain & Trapezoid Analysis) -->
+            <div class="circuit-block" id="schemCroDisplay">
+              <div class="block-header">
+                <div class="block-title-group">
+                  <span class="block-tag">SECTION 5</span>
+                  <span class="block-label">Dual-Trace CRO (OS-9020B)</span>
+                </div>
+                <span class="badge badge-purple" style="color: #c084fc; border-color: #c084fc;">X-Y / Time Mode</span>
+              </div>
+              <div class="block-body">
+                <div class="schematic-formula-box">
+                  <span class="formula-label">Modulation Index Formulas:</span>
+                  <code>Graphical: m = (E_{max} - E_{min}) / (E_{max} + E_{min})</code><br>
+                  <code>Trapezoidal: m = (L_1 - L_2) / (L_1 + L_2)</code>
+                </div>
+                <div style="font-size: 10px; color: #94a3b8; font-family: monospace; line-height: 1.5; padding: 6px; background: rgba(15,23,42,0.6); border-radius: 4px;">
+                  &bull; CH1 (X-Axis): Connect Modulating Audio Signal e_m(t)<br>
+                  &bull; CH2 (Y-Axis): Connect Modulated AM Signal e_{am}(t)<br>
+                  &bull; Switch CRO to X-Y Mode to observe authentic Trapezoid display!
+                </div>
+              </div>
+              <div class="ports-container">
+                <div class="port-item">
+                  <div class="banana-jack jack-blue" data-port="scope.ch1_in" title="CRO Channel 1 (X-Axis Deflection / Modulating Audio)"></div>
+                  <span class="port-label">CRO CH1 (X)</span>
+                </div>
+                <div class="port-item">
+                  <div class="banana-jack jack-red" data-port="scope.in" title="CRO Channel 2 (Y-Axis Deflection / AM Wave)"></div>
+                  <span class="port-label">CRO CH2 (Y)</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- 2. Modular Circuit Blocks Grid (Schematic View of COM122N) -->
+          <div class="circuit-blocks-grid" id="circuitBlocksGrid" style="display: none;">
+            
+            <!-- Block 1: Power & 10 KHz Clock Generator (Specifications 1 & 2) -->
+            <div class="circuit-block" id="blockPowerClock">
+              <div class="block-header">
+                <div class="block-title-group">
+                  <span class="block-tag">SECTION 1</span>
+                  <span class="block-label">Power &amp; Clock Gen</span>
+                </div>
+                <div class="block-led on" id="powerPilotLed" title="230V AC Mains Status"></div>
+              </div>
+
+              <div class="block-body">
+                <!-- Power Rocker Switch -->
+                <div class="power-section-box">
+                  <div style="display: flex; flex-direction: column;">
+                    <span style="font-size: 11px; font-weight: bold; color: #f8fafc;">MAINS SUPPLY</span>
+                    <span style="font-size: 9px; font-family: var(--font-mono); color: #94a3b8;">230V AC, 50 Hz &bull; 500mA</span>
+                  </div>
+                  <button class="power-rocker-btn on" id="powerRockerBtn">POWER: ON</button>
+                </div>
+
+                <!-- 10 KHz Word Clock Schematic -->
+                <div style="background: rgba(15,23,42,0.6); padding: 8px; border-radius: 6px; border: 1px solid #1e293b;">
+                  <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 4px;">
+                    <span style="font-size: 11px; font-weight: 700; color: #38bdf8;">10 KHz Master Clock</span>
+                    <span class="status-dot active-green"></span>
+                  </div>
+                  <div style="font-size: 9px; font-family: var(--font-mono); color: var(--text-muted);">
+                    Word Clock / Bit Clock Generator &bull; T_b = 100 &mu;s
+                  </div>
+                </div>
+              </div>
+
+              <div class="ports-container">
+                <div class="port-item">
+                  <div class="banana-jack" data-port="clock.out" title="10 KHz Clock Output (Click to patch to DSO CH1 or CLK IN)"></div>
+                  <span class="port-label">CLK OUT (10k)</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Block 2: On-Board Digital Data Generator (Specification 2: Word Length 8 Bits) -->
+            <div class="circuit-block" id="blockDataGen">
+              <div class="block-header">
+                <div class="block-title-group">
+                  <span class="block-tag">SECTION 2</span>
+                  <span class="block-label">8-Bit Word Generator</span>
+                </div>
+                <div style="display: flex; gap: 6px;">
+                  <span class="badge badge-cyan" id="wordHexDisplay">HEX: 0xB2</span>
+                  <span class="badge badge-green" id="wordBinDisplay">BIN: 10110010</span>
+                </div>
+              </div>
+
+              <div class="block-body">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                  <span style="font-size: 11px; font-weight: 600; color: var(--text-secondary);">Binary Input Word (D7 &rarr; D0)</span>
+                  <span style="font-size: 9px; color: var(--text-muted); font-family: var(--font-mono);">Click switch to flip</span>
+                </div>
+
+                <!-- 8 Physical Toggle Switches with Active LEDs -->
+                <div class="switch-bank-8bit" id="switchBank8bit"></div>
+              </div>
+
+              <div class="ports-container">
+                <div class="port-item">
+                  <div class="banana-jack" data-port="source.out" title="8-Bit Serial Data Output (Click to patch)"></div>
+                  <span class="port-label">DATA OUT (TX)</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Block 3: Line Coding Section (Specification 3: 6 Formats) -->
+            <div class="circuit-block" id="blockLineCoding">
+              <div class="block-header">
+                <div class="block-title-group">
+                  <span class="block-tag">SECTION 3</span>
+                  <span class="block-label">Line Coding Section</span>
+                </div>
+                <div class="block-led on" title="Encoder active"></div>
+              </div>
+
+              <div class="block-body">
+                <div class="form-group">
+                  <label class="form-label" for="schemeSelect">
+                    <span>6 Formats (COM122L Specification #3)</span>
+                  </label>
+                  <select id="schemeSelect" class="form-select">
+                    <option value="nrz_unipolar">1. Unipolar NRZ</option>
+                    <option value="rz_unipolar">2. Unipolar RZ</option>
+                    <option value="ami">3. Bipolar NRZ (AMI)</option>
+                    <option value="nrz" selected>4. Polar NRZ</option>
+                    <option value="bipolar_rz">5. Polar RZ</option>
+                    <option value="manchester">6. Bi-phase (Split phase) Manchester</option>
+                  </select>
+                </div>
+
+                <!-- Quick Format Selector Grid -->
+                <div class="format-grid-6">
+                  <button class="format-choice-btn" data-scheme="nrz_unipolar">Unipolar NRZ</button>
+                  <button class="format-choice-btn" data-scheme="rz_unipolar">Unipolar RZ</button>
+                  <button class="format-choice-btn" data-scheme="ami">Bipolar AMI</button>
+                  <button class="format-choice-btn active" data-scheme="nrz">Polar NRZ</button>
+                  <button class="format-choice-btn" data-scheme="bipolar_rz">Polar RZ</button>
+                  <button class="format-choice-btn" data-scheme="manchester">Manchester</button>
+                </div>
+
+                <div class="form-group" style="margin-top: 4px;">
+                  <label class="form-label" for="voltageInput">
+                    <span>Peak Signal Amplitude (V)</span>
+                  </label>
+                  <input type="number" id="voltageInput" class="form-input" value="1.0" min="0.1" max="5.0" step="0.5">
+                </div>
+              </div>
+
+              <div class="ports-container">
+                <div class="port-item">
+                  <div class="banana-jack" data-port="encoder.in" title="Encoder Data Input (Click to patch)"></div>
+                  <span class="port-label">DATA IN</span>
+                </div>
+                <div class="port-item">
+                  <div class="banana-jack" data-port="encoder.clk_in" title="Encoder 10 kHz Clock Input"></div>
+                  <span class="port-label">CLK IN</span>
+                </div>
+                <div class="port-item">
+                  <div class="banana-jack" data-port="encoder.out" title="Encoded Waveform Output (Click to patch)"></div>
+                  <span class="port-label">SIG OUT</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Block 4: Line Decoding Section (Experiment 1: Line Coding & Decoding) -->
+            <div class="circuit-block" id="blockLineDecoding">
+              <div class="block-header">
+                <div class="block-title-group">
+                  <span class="block-tag">SECTION 4</span>
+                  <span class="block-label">Line Decoding (Exp 1)</span>
+                </div>
+                <div class="block-led on" title="Receiver active"></div>
+              </div>
+
+              <div class="block-body">
+                <div style="font-size: 11px; color: var(--text-secondary);">
+                  Clock extraction &bull; Level slicer &bull; Word deserializer
+                </div>
+
+                <!-- 8-Bit Recovered Data LED Bank -->
+                <div class="recovered-led-bank" id="recoveredLedBank"></div>
+
+                <div class="decode-match-badge matched" id="decodeMatchBadge">
+                  &#10004; DECODED: <strong>10110010</strong> (100% MATCH, BER: 0.00)
+                </div>
+              </div>
+
+              <div class="ports-container">
+                <div class="port-item">
+                  <div class="banana-jack" data-port="decoder.in" title="Decoder Signal Input (Click to patch from SIG OUT)"></div>
+                  <span class="port-label">DEC IN</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- Quick Wire Instruction Footnote -->
+          <div class="wire-toolbar">
+            <span style="font-size: 11px; color: var(--text-muted);">
+              &#128161; <strong>Connecting Patch Cords (Standard Accessory 2):</strong> Click any banana jack to connect cords. Click any wire to remove it.
+            </span>
+            <span class="badge badge-cyan" id="wiringEngineBadge">SIGMA COM122L WIRING ENGINE</span>
+          </div>
+        </div>
+
+        <!-- 2. Dual-Mode Instrumentation Console (DSO-9040X & RF-122L Spectrum Analyzer) - Displayed below Circuit Diagram -->
+        <div class="dso-container">
+          <!-- Top Instrument Mode Selector Bar -->
+          <div class="instrument-mode-bar">
+            <div class="dso-brand">
+              <span class="dso-model" id="instrumentBrandTitle">COM122L DUAL INSTRUMENTATION</span>
+              <span class="dso-specs" id="instrumentBrandSpecs">CRT DSO &bull; RF Spectrum Analyzer &bull; 10 KHz Word Clock</span>
+            </div>
+
+            <!-- Instrument Mode Tabs -->
+            <div class="instrument-mode-tabs" role="tablist">
+              <button class="inst-tab-btn active" data-mode="time" id="modeTimeBtn">
+                &#128200; Time Domain (Oscilloscope)
+              </button>
+              <button class="inst-tab-btn" data-mode="freq" id="modeFreqBtn">
+                &#128202; Frequency Domain (Spectrum Analyzer)
+              </button>
+              <button class="inst-tab-btn" data-mode="split" id="modeSplitBtn">
+                &#9638; Split View (Dual)
+              </button>
+              <button class="inst-tab-btn" data-mode="xy" id="modeTrapezoidBtn">
+                &#128312; Trapezoid (X-Y Mode)
+              </button>
+            </div>
+
+            <div class="dso-status-group">
+              <div class="dso-indicator">
+                <span class="status-dot active-green"></span>
+                <span>TRIG: 10 kHz CLK</span>
+              </div>
+              <button class="btn btn-accent btn-sm" id="scopeRunStopBtn">STOP</button>
+            </div>
+          </div>
+
+          <!-- Dual Screens Grid Container -->
+          <div class="instrument-screens-grid" id="instrumentScreensGrid">
+            
+            <!-- Screen 1: Virtual DSO (Time Domain CRT Screen) -->
+            <div class="dso-screen-wrapper" id="scopeScreenWrapper">
+              <canvas id="oscilloscopeCanvas" width="800" height="240"></canvas>
+              
+              <!-- On-Screen Telemetry Overlay -->
+              <div class="dso-hud-overlay">
+                <span class="dso-hud-ch1" id="hudCh1">CH1: 8-Bit Word (10110010) &bull; 10 kHz CLK</span>
+                <span class="dso-hud-ch2" id="hudCh2">CH2: LINE CODE WAVEFORM</span>
+              </div>
+            </div>
+
+            <!-- Screen 2: Virtual RF Spectrum Analyzer (Frequency Domain Screen) -->
+            <div class="spectrum-screen-wrapper" id="spectrumScreenWrapper" style="display: none;">
+              <canvas id="spectrumCanvas" width="800" height="240"></canvas>
+            </div>
+
+          </div>
+
+          <!-- Oscilloscope Controls Panel (Time Domain) -->
+          <div class="dso-controls-panel" id="dsoControlsPanel">
+            <div class="dso-knob-group">
+              <span class="dso-knob-label">Timebase (SEC/DIV)</span>
+              <div class="dso-btn-group">
+                <button class="btn btn-outline btn-sm" id="timebaseDec">&minus;</button>
+                <button class="btn btn-outline btn-sm" id="timebaseInc">&plus;</button>
+              </div>
+              <span class="dso-knob-value" id="timebaseVal">1.0 ms/div</span>
+            </div>
+
+            <div class="dso-knob-group">
+              <span class="dso-knob-label">Scale (VOLTS/DIV)</span>
+              <div class="dso-btn-group">
+                <button class="btn btn-outline btn-sm" id="voltsDec">&minus;</button>
+                <button class="btn btn-outline btn-sm" id="voltsInc">&plus;</button>
+              </div>
+              <span class="dso-knob-value" id="voltsDivVal">1.0 V/div</span>
+            </div>
+
+            <div class="dso-knob-group">
+              <span class="dso-knob-label">8-Bit Presets (COM122L Manual)</span>
+              <div class="dso-btn-group" style="flex-wrap: wrap;">
+                <button class="btn btn-outline btn-sm pattern-preset-btn" data-pattern="10110010">Std (0xB2)</button>
+                <button class="btn btn-outline btn-sm pattern-preset-btn" data-pattern="10101010">Clock Alt</button>
+                <button class="btn btn-outline btn-sm pattern-preset-btn" data-pattern="11110000">Square</button>
+                <button class="btn btn-outline btn-sm pattern-preset-btn" data-pattern="10000001">Zero Run</button>
+                <button class="btn btn-outline btn-sm pattern-preset-btn" data-pattern="11111111">All 1s</button>
+                <button class="btn btn-outline btn-sm pattern-preset-btn" data-pattern="00000000">All 0s</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Spectrum Analyzer Controls Panel (Frequency Domain) -->
+          <div class="spectrum-controls-panel" id="spectrumControlsPanel" style="display: none;">
+            <div class="dso-knob-group">
+              <span class="dso-knob-label">Frequency Span</span>
+              <div class="dso-btn-group">
+                <button class="btn btn-outline btn-sm span-btn" data-span="20.0">20 kHz</button>
+                <button class="btn btn-outline btn-sm span-btn active-chip" data-span="40.0">40 kHz</button>
+                <button class="btn btn-outline btn-sm span-btn" data-span="80.0">80 kHz</button>
+              </div>
+              <span class="dso-knob-value">Center: 20 kHz</span>
+            </div>
+
+            <div class="dso-knob-group">
+              <span class="dso-knob-label">Trace Display Mode</span>
+              <div class="dso-btn-group">
+                <button class="btn btn-outline btn-sm trace-btn" data-trace="fft">Live FFT</button>
+                <button class="btn btn-outline btn-sm trace-btn" data-trace="theory">Theory PSD</button>
+                <button class="btn btn-outline btn-sm trace-btn active-chip" data-trace="both">Both Traces</button>
+              </div>
+              <span class="dso-knob-value">RBW: 0.5 kHz</span>
+            </div>
+
+            <div class="dso-knob-group">
+              <span class="dso-knob-label">Marker &amp; Persistence</span>
+              <div class="dso-btn-group">
+                <button class="btn btn-outline btn-sm" id="spectrumPeakHoldBtn">Peak Hold</button>
+                <button class="btn btn-outline btn-sm active-chip" id="spectrumAutoMarkerBtn">&#9660; Peak Track</button>
+              </div>
+              <span class="dso-knob-value">Ref: 10 dBm</span>
+            </div>
+          </div>
+
+          <!-- Time Domain Telemetry Strip -->
+          <div class="telemetry-strip" id="scopeTelemetryStrip">
+            <div class="telemetry-item">
+              <span class="telemetry-label">DC Component (Bias)</span>
+              <span class="telemetry-val" id="metricDc">0.000 V</span>
+              <span class="telemetry-sub">Transformer Baseline Drift</span>
+            </div>
+            <div class="telemetry-item">
+              <span class="telemetry-label">Bit Transitions</span>
+              <span class="telemetry-val" id="metricTransitions">4 Edges</span>
+              <span class="telemetry-sub">Word Transition Density</span>
+            </div>
+            <div class="telemetry-item">
+              <span class="telemetry-label">Clock Synchronization</span>
+              <span class="telemetry-val" id="metricClock">Moderate</span>
+              <span class="telemetry-sub">10 kHz PLL Self-Clocking</span>
+            </div>
+            <div class="telemetry-item">
+              <span class="telemetry-label">Decoder Round-Trip</span>
+              <span class="telemetry-val positive" id="metricDecoded">Matched (100%)</span>
+              <span class="telemetry-sub">Experiment 1 Reconstruction</span>
+            </div>
+          </div>
+
+          <!-- Frequency Domain Telemetry Strip (Experiment 2) -->
+          <div class="telemetry-strip" id="spectrumTelemetryStrip" style="display: none; border-top: 1px dashed rgba(255,255,255,0.1);">
+            <div class="telemetry-item">
+              <span class="telemetry-label">DC Spectral Power</span>
+              <span class="telemetry-val positive" id="metricSpecDc">-\u221E dBm (Zero DC)</span>
+              <span class="telemetry-sub">f = 0 Hz Spectral Component</span>
+            </div>
+            <div class="telemetry-item">
+              <span class="telemetry-label">First Spectral Null</span>
+              <span class="telemetry-val" id="metricSpecNull">10.0 kHz</span>
+              <span class="telemetry-sub">f_null = R_b or 2*R_b</span>
+            </div>
+            <div class="telemetry-item">
+              <span class="telemetry-label">Main Lobe Bandwidth</span>
+              <span class="telemetry-val" id="metricSpecBw">10.0 kHz</span>
+              <span class="telemetry-sub">Channel Bandwidth Required</span>
+            </div>
+            <div class="telemetry-item">
+              <span class="telemetry-label">10 kHz Discrete Clock Spike</span>
+              <span class="telemetry-val" id="metricSpecSpike">No (Suppressed)</span>
+              <span class="telemetry-sub">Discrete Line in Spectrum</span>
+            </div>
+          </div>
+
+        </div>
+
+        <!-- 3. Lower Tabbed Analytical Panels (Experiment 1, Experiment 2, What-If, Misconceptions, DSSS) -->
+        <div class="glass-panel" style="padding: 16px;">
+          <nav class="tab-navigation" aria-label="Analytical views">
+            <button class="tab-btn active" data-tab="spectral">&#128202; Exp 2: Spectral Analysis</button>
+            <button class="tab-btn" data-tab="decoding">&#128269; Exp 1: Line Coding &amp; Decoding</button>
+            <button class="tab-btn" data-tab="am_table" id="tabBtnAmTable">&#128221; Exp 1: AM Observation &amp; Results</button>
+            <button class="tab-btn" data-tab="whatif">&#9878; Counterfactual What-If</button>
+            <button class="tab-btn" data-tab="misconceptions">&#9888; Misconceptions &amp; Faults</button>
+            <button class="tab-btn" data-tab="dsss">&#128225; DSSS Spread Spectrum</button>
+          </nav>
+
+          <!-- Tab 1: Experiment 2 — Spectral Analysis (COM122L Specification) -->
+          <div class="tab-content-panel" id="tab-spectral">
+            <div style="font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 12px;">
+              <strong>EXPERIMENT 2: To observe spectrum of different line codes on Spectrum Analyzer.</strong><br>
+              Compare the Power Spectral Density (PSD) $S(f)$, first null frequency, DC power component, and bandwidth requirement for each of the 6 line codes generated by the 10 KHz clock.
+            </div>
+
+            <div style="overflow-x: auto;">
+              <table class="manual-table">
+                <thead>
+                  <tr>
+                    <th>Line Code Format</th>
+                    <th>Theoretical PSD Formula S(f)</th>
+                    <th>First Null</th>
+                    <th>Main Lobe BW</th>
+                    <th>DC Component</th>
+                    <th>Efficiency</th>
+                    <th>Action</th>
+                  </tr>
+                </thead>
+                <tbody id="spectralTableBody"></tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Tab 2: Experiment 1 — Theory of Digital Line Coding and Decoding -->
+          <div class="tab-content-panel" id="tab-decoding" style="display: none;">
+            <div style="font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 14px;">
+              <strong>EXPERIMENT 1: To study theory of digital line coding and decoding.</strong><br>
+              In digital transmission, line codes shape baseband pulses to eliminate DC bias, prevent baseline wander in transformers, and guarantee mid-bit clock transitions for PLL bit synchronizers.
+            </div>
+
+            <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px;">
+              <div class="whatif-card" style="border-left: 3px solid #38bdf8;">
+                <div style="font-weight: bold; color: #38bdf8; font-size: 12px; margin-bottom: 6px;">1. Level Slicing &amp; Thresholds</div>
+                <div style="font-size: 11px; color: var(--text-muted); line-height: 1.5;">
+                  The receiver comparator compares the incoming waveform against decision thresholds (+0.5V, 0V, -0.5V). For AMI, marks are detected when $|V| &gt; 0.25V$.
+                </div>
+              </div>
+              <div class="whatif-card" style="border-left: 3px solid #10b981;">
+                <div style="font-weight: bold; color: #10b981; font-size: 12px; margin-bottom: 6px;">2. Mid-Bit Clock Sampling</div>
+                <div style="font-size: 11px; color: var(--text-muted); line-height: 1.5;">
+                  At the 10 KHz clock rising edge ($T_b/2 = 50\,\mu\text{s}$), the eye is wide open. Sampling at mid-bit provides maximum noise margin and prevents intersymbol interference.
+                </div>
+              </div>
+              <div class="whatif-card" style="border-left: 3px solid #f59e0b;">
+                <div style="font-weight: bold; color: #f59e0b; font-size: 12px; margin-bottom: 6px;">3. Error Detection (Code Violations)</div>
+                <div style="font-size: 11px; color: var(--text-muted); line-height: 1.5;">
+                  In AMI, if two consecutive 1s occur with identical polarity, an AMI Code Violation (CV) is triggered instantly, providing built-in transmission error logging.
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tab 3: Counterfactual What-If Sandbox -->
+          <div class="tab-content-panel" id="tab-whatif" style="display: none;">
+            <div class="whatif-container">
+              <div style="font-size: 12px; color: var(--text-secondary); line-height: 1.5;">
+                Explore counterfactual questions: <em>"What happens if we switch to Manchester or alter bit values?"</em> 
+                The mathematical oracle compares baseline vs modified signals in real-time.
+              </div>
+
+              <div class="whatif-comparison-grid">
+                <!-- Baseline Signal Card -->
+                <div class="whatif-card card-baseline">
+                  <div class="whatif-title">
+                    <span style="color: #38bdf8;">Current Baseline Circuit</span>
+                    <span class="badge badge-cyan">Active</span>
+                  </div>
+                  <div class="diff-metric-row">
+                    <span>DC Component:</span>
+                    <span id="whatifBaseDc">0.000 V</span>
+                  </div>
+                  <div class="diff-metric-row">
+                    <span>Total Transitions:</span>
+                    <span id="whatifBaseTrans">4</span>
+                  </div>
+                </div>
+
+                <!-- Modified Counterfactual Card -->
+                <div class="whatif-card card-modified">
+                  <div class="whatif-title">
+                    <span style="color: #f59e0b;">Counterfactual Hypothesis</span>
+                    <span class="badge badge-amber">Hypothetical</span>
+                  </div>
+                  <div style="display: flex; gap: 8px; margin-bottom: 6px;">
+                    <select id="whatifSchemeSelect" class="form-select" style="flex: 1; padding: 4px 8px; font-size: 11px;">
+                      <option value="manchester" selected>Manchester</option>
+                      <option value="ami">AMI</option>
+                      <option value="nrz">Polar NRZ</option>
+                      <option value="bipolar_rz">Polar RZ</option>
+                    </select>
+                    <input type="text" id="whatifBitsInput" class="form-input" value="10000001" style="width: 100px; padding: 4px 8px; font-size: 11px;" placeholder="8 Bits">
+                  </div>
+                  <div class="diff-metric-row">
+                    <span>DC Component:</span>
+                    <span id="whatifModDc">0.000 V</span>
+                  </div>
+                  <div class="diff-metric-row">
+                    <span>Total Transitions:</span>
+                    <span id="whatifModTrans">8</span>
+                  </div>
+                  <div class="diff-metric-row" style="border-top: 1px dashed rgba(255,255,255,0.15); padding-top: 6px;">
+                    <span>DC Drift Delta:</span>
+                    <span class="diff-delta improved" id="whatifDiffDc">0.000 V</span>
+                  </div>
+                  <div class="diff-metric-row">
+                    <span>Clock Density Delta:</span>
+                    <span class="diff-delta improved" id="whatifDiffTrans">+4 (Higher Density)</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Tab 4: Misconceptions & Faults Sandbox -->
+          <div class="tab-content-panel" id="tab-misconceptions" style="display: none;">
+            <div class="misconception-grid" id="misconceptionsList"></div>
+          </div>
+
+          <!-- Tab 5: DSSS Spread Spectrum Explorer -->
+          <div class="tab-content-panel" id="tab-dsss" style="display: none;">
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 12px;">
+              <div>
+                <h4 style="color: #38bdf8;">Direct Sequence Spread Spectrum (DSSS) Chain</h4>
+                <p style="font-size: 11px; color: var(--text-muted);">
+                  Models IC 74266 spreading mixer &plus; IC 1496 balanced modulator &plus; coherent matched filter.
+                </p>
+              </div>
+              <button class="btn btn-primary btn-sm" id="runDsssBtn">&#9654; Run DSSS Simulation</button>
+            </div>
+            <div class="dsss-stage-container" id="dsssStagesContainer"></div>
+          </div>
+
+          <!-- Tab 6: PICT PCS Expt 1 — AM Observation & Result Tables (Pages 5 & 6) -->
+          <div class="tab-content-panel" id="tab-am_table" style="display: none;">
+            <div style="font-size: 12px; color: var(--text-secondary); line-height: 1.5; margin-bottom: 14px;">
+              <strong style="color: #38bdf8;">PUNE INSTITUTE OF COMPUTER TECHNOLOGY (PICT) &bull; DEPARTMENT OF E&amp;TC</strong><br>
+              <strong>EXPT NO. 1: Generation of AM (DSB-FC), Modulation Index Calculation &amp; Power Analysis</strong><br>
+              <span style="font-size: 11px; color: var(--text-muted); font-family: var(--font-mono);">
+                Kit: SIGMA MODEL COM101N &bull; CRO: Philips OS-9020B (20 MHz) &bull; Load: R = 50 &Omega;
+              </span>
+            </div>
+
+            <!-- Table 1: Modulation Index Observation Table (Page 5) -->
+            <div style="margin-bottom: 20px;">
+              <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;">
+                <h4 style="font-size: 12px; font-weight: 700; color: #facc15; margin: 0;">
+                  Table 1: Observation Table — Modulation Index by Graphical &amp; Trapezoidal Methods (Manual Page 5)
+                </h4>
+                <button class="btn btn-primary btn-sm" id="btnRecordAmRow" style="font-size: 10px; padding: 3px 8px;">
+                  &#10010; Record Active Measurement
+                </button>
+              </div>
+              <div style="overflow-x: auto;">
+                <table class="manual-table">
+                  <thead>
+                    <tr>
+                      <th>Sr.</th>
+                      <th>Em (V)</th>
+                      <th>Ec (V)</th>
+                      <th>m = Em/Ec</th>
+                      <th>Emax (V)</th>
+                      <th>Emin (V)</th>
+                      <th>m = (Emax-Emin)/(Emax+Emin)</th>
+                      <th>L1 (V)</th>
+                      <th>L2 (V)</th>
+                      <th>m = (L1-L2)/(L1+L2)</th>
+                      <th>Observed Shape</th>
+                    </tr>
+                  </thead>
+                  <tbody id="amObservationTableBody">
+                    <tr>
+                      <td>1</td>
+                      <td>0.00 V</td>
+                      <td>5.00 V</td>
+                      <td>0.00</td>
+                      <td>5.00 V</td>
+                      <td>5.00 V</td>
+                      <td>0.00</td>
+                      <td>10.00 V</td>
+                      <td>10.00 V</td>
+                      <td>0.00</td>
+                      <td><span class="badge">Rectangle (m=0)</span></td>
+                    </tr>
+                    <tr class="active-row" style="background: rgba(56,189,248,0.1);">
+                      <td>2</td>
+                      <td>2.50 V</td>
+                      <td>5.00 V</td>
+                      <td>0.50</td>
+                      <td>7.50 V</td>
+                      <td>2.50 V</td>
+                      <td>0.50</td>
+                      <td>15.00 V</td>
+                      <td>5.00 V</td>
+                      <td>0.50</td>
+                      <td><span class="badge badge-green">Trapezoid (Under-mod)</span></td>
+                    </tr>
+                    <tr>
+                      <td>3</td>
+                      <td>5.00 V</td>
+                      <td>5.00 V</td>
+                      <td>1.00</td>
+                      <td>10.00 V</td>
+                      <td>0.00 V</td>
+                      <td>1.00</td>
+                      <td>20.00 V</td>
+                      <td>0.00 V</td>
+                      <td>1.00</td>
+                      <td><span class="badge badge-yellow" style="color: #facc15; border-color: #facc15;">Triangle (Critical 100%)</span></td>
+                    </tr>
+                    <tr>
+                      <td>4</td>
+                      <td>7.50 V</td>
+                      <td>5.00 V</td>
+                      <td>1.50</td>
+                      <td>12.50 V</td>
+                      <td>0.00 V</td>
+                      <td>1.00 (Clipped)</td>
+                      <td>25.00 V</td>
+                      <td>5.00 V (Inv)</td>
+                      <td>0.67 (Waist)</td>
+                      <td><span class="badge badge-red" style="color: #f87171; border-color: #f87171;">Crossed Bow-tie (Over-mod)</span></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            <!-- Table 2: Power and Efficiency Result Table (Page 6) -->
+            <div>
+              <h4 style="font-size: 12px; font-weight: 700; color: #34d399; margin: 0 0 8px 0;">
+                Table 2: Result Table — Power &amp; Bandwidth Analysis (Manual Page 6, R = 50 &Omega;)
+              </h4>
+              <div style="overflow-x: auto;">
+                <table class="manual-table">
+                  <thead>
+                    <tr>
+                      <th>Carrier Ec (V)</th>
+                      <th>Modulation Index m</th>
+                      <th>Carrier Power Pc (mW)</th>
+                      <th>Sideband Power PSB (mW)</th>
+                      <th>Total Power PT (mW)</th>
+                      <th>Efficiency &eta; (%)</th>
+                      <th>Bandwidth BW = 2*fm (kHz)</th>
+                    </tr>
+                  </thead>
+                  <tbody id="amResultTableBody">
+                    <tr>
+                      <td>5.00 V</td>
+                      <td>0.00</td>
+                      <td>250.00 mW</td>
+                      <td>0.00 mW</td>
+                      <td>250.00 mW</td>
+                      <td>0.00%</td>
+                      <td>2.00 kHz</td>
+                    </tr>
+                    <tr class="active-row" style="background: rgba(56,189,248,0.1);">
+                      <td>5.00 V</td>
+                      <td>0.50</td>
+                      <td>250.00 mW</td>
+                      <td>31.25 mW</td>
+                      <td>281.25 mW</td>
+                      <td>11.11%</td>
+                      <td>2.00 kHz</td>
+                    </tr>
+                    <tr>
+                      <td>5.00 V</td>
+                      <td>1.00</td>
+                      <td>250.00 mW</td>
+                      <td>125.00 mW</td>
+                      <td>375.00 mW</td>
+                      <td>33.33% (Max DSB-FC)</td>
+                      <td>2.00 kHz</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </section>
+
+      <!-- Right Column: AI Lab Instructor & Socratic Tutoring (LangGraph) -->
+      <aside class="right-column" aria-label="AI Lab Instructor">
+        <div class="tutor-drawer">
+          <!-- Tutor Header -->
+          <div class="tutor-header">
+            <div class="tutor-profile">
+              <div class="tutor-avatar">DW</div>
+              <div class="tutor-meta">
+                <span class="tutor-name">
+                  Dr. Wave
+                  <span class="badge badge-green">AI Tutor</span>
+                </span>
+                <span class="tutor-role">LangGraph Pedagogical Agent</span>
+              </div>
+            </div>
+            <div class="verification-badge">
+              <span class="status-dot active-green"></span>
+              <span>100% Deterministic</span>
+            </div>
+          </div>
+
+          <!-- Socratic Hint Escalation Selector -->
+          <div class="socratic-controls">
+            <span style="font-size: 11px; font-family: var(--font-mono); color: var(--text-muted);">Socratic Level:</span>
+            <div class="socratic-level-group">
+              <button class="level-chip active" data-level="1">Lvl 1: Guide</button>
+              <button class="level-chip" data-level="2">Lvl 2: Clue</button>
+              <button class="level-chip" data-level="3">Lvl 3: Solution</button>
+            </div>
+          </div>
+
+          <!-- Chat Conversation Log -->
+          <div class="tutor-messages" id="tutorMessages"></div>
+
+          <!-- Quick Suggested Question Pills (PICT PCS Expt 7) -->
+          <div class="suggested-prompts">
+            <button class="prompt-pill" data-prompt="Why is the DC component in AMI strictly zero?">Zero DC in AMI?</button>
+            <button class="prompt-pill" data-prompt="How does Manchester guarantee clock recovery on runs of zeros?">Manchester Clock?</button>
+            <button class="prompt-pill" data-prompt="Compare line codes based on PICT Lab Manual Table 7.7">Compare Formats (Table 7.7)</button>
+            <button class="prompt-pill" data-prompt="What is the difference between source coding and line coding?">Source vs Line Coding</button>
+            <button class="prompt-pill" data-prompt="Why does Unipolar RZ show a discrete 10 kHz spike on the Spectrum Analyzer?">RZ 10kHz Spike?</button>
+          </div>
+
+          <!-- Chat Input Field -->
+          <div class="tutor-input-area">
+            <input type="text" class="tutor-input" id="tutorInput" placeholder="Ask Dr. Wave about COM122L, spectral analysis, or wiring..." autocomplete="off">
+            <button class="btn btn-primary" id="tutorSendBtn">Ask</button>
+          </div>
+        </div>
+      </aside>
+
+    </main>
+
+    <!-- Floating Judge Presentation Tour Controller -->
+    <nav class="judge-presentation-dock" id="judgeDock" aria-label="Judge presentation walkthrough"></nav>
+
+    <!-- Standard Accessory 1: COM122L Training Manual Modal -->
+    <div class="manual-modal-overlay" id="manualModal" role="dialog" aria-modal="true" aria-labelledby="manualTitle">
+      <div class="manual-modal-dialog">
+        <div class="manual-modal-header">
+          <div style="display: flex; align-items: center; gap: 10px;">
+            <div class="sigma-oval-logo">SIGMA</div>
+            <div>
+              <h3 id="manualTitle" style="color: #ffffff; font-size: 14px; font-weight: 800;">
+                TRAINING MANUAL &bull; MODEL COM122L
+              </h3>
+              <span style="font-size: 10px; color: #94a3b8; font-family: var(--font-mono);">
+                Study of Line Codes &amp; Their Spectral Analysis &bull; Standard Accessory #1
+              </span>
+            </div>
+          </div>
+          <button class="modal-close-btn" id="closeManualBtn" aria-label="Close dialog">&times;</button>
+        </div>
+
+        <!-- Manual Navigation Bar -->
+        <nav class="manual-modal-nav">
+          <button class="manual-nav-btn active" data-manual-tab="specs">&#128220; Specifications</button>
+          <button class="manual-nav-btn" data-manual-tab="exp1">&#128269; Exp 1: Coding &amp; Decoding</button>
+          <button class="manual-nav-btn" data-manual-tab="exp2">&#128202; Exp 2: Spectral Analysis</button>
+          <button class="manual-nav-btn" data-manual-tab="theory">&#128218; Mathematical Derivations</button>
+          <button class="manual-nav-btn" data-manual-tab="viva">&#128172; Viva Voce Q&amp;A</button>
+        </nav>
+
+        <!-- Manual Body Contents -->
+        <div class="manual-modal-body">
+          
+          <!-- Tab 1: Specifications -->
+          <div class="manual-tab-content" id="manual-specs">
+            <h4 style="color: #38bdf8; margin-bottom: 8px;">1. Specifications of Trainer Model COM122L</h4>
+            <p style="margin-bottom: 12px; font-size: 12px; color: #94a3b8;">
+              This trainer has been designed with a view to provide practical and experimental knowledge of the process of coding of digital data into different formats.
+            </p>
+            <table class="manual-table">
+              <tr>
+                <td><strong>1. Power Supply Requirement</strong></td>
+                <td>230V AC, 50 Hz.</td>
+              </tr>
+              <tr>
+                <td><strong>2. On-Board Digital Data Generator</strong></td>
+                <td>Generates any binary input word of <strong>Word Length: 8 Bits</strong>.<br><strong>Word Clock Frequency: 10 KHz</strong>.</td>
+              </tr>
+              <tr>
+                <td><strong>3. Line Coding Formats</strong></td>
+                <td>
+                  1. Unipolar NRZ<br>
+                  2. Unipolar RZ<br>
+                  3. Bipolar NRZ (AMI)<br>
+                  4. Polar NRZ<br>
+                  5. Polar RZ<br>
+                  6. Bi-phase (Split phase) Manchester
+                </td>
+              </tr>
+              <tr>
+                <td><strong>4. Construction</strong></td>
+                <td>All parts are soldered on single PCB complete circuit diagram screen-printed.</td>
+              </tr>
+              <tr>
+                <td><strong>5. Standard Accessories</strong></td>
+                <td>1. A Training Manual<br>2. Connecting Patch cords.</td>
+              </tr>
+            </table>
+          </div>
+
+          <!-- Tab 2: Experiment 1 -->
+          <div class="manual-tab-content" id="manual-exp1" style="display: none;">
+            <h4 style="color: #38bdf8; margin-bottom: 8px;">EXPERIMENT 1: To study theory of digital line coding and decoding</h4>
+            <div style="font-size: 12px; line-height: 1.6; color: #cbd5e1;">
+              <p><strong>Objective:</strong> To generate digital line coded waveforms for a given 8-bit word and reconstruct the original binary word using on-board line decoders.</p>
+              <h5 style="color: #34d399; margin-top: 10px;">Procedure:</h5>
+              <ol style="margin-left: 20px; margin-bottom: 12px;">
+                <li>Connect 230V AC, 50 Hz power cord to the trainer and turn ON the power rocker switch.</li>
+                <li>Set an 8-bit test word (e.g., <code>10110010</code>) using the 8 toggle switches D7 to D0 on the Data Generator block.</li>
+                <li>Connect patch cord from <code>DATA OUT (TX)</code> to <code>DATA IN</code> of Line Encoder.</li>
+                <li>Connect patch cord from <code>CLK OUT (10 KHz)</code> to <code>CLK IN</code> of Line Encoder.</li>
+                <li>Patch <code>SIG OUT</code> of Line Encoder to <code>SCOPE CH2 IN</code> to observe the encoded waveform.</li>
+                <li>Patch <code>SIG OUT</code> of Line Encoder to <code>DEC IN</code> of Line Decoder to observe reconstructed 8-bit data LEDs.</li>
+                <li>Verify that the recovered 8-bit LEDs match the transmitted word D7..D0 with zero bit errors.</li>
+              </ol>
+            </div>
+          </div>
+
+          <!-- Tab 3: Experiment 2 -->
+          <div class="manual-tab-content" id="manual-exp2" style="display: none;">
+            <h4 style="color: #38bdf8; margin-bottom: 8px;">EXPERIMENT 2: To observe spectrum of different line codes on Spectrum Analyzer</h4>
+            <div style="font-size: 12px; line-height: 1.6; color: #cbd5e1;">
+              <p><strong>Objective:</strong> To observe the Power Spectral Density (PSD) and spectral characteristics of different line codes using a Spectrum Analyzer.</p>
+              <h5 style="color: #34d399; margin-top: 10px;">Procedure:</h5>
+              <ol style="margin-left: 20px; margin-bottom: 12px;">
+                <li>Connect patch cord from <code>SIG OUT</code> of the Line Encoder to <code>SPECTRUM IN</code> of the Spectrum Analyzer.</li>
+                <li>Set the frequency span to 40 kHz (center frequency 20 kHz).</li>
+                <li>Select <strong>Unipolar NRZ</strong>: Observe the strong discrete DC spike at $f = 0$ Hz and the first spectral null at $R_b = 10\text{ kHz}$.</li>
+                <li>Select <strong>Bipolar NRZ (AMI)</strong>: Observe that the DC component drops to strictly zero ($-\infty\text{ dBm}$), with the peak power located around $5\text{ kHz}$ ($R_b/2$).</li>
+                <li>Select <strong>Bi-phase Manchester</strong>: Observe that the DC component is completely absent ($S(0) = 0$), with the first spectral null shifted out to $2R_b = 20\text{ kHz}$.</li>
+                <li>Select <strong>Unipolar RZ</strong>: Observe the discrete line spectrum showing a distinct clock spike at $10\text{ kHz}$, enabling direct clock extraction via a simple tuned tank circuit.</li>
+              </ol>
+            </div>
+          </div>
+
+          <!-- Tab 4: Mathematical Derivations -->
+          <div class="manual-tab-content" id="manual-theory" style="display: none;">
+            <h4 style="color: #38bdf8; margin-bottom: 8px;">Mathematical Power Spectral Density (PSD) Formulas</h4>
+            <div style="font-size: 12px; line-height: 1.6; color: #cbd5e1;">
+              <p>For bit rate $R_b = 10\text{ kbps}$, bit duration $T_b = 1/R_b = 100\,\mu\text{s}$, and peak voltage $V$:</p>
+              <table class="manual-table">
+                <thead>
+                  <tr>
+                    <th>Line Code</th>
+                    <th>Analytical PSD Formula S(f)</th>
+                    <th>DC Component S(0)</th>
+                    <th>First Null</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td><strong>Unipolar NRZ</strong></td>
+                    <td>$S(f) = \frac{V^2 T_b}{4} \left(\frac{\sin \pi f T_b}{\pi f T_b}\right)^2 + \frac{V^2}{4}\delta(f)$</td>
+                    <td>$\frac{V^2}{4}\delta(0)$ (High DC Spike)</td>
+                    <td>$f = R_b = 10\text{ kHz}$</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Polar NRZ</strong></td>
+                    <td>$S(f) = V^2 T_b \left(\frac{\sin \pi f T_b}{\pi f T_b}\right)^2$</td>
+                    <td>$V^2 T_b$ (Low/Zero DC)</td>
+                    <td>$f = R_b = 10\text{ kHz}$</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Unipolar RZ</strong></td>
+                    <td>$S(f) = \frac{V^2 T_b}{16} \left(\frac{\sin \pi f T_b/2}{\pi f T_b/2}\right)^2 \left[1 + \sum \delta(f - m/T_b)\right]$</td>
+                    <td>Spike at $f=0$ and $f=10\text{ kHz}$</td>
+                    <td>$f = 2R_b = 20\text{ kHz}$</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Polar RZ</strong></td>
+                    <td>$S(f) = \frac{V^2 T_b}{4} \left(\frac{\sin \pi f T_b/2}{\pi f T_b/2}\right)^2$</td>
+                    <td>Zero if balanced</td>
+                    <td>$f = 2R_b = 20\text{ kHz}$</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Bipolar NRZ (AMI)</strong></td>
+                    <td>$S(f) = V^2 T_b \left(\frac{\sin \pi f T_b}{\pi f T_b}\right)^2 \sin^2(\pi f T_b)$</td>
+                    <td><strong>S(0) = 0 (Zero DC)</strong></td>
+                    <td>$f = R_b = 10\text{ kHz}$</td>
+                  </tr>
+                  <tr>
+                    <td><strong>Bi-phase Manchester</strong></td>
+                    <td>$S(f) = V^2 T_b \left(\frac{\sin \pi f T_b/2}{\pi f T_b/2}\right)^2 \sin^2(\pi f T_b/2)$</td>
+                    <td><strong>S(0) = 0 (Zero DC)</strong></td>
+                    <td>$f = 2R_b = 20\text{ kHz}$</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <!-- Tab 5: Viva Voce Q&A -->
+          <div class="manual-tab-content" id="manual-viva" style="display: none;">
+            <h4 style="color: #38bdf8; margin-bottom: 8px;">Practical Lab Viva Voce Questions &amp; Answers</h4>
+            <div class="manual-viva-card">
+              <div class="manual-viva-q">Q1: Why is DC component elimination important in line coding?</div>
+              <div class="manual-viva-a">Ans: Communication channels typically contain AC coupling components (transformers, series capacitors). A DC bias causes DC baseline drift, saturates magnetic transformer cores, and wastes transmitter power without transferring information. Line codes like AMI and Manchester guarantee zero DC.</div>
+            </div>
+            <div class="manual-viva-card">
+              <div class="manual-viva-q">Q2: Why does Bi-phase Manchester require double the bandwidth of NRZ?</div>
+              <div class="manual-viva-a">Ans: Manchester introduces a mandatory transition at the midpoint of every bit period. Thus, the effective pulse duration is $T_b/2$, pushing the first spectral null out to $2 R_b = 20\text{ kHz}$, compared to $10\text{ kHz}$ for NRZ.</div>
+            </div>
+            <div class="manual-viva-card">
+              <div class="manual-viva-q">Q3: What is the main advantage of Alternate Mark Inversion (AMI)?</div>
+              <div class="manual-viva-a">Ans: AMI provides complete DC balance with zero baseline wander, uses the same bandwidth as NRZ (1.0 bps/Hz), and provides intrinsic error detection through AMI Code Violations (consecutive marks of identical polarity).</div>
+            </div>
+            <div class="manual-viva-card">
+              <div class="manual-viva-q">Q4: What is the limitation of AMI during long runs of zeros?</div>
+              <div class="manual-viva-a">Ans: During long strings of zeros, the signal stays at 0V with no transitions, causing receiver clock recovery PLLs to lose synchronization. In telecom trunks, zero substitution codes like B8ZS and HDB3 are used to solve this.</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Judge Overview & Script Modal -->
+    <div class="modal-overlay" id="judgeModal" role="dialog" aria-modal="true" aria-labelledby="judgeModalTitle">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h3 class="modal-title" id="judgeModalTitle">
+            <span class="badge badge-cyan">&#127942; JUDGES PRESENTATION SCRIPT</span>
+            <span>SIGMA COM122L Virtual Laboratory Walkthrough</span>
+          </h3>
+          <button class="modal-close-btn" id="closeJudgeModalBtn" aria-label="Close dialog">&times;</button>
+        </div>
+        <div class="modal-body" id="judgeModalBody"></div>
+      </div>
+    </div>
+
+    <!-- Application Footer -->
+    <footer class="app-footer">
+      <span>SIGMA MODEL COM122L &bull; Study of Line Codes &amp; Their Spectral Analysis &bull; DigiWave X AI-Verified Virtual Laboratory</span>
+    </footer>
+  </div>
+
+  <!-- JavaScript Modules -->
+  <script src="js/oracle.js?v=18"></script>
+  <script src="js/oscilloscope.js?v=18"></script>
+  <script src="js/spectrum_analyzer.js?v=18"></script>
+  <script src="js/workbench.js?v=18"></script>
+  <script src="js/api_client.js?v=18"></script>
+  <script src="js/misconceptions.js?v=18"></script>
+  <script src="js/tutor.js?v=18"></script>
+  <script src="js/judge_walkthrough.js?v=18"></script>
+  <script src="js/app.js?v=18"></script>
+  <script>
+    // Auto-refresh when tab gains focus if frontend was updated
+    (function() {
+      let initialMod = null;
+      fetch('index.html?t=' + Date.now(), { method: 'HEAD' }).then(r => {
+        initialMod = r.headers.get('last-modified');
+      }).catch(() => {});
+
+      window.addEventListener('focus', function() {
+        fetch('index.html?t=' + Date.now(), { method: 'HEAD' }).then(r => {
+          const curMod = r.headers.get('last-modified');
+          if (initialMod && curMod && curMod !== initialMod) {
+            window.location.reload();
+          }
+        }).catch(() => {});
+      });
+    })();
+  </script>
+</body>
+</html>

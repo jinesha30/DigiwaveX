@@ -1,0 +1,1767 @@
+{
+  "meta": {
+    "gemini_api_key_configured": false,
+    "gemini_real_calls": 0,
+    "verification_mode": "automatic",
+    "dataset_size": 50,
+    "category_counts": {
+      "concept": 15,
+      "wiring": 10,
+      "waveform": 10,
+      "misconception": 10,
+      "what-if": 5
+    }
+  },
+  "rag": {
+    "k": 5,
+    "precision_at_k": 0.8,
+    "recall_at_k": 0.8,
+    "retrieval_hit_rate": 0.8
+  },
+  "tutor": {
+    "total_answered": 50,
+    "correctness": 1.0,
+    "groundedness": 1.0,
+    "contradiction_rate": 0.0,
+    "average_confidence": 0.4,
+    "average_latency_ms": 15.520623968914151,
+    "human_evaluated": {
+      "specificity": "requires human annotation",
+      "relevance": "requires human annotation"
+    }
+  },
+  "per_case": [
+    {
+      "rank": 1,
+      "id": "c1",
+      "category": "concept",
+      "grounded": "no_contradictions",
+      "grounding_discrepancies": [],
+      "grounding_type": "automatic",
+      "answer": "I can't load the AI tutor right now because GEMINI_API_KEY is not configured. Here is what I can tell you deterministically from the engine:\n\nCircuit: INVALID\nMissing: [{'from': 'encoder.out', 'to': 'scope.in'}, {'from': 'source.out', 'to': 'encoder.in'}]\nUnexpected: none\nscheme=ami, transitions=4, dc_component=0.2000, levels=[1.0, 1.0, 0.0, 0.0, -1.0, -1.0, 1.0, 1.0, 0.0, 0.0]\n\nAsk me to explain any of these numbers, and I'll explain them in pedagogical terms the moment the API key is configured.",
+      "confidence": 0.4,
+      "latency_ms": 36.37700015679002,
+      "http_status": 200,
+      "deterministic_oracle": {
+        "kind": "line_coding",
+        "scheme": "ami",
+        "bits": [
+          1,
+          0,
+          1,
+          1,
+          0
+        ],
+        "samples_per_bit": 2,
+        "levels": [
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          -1.0,
+          -1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        "dc_component": 0.2,
+        "transitions": 4
+      },
+      "retrieved_chunks": 5
+    },
+    {
+      "rank": 2,
+      "id": "c2",
+      "category": "concept",
+      "grounded": "no_contradictions",
+      "grounding_discrepancies": [],
+      "grounding_type": "automatic",
+      "answer": "I can't load the AI tutor right now because GEMINI_API_KEY is not configured. Here is what I can tell you deterministically from the engine:\n\nCircuit: INVALID\nMissing: [{'from': 'encoder.out', 'to': 'scope.in'}, {'from': 'source.out', 'to': 'encoder.in'}]\nUnexpected: none\nscheme=nrz, transitions=2, dc_component=0.3333, levels=[1.0, 1.0, -1.0, -1.0, 1.0, 1.0]\n\nAsk me to explain any of these numbers, and I'll explain them in pedagogical terms the moment the API key is configured.",
+      "confidence": 0.4,
+      "latency_ms": 6.9412002339959145,
+      "http_status": 200,
+      "deterministic_oracle": {
+        "kind": "line_coding",
+        "scheme": "nrz",
+        "bits": [
+          1,
+          0,
+          1
+        ],
+        "samples_per_bit": 2,
+        "levels": [
+          1.0,
+          1.0,
+          -1.0,
+          -1.0,
+          1.0,
+          1.0
+        ],
+        "dc_component": 0.3333333333333333,
+        "transitions": 2
+      },
+      "retrieved_chunks": 5
+    },
+    {
+      "rank": 3,
+      "id": "c3",
+      "category": "concept",
+      "grounded": "no_contradictions",
+      "grounding_discrepancies": [],
+      "grounding_type": "automatic",
+      "answer": "I can't load the AI tutor right now because GEMINI_API_KEY is not configured. Here is what I can tell you deterministically from the engine:\n\nCircuit: INVALID\nMissing: [{'from': 'encoder.out', 'to': 'scope.in'}, {'from': 'source.out', 'to': 'encoder.in'}]\nUnexpected: none\nscheme=ami, transitions=4, dc_component=0.2000, levels=[1.0, 1.0, 0.0, 0.0, -1.0, -1.0, 1.0, 1.0, 0.0, 0.0]\n\nAsk me to explain any of these numbers, and I'll explain them in pedagogical terms the moment the API key is configured.",
+      "confidence": 0.4,
+      "latency_ms": 4.738000221550465,
+      "http_status": 200,
+      "deterministic_oracle": {
+        "kind": "line_coding",
+        "scheme": "ami",
+        "bits": [
+          1,
+          0,
+          1,
+          1,
+          0
+        ],
+        "samples_per_bit": 2,
+        "levels": [
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          -1.0,
+          -1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        "dc_component": 0.2,
+        "transitions": 4
+      },
+      "retrieved_chunks": 5
+    },
+    {
+      "rank": 4,
+      "id": "c4",
+      "category": "concept",
+      "grounded": "no_contradictions",
+      "grounding_discrepancies": [],
+      "grounding_type": "automatic",
+      "answer": "I can't load the AI tutor right now because GEMINI_API_KEY is not configured. Here is what I can tell you deterministically from the engine:\n\nCircuit: INVALID\nMissing: [{'from': 'encoder.out', 'to': 'scope.in'}, {'from': 'source.out', 'to': 'encoder.in'}]\nUnexpected: none\nscheme=nrz_unipolar, transitions=3, dc_component=0.5000, levels=[1.0, 1.0, 0.0, 0.0, 1.0, 1.0, 0.0, 0.0]\n\nAsk me to explain any of these numbers, and I'll explain them in pedagogical terms the moment the API key is configured.",
+      "confidence": 0.4,
+      "latency_ms": 5.03480015322566,
+      "http_status": 200,
+      "deterministic_oracle": {
+        "kind": "line_coding",
+        "scheme": "nrz_unipolar",
+        "bits": [
+          1,
+          0,
+          1,
+          0
+        ],
+        "samples_per_bit": 2,
+        "levels": [
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        "dc_component": 0.5,
+        "transitions": 3
+      },
+      "retrieved_chunks": 5
+    },
+    {
+      "rank": 5,
+      "id": "c5",
+      "category": "concept",
+      "grounded": "no_contradictions",
+      "grounding_discrepancies": [],
+      "grounding_type": "automatic",
+      "answer": "I can't load the AI tutor right now because GEMINI_API_KEY is not configured. Here is what I can tell you deterministically from the engine:\n\nCircuit: INVALID\nMissing: [{'from': 'encoder.out', 'to': 'scope.in'}, {'from': 'source.out', 'to': 'encoder.in'}]\nUnexpected: none\nscheme=manchester, transitions=2, dc_component=0.0000, levels=[-1.0, 1.0, 1.0, -1.0]\n\nAsk me to explain any of these numbers, and I'll explain them in pedagogical terms the moment the API key is configured.",
+      "confidence": 0.4,
+      "latency_ms": 21.621100138872862,
+      "http_status": 200,
+      "deterministic_oracle": {
+        "kind": "line_coding",
+        "scheme": "manchester",
+        "bits": [
+          1,
+          0
+        ],
+        "samples_per_bit": 2,
+        "levels": [
+          -1.0,
+          1.0,
+          1.0,
+          -1.0
+        ],
+        "dc_component": 0.0,
+        "transitions": 2
+      },
+      "retrieved_chunks": 5
+    },
+    {
+      "rank": 6,
+      "id": "c6",
+      "category": "concept",
+      "grounded": "no_contradictions",
+      "grounding_discrepancies": [],
+      "grounding_type": "automatic",
+      "answer": "I can't load the AI tutor right now because GEMINI_API_KEY is not configured. Here is what I can tell you deterministically from the engine:\n\nCircuit: INVALID\nMissing: [{'from': 'encoder.out', 'to': 'scope.in'}, {'from': 'source.out', 'to': 'encoder.in'}]\nUnexpected: none\nscheme=manchester, transitions=1, dc_component=0.0000, levels=[-1.0, 1.0]\n\nAsk me to explain any of these numbers, and I'll explain them in pedagogical terms the moment the API key is configured.",
+      "confidence": 0.4,
+      "latency_ms": 31.01109992712736,
+      "http_status": 200,
+      "deterministic_oracle": {
+        "kind": "line_coding",
+        "scheme": "manchester",
+        "bits": [
+          1
+        ],
+        "samples_per_bit": 2,
+        "levels": [
+          -1.0,
+          1.0
+        ],
+        "dc_component": 0.0,
+        "transitions": 1
+      },
+      "retrieved_chunks": 5
+    },
+    {
+      "rank": 7,
+      "id": "c7",
+      "category": "concept",
+      "grounded": "no_contradictions",
+      "grounding_discrepancies": [],
+      "grounding_type": "automatic",
+      "answer": "I can't load the AI tutor right now because GEMINI_API_KEY is not configured. Here is what I can tell you deterministically from the engine:\n\nCircuit: INVALID\nMissing: [{'from': 'encoder.out', 'to': 'scope.in'}, {'from': 'source.out', 'to': 'encoder.in'}]\nUnexpected: none\nscheme=rz_unipolar, transitions=3, dc_component=0.3333, levels=[1.0, 0.0, 0.0, 0.0, 1.0, 0.0]\n\nAsk me to explain any of these numbers, and I'll explain them in pedagogical terms the moment the API key is configured.",
+      "confidence": 0.4,
+      "latency_ms": 32.10220020264387,
+      "http_status": 200,
+      "deterministic_oracle": {
+        "kind": "line_coding",
+        "scheme": "rz_unipolar",
+        "bits": [
+          1,
+          0,
+          1
+        ],
+        "samples_per_bit": 2,
+        "levels": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        "dc_component": 0.3333333333333333,
+        "transitions": 3
+      },
+      "retrieved_chunks": 5
+    },
+    {
+      "rank": 8,
+      "id": "c8",
+      "category": "concept",
+      "grounded": "no_contradictions",
+      "grounding_discrepancies": [],
+      "grounding_type": "automatic",
+      "answer": "I can't load the AI tutor right now because GEMINI_API_KEY is not configured. Here is what I can tell you deterministically from the engine:\n\nCircuit: INVALID\nMissing: [{'from': 'encoder.out', 'to': 'scope.in'}, {'from': 'source.out', 'to': 'encoder.in'}]\nUnexpected: none\nscheme=ami, transitions=0, dc_component=0.0000, levels=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0]\n\nAsk me to explain any of these numbers, and I'll explain them in pedagogical terms the moment the API key is configured.",
+      "confidence": 0.4,
+      "latency_ms": 26.43889980390668,
+      "http_status": 200,
+      "deterministic_oracle": {
+        "kind": "line_coding",
+        "scheme": "ami",
+        "bits": [
+          0,
+          0,
+          0
+        ],
+        "samples_per_bit": 2,
+        "levels": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "dc_component": 0.0,
+        "transitions": 0
+      },
+      "retrieved_chunks": 5
+    },
+    {
+      "rank": 9,
+      "id": "c9",
+      "category": "concept",
+      "grounded": "no_contradictions",
+      "grounding_discrepancies": [],
+      "grounding_type": "automatic",
+      "answer": "I can't load the AI tutor right now because GEMINI_API_KEY is not configured. Here is what I can tell you deterministically from the engine:\n\nCircuit: INVALID\nMissing: [{'from': 'encoder.out', 'to': 'scope.in'}, {'from': 'source.out', 'to': 'encoder.in'}]\nUnexpected: none\nscheme=nrz_unipolar, transitions=3, dc_component=0.5000, levels=[1.0, 1.0, 0.0, 0.0, 1.0, 1.0, 0.0, 0.0]\n\nAsk me to explain any of these numbers, and I'll explain them in pedagogical terms the moment the API key is configured.",
+      "confidence": 0.4,
+      "latency_ms": 4.9363998696208,
+      "http_status": 200,
+      "deterministic_oracle": {
+        "kind": "line_coding",
+        "scheme": "nrz_unipolar",
+        "bits": [
+          1,
+          0,
+          1,
+          0
+        ],
+        "samples_per_bit": 2,
+        "levels": [
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        "dc_component": 0.5,
+        "transitions": 3
+      },
+      "retrieved_chunks": 5
+    },
+    {
+      "rank": 10,
+      "id": "c10",
+      "category": "concept",
+      "grounded": "no_contradictions",
+      "grounding_discrepancies": [],
+      "grounding_type": "automatic",
+      "answer": "I can't load the AI tutor right now because GEMINI_API_KEY is not configured. Here is what I can tell you deterministically from the engine:\n\nCircuit: INVALID\nMissing: [{'from': 'encoder.out', 'to': 'scope.in'}, {'from': 'source.out', 'to': 'encoder.in'}]\nUnexpected: none\nscheme=nrz, transitions=2, dc_component=0.3333, levels=[1.0, 1.0, -1.0, -1.0, 1.0, 1.0]\n\nAsk me to explain any of these numbers, and I'll explain them in pedagogical terms the moment the API key is configured.",
+      "confidence": 0.4,
+      "latency_ms": 24.784000124782324,
+      "http_status": 200,
+      "deterministic_oracle": {
+        "kind": "line_coding",
+        "scheme": "nrz",
+        "bits": [
+          1,
+          0,
+          1
+        ],
+        "samples_per_bit": 2,
+        "levels": [
+          1.0,
+          1.0,
+          -1.0,
+          -1.0,
+          1.0,
+          1.0
+        ],
+        "dc_component": 0.3333333333333333,
+        "transitions": 2
+      },
+      "retrieved_chunks": 5
+    },
+    {
+      "rank": 11,
+      "id": "c11",
+      "category": "concept",
+      "grounded": "no_contradictions",
+      "grounding_discrepancies": [],
+      "grounding_type": "automatic",
+      "answer": "I can't load the AI tutor right now because GEMINI_API_KEY is not configured. Here is what I can tell you deterministically from the engine:\n\nCircuit: INVALID\nMissing: [{'from': 'encoder.out', 'to': 'scope.in'}, {'from': 'source.out', 'to': 'encoder.in'}]\nUnexpected: none\nscheme=manchester, transitions=6, dc_component=0.0000, levels=[-1.0, 1.0, 1.0, -1.0, -1.0, 1.0, -1.0, 1.0, 1.0, -1.0]\n\nAsk me to explain any of these numbers, and I'll explain them in pedagogical terms the moment the API key is configured.",
+      "confidence": 0.4,
+      "latency_ms": 29.73480010405183,
+      "http_status": 200,
+      "deterministic_oracle": {
+        "kind": "line_coding",
+        "scheme": "manchester",
+        "bits": [
+          1,
+          0,
+          1,
+          1,
+          0
+        ],
+        "samples_per_bit": 2,
+        "levels": [
+          -1.0,
+          1.0,
+          1.0,
+          -1.0,
+          -1.0,
+          1.0,
+          -1.0,
+          1.0,
+          1.0,
+          -1.0
+        ],
+        "dc_component": 0.0,
+        "transitions": 6
+      },
+      "retrieved_chunks": 5
+    },
+    {
+      "rank": 12,
+      "id": "c12",
+      "category": "concept",
+      "grounded": "no_contradictions",
+      "grounding_discrepancies": [],
+      "grounding_type": "automatic",
+      "answer": "I can't load the AI tutor right now because GEMINI_API_KEY is not configured. Here is what I can tell you deterministically from the engine:\n\nCircuit: INVALID\nMissing: [{'from': 'encoder.out', 'to': 'scope.in'}, {'from': 'source.out', 'to': 'encoder.in'}]\nUnexpected: none\nscheme=nrz, transitions=2, dc_component=0.2000, levels=[1.0, 1.0, 1.0, 1.0, -1.0, -1.0, -1.0, -1.0, 1.0, 1.0]\n\nAsk me to explain any of these numbers, and I'll explain them in pedagogical terms the moment the API key is configured.",
+      "confidence": 0.4,
+      "latency_ms": 4.035599995404482,
+      "http_status": 200,
+      "deterministic_oracle": {
+        "kind": "line_coding",
+        "scheme": "nrz",
+        "bits": [
+          1,
+          1,
+          0,
+          0,
+          1
+        ],
+        "samples_per_bit": 2,
+        "levels": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          -1.0,
+          -1.0,
+          -1.0,
+          -1.0,
+          1.0,
+          1.0
+        ],
+        "dc_component": 0.2,
+        "transitions": 2
+      },
+      "retrieved_chunks": 5
+    },
+    {
+      "rank": 13,
+      "id": "c13",
+      "category": "concept",
+      "grounded": "no_contradictions",
+      "grounding_discrepancies": [],
+      "grounding_type": "automatic",
+      "answer": "I can't load the AI tutor right now because GEMINI_API_KEY is not configured. Here is what I can tell you deterministically from the engine:\n\nCircuit: INVALID\nMissing: [{'from': 'encoder.out', 'to': 'scope.in'}, {'from': 'source.out', 'to': 'encoder.in'}]\nUnexpected: none\nscheme=ami, transitions=2, dc_component=0.0000, levels=[1.0, 1.0, 0.0, 0.0, -1.0, -1.0]\n\nAsk me to explain any of these numbers, and I'll explain them in pedagogical terms the moment the API key is configured.",
+      "confidence": 0.4,
+      "latency_ms": 4.395999945700169,
+      "http_status": 200,
+      "deterministic_oracle": {
+        "kind": "line_coding",
+        "scheme": "ami",
+        "bits": [
+          1,
+          0,
+          1
+        ],
+        "samples_per_bit": 2,
+        "levels": [
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          -1.0,
+          -1.0
+        ],
+        "dc_component": 0.0,
+        "transitions": 2
+      },
+      "retrieved_chunks": 5
+    },
+    {
+      "rank": 14,
+      "id": "c14",
+      "category": "concept",
+      "grounded": "no_contradictions",
+      "grounding_discrepancies": [],
+      "grounding_type": "automatic",
+      "answer": "I can't load the AI tutor right now because GEMINI_API_KEY is not configured. Here is what I can tell you deterministically from the engine:\n\nCircuit: INVALID\nMissing: [{'from': 'encoder.out', 'to': 'scope.in'}, {'from': 'source.out', 'to': 'encoder.in'}]\nUnexpected: none\nscheme=manchester, transitions=2, dc_component=0.0000, levels=[-1.0, 1.0, 1.0, -1.0]\n\nAsk me to explain any of these numbers, and I'll explain them in pedagogical terms the moment the API key is configured.",
+      "confidence": 0.4,
+      "latency_ms": 21.011500153690577,
+      "http_status": 200,
+      "deterministic_oracle": {
+        "kind": "line_coding",
+        "scheme": "manchester",
+        "bits": [
+          1,
+          0
+        ],
+        "samples_per_bit": 2,
+        "levels": [
+          -1.0,
+          1.0,
+          1.0,
+          -1.0
+        ],
+        "dc_component": 0.0,
+        "transitions": 2
+      },
+      "retrieved_chunks": 5
+    },
+    {
+      "rank": 15,
+      "id": "c15",
+      "category": "concept",
+      "grounded": "no_contradictions",
+      "grounding_discrepancies": [],
+      "grounding_type": "automatic",
+      "answer": "I can't load the AI tutor right now because GEMINI_API_KEY is not configured. Here is what I can tell you deterministically from the engine:\n\nCircuit: INVALID\nMissing: [{'from': 'encoder.out', 'to': 'scope.in'}, {'from': 'source.out', 'to': 'encoder.in'}]\nUnexpected: none\nscheme=nrz, transitions=2, dc_component=0.3333, levels=[1.0, 1.0, -1.0, -1.0, 1.0, 1.0]\n\nAsk me to explain any of these numbers, and I'll explain them in pedagogical terms the moment the API key is configured.",
+      "confidence": 0.4,
+      "latency_ms": 4.5091998763382435,
+      "http_status": 200,
+      "deterministic_oracle": {
+        "kind": "line_coding",
+        "scheme": "nrz",
+        "bits": [
+          1,
+          0,
+          1
+        ],
+        "samples_per_bit": 2,
+        "levels": [
+          1.0,
+          1.0,
+          -1.0,
+          -1.0,
+          1.0,
+          1.0
+        ],
+        "dc_component": 0.3333333333333333,
+        "transitions": 2
+      },
+      "retrieved_chunks": 5
+    },
+    {
+      "rank": 16,
+      "id": "w1",
+      "category": "wiring",
+      "grounded": "no_contradictions",
+      "grounding_discrepancies": [],
+      "grounding_type": "automatic",
+      "answer": "I can't load the AI tutor right now because GEMINI_API_KEY is not configured. Here is what I can tell you deterministically from the engine:\n\nCircuit: INVALID\nMissing: [{'from': 'encoder.out', 'to': 'scope.in'}]\nUnexpected: none\nscheme=ami, transitions=2, dc_component=0.0000, levels=[1.0, 1.0, 0.0, 0.0, -1.0, -1.0]\n\nAsk me to explain any of these numbers, and I'll explain them in pedagogical terms the moment the API key is configured.",
+      "confidence": 0.4,
+      "latency_ms": 24.417400360107422,
+      "http_status": 200,
+      "deterministic_oracle": {
+        "kind": "line_coding",
+        "scheme": "ami",
+        "bits": [
+          1,
+          0,
+          1
+        ],
+        "samples_per_bit": 2,
+        "levels": [
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          -1.0,
+          -1.0
+        ],
+        "dc_component": 0.0,
+        "transitions": 2
+      },
+      "retrieved_chunks": 0
+    },
+    {
+      "rank": 17,
+      "id": "w2",
+      "category": "wiring",
+      "grounded": "no_contradictions",
+      "grounding_discrepancies": [],
+      "grounding_type": "automatic",
+      "answer": "I can't load the AI tutor right now because GEMINI_API_KEY is not configured. Here is what I can tell you deterministically from the engine:\n\nCircuit: INVALID\nMissing: [{'from': 'encoder.out', 'to': 'scope.in'}]\nUnexpected: [{'from': 'source.out', 'to': 'scope.in'}]\nscheme=manchester, transitions=3, dc_component=0.0000, levels=[-1.0, 1.0, 1.0, -1.0, -1.0, 1.0]\n\nAsk me to explain any of these numbers, and I'll explain them in pedagogical terms the moment the API key is configured.",
+      "confidence": 0.4,
+      "latency_ms": 3.9499998092651367,
+      "http_status": 200,
+      "deterministic_oracle": {
+        "kind": "line_coding",
+        "scheme": "manchester",
+        "bits": [
+          1,
+          0,
+          1
+        ],
+        "samples_per_bit": 2,
+        "levels": [
+          -1.0,
+          1.0,
+          1.0,
+          -1.0,
+          -1.0,
+          1.0
+        ],
+        "dc_component": 0.0,
+        "transitions": 3
+      },
+      "retrieved_chunks": 0
+    },
+    {
+      "rank": 18,
+      "id": "w3",
+      "category": "wiring",
+      "grounded": "no_contradictions",
+      "grounding_discrepancies": [],
+      "grounding_type": "automatic",
+      "answer": "I can't load the AI tutor right now because GEMINI_API_KEY is not configured. Here is what I can tell you deterministically from the engine:\n\nCircuit: INVALID\nMissing: [{'from': 'source.out', 'to': 'encoder.in'}]\nUnexpected: none\nscheme=ami, transitions=2, dc_component=0.0000, levels=[1.0, 1.0, 0.0, 0.0, -1.0, -1.0]\n\nAsk me to explain any of these numbers, and I'll explain them in pedagogical terms the moment the API key is configured.",
+      "confidence": 0.4,
+      "latency_ms": 26.758399792015553,
+      "http_status": 200,
+      "deterministic_oracle": {
+        "kind": "line_coding",
+        "scheme": "ami",
+        "bits": [
+          1,
+          0,
+          1
+        ],
+        "samples_per_bit": 2,
+        "levels": [
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          -1.0,
+          -1.0
+        ],
+        "dc_component": 0.0,
+        "transitions": 2
+      },
+      "retrieved_chunks": 0
+    },
+    {
+      "rank": 19,
+      "id": "w4",
+      "category": "wiring",
+      "grounded": "no_contradictions",
+      "grounding_discrepancies": [],
+      "grounding_type": "automatic",
+      "answer": "I can't load the AI tutor right now because GEMINI_API_KEY is not configured. Here is what I can tell you deterministically from the engine:\n\nCircuit: INVALID\nMissing: [{'from': 'encoder.out', 'to': 'scope.in'}]\nUnexpected: none\nscheme=nrz, transitions=2, dc_component=0.3333, levels=[1.0, 1.0, -1.0, -1.0, 1.0, 1.0]\n\nAsk me to explain any of these numbers, and I'll explain them in pedagogical terms the moment the API key is configured.",
+      "confidence": 0.4,
+      "latency_ms": 3.631200175732374,
+      "http_status": 200,
+      "deterministic_oracle": {
+        "kind": "line_coding",
+        "scheme": "nrz",
+        "bits": [
+          1,
+          0,
+          1
+        ],
+        "samples_per_bit": 2,
+        "levels": [
+          1.0,
+          1.0,
+          -1.0,
+          -1.0,
+          1.0,
+          1.0
+        ],
+        "dc_component": 0.3333333333333333,
+        "transitions": 2
+      },
+      "retrieved_chunks": 0
+    },
+    {
+      "rank": 20,
+      "id": "w5",
+      "category": "wiring",
+      "grounded": "no_contradictions",
+      "grounding_discrepancies": [],
+      "grounding_type": "automatic",
+      "answer": "I can't load the AI tutor right now because GEMINI_API_KEY is not configured. Here is what I can tell you deterministically from the engine:\n\nCircuit: INVALID\nMissing: [{'from': 'encoder.out', 'to': 'scope.in'}, {'from': 'source.out', 'to': 'encoder.in'}]\nUnexpected: [{'from': 'encoder.in', 'to': 'encoder.out'}]\nscheme=ami, transitions=2, dc_component=0.0000, levels=[1.0, 1.0, 0.0, 0.0, -1.0, -1.0]\n\nAsk me to explain any of these numbers, and I'll explain them in pedagogical terms the moment the API key is configured.",
+      "confidence": 0.4,
+      "latency_ms": 27.817999944090843,
+      "http_status": 200,
+      "deterministic_oracle": {
+        "kind": "line_coding",
+        "scheme": "ami",
+        "bits": [
+          1,
+          0,
+          1
+        ],
+        "samples_per_bit": 2,
+        "levels": [
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          -1.0,
+          -1.0
+        ],
+        "dc_component": 0.0,
+        "transitions": 2
+      },
+      "retrieved_chunks": 0
+    },
+    {
+      "rank": 21,
+      "id": "w6",
+      "category": "wiring",
+      "grounded": "no_contradictions",
+      "grounding_discrepancies": [],
+      "grounding_type": "automatic",
+      "answer": "I can't load the AI tutor right now because GEMINI_API_KEY is not configured. Here is what I can tell you deterministically from the engine:\n\nCircuit: VALID\nMissing: none\nUnexpected: none\nscheme=manchester, transitions=6, dc_component=0.0000, levels=[-1.0, 1.0, 1.0, -1.0, -1.0, 1.0, -1.0, 1.0, 1.0, -1.0]\n\nAsk me to explain any of these numbers, and I'll explain them in pedagogical terms the moment the API key is configured.",
+      "confidence": 0.4,
+      "latency_ms": 3.561699762940407,
+      "http_status": 200,
+      "deterministic_oracle": {
+        "kind": "line_coding",
+        "scheme": "manchester",
+        "bits": [
+          1,
+          0,
+          1,
+          1,
+          0
+        ],
+        "samples_per_bit": 2,
+        "levels": [
+          -1.0,
+          1.0,
+          1.0,
+          -1.0,
+          -1.0,
+          1.0,
+          -1.0,
+          1.0,
+          1.0,
+          -1.0
+        ],
+        "dc_component": 0.0,
+        "transitions": 6
+      },
+      "retrieved_chunks": 0
+    },
+    {
+      "rank": 22,
+      "id": "w7",
+      "category": "wiring",
+      "grounded": "no_contradictions",
+      "grounding_discrepancies": [],
+      "grounding_type": "automatic",
+      "answer": "I can't load the AI tutor right now because GEMINI_API_KEY is not configured. Here is what I can tell you deterministically from the engine:\n\nCircuit: INVALID\nMissing: [{'from': 'source.out', 'to': 'encoder.in'}]\nUnexpected: none\nscheme=ami, transitions=2, dc_component=0.0000, levels=[1.0, 1.0, 0.0, 0.0, -1.0, -1.0]\n\nAsk me to explain any of these numbers, and I'll explain them in pedagogical terms the moment the API key is configured.",
+      "confidence": 0.4,
+      "latency_ms": 26.11899981275201,
+      "http_status": 200,
+      "deterministic_oracle": {
+        "kind": "line_coding",
+        "scheme": "ami",
+        "bits": [
+          1,
+          0,
+          1
+        ],
+        "samples_per_bit": 2,
+        "levels": [
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          -1.0,
+          -1.0
+        ],
+        "dc_component": 0.0,
+        "transitions": 2
+      },
+      "retrieved_chunks": 0
+    },
+    {
+      "rank": 23,
+      "id": "w8",
+      "category": "wiring",
+      "grounded": "no_contradictions",
+      "grounding_discrepancies": [],
+      "grounding_type": "automatic",
+      "answer": "I can't load the AI tutor right now because GEMINI_API_KEY is not configured. Here is what I can tell you deterministically from the engine:\n\nCircuit: INVALID\nMissing: [{'from': 'encoder.out', 'to': 'scope.in'}, {'from': 'source.out', 'to': 'encoder.in'}]\nUnexpected: [{'from': 'scope.in', 'to': 'encoder.out'}]\nscheme=nrz, transitions=2, dc_component=0.3333, levels=[1.0, 1.0, -1.0, -1.0, 1.0, 1.0]\n\nAsk me to explain any of these numbers, and I'll explain them in pedagogical terms the moment the API key is configured.",
+      "confidence": 0.4,
+      "latency_ms": 14.519300311803818,
+      "http_status": 200,
+      "deterministic_oracle": {
+        "kind": "line_coding",
+        "scheme": "nrz",
+        "bits": [
+          1,
+          0,
+          1
+        ],
+        "samples_per_bit": 2,
+        "levels": [
+          1.0,
+          1.0,
+          -1.0,
+          -1.0,
+          1.0,
+          1.0
+        ],
+        "dc_component": 0.3333333333333333,
+        "transitions": 2
+      },
+      "retrieved_chunks": 0
+    },
+    {
+      "rank": 24,
+      "id": "w9",
+      "category": "wiring",
+      "grounded": "no_contradictions",
+      "grounding_discrepancies": [],
+      "grounding_type": "automatic",
+      "answer": "I can't load the AI tutor right now because GEMINI_API_KEY is not configured. Here is what I can tell you deterministically from the engine:\n\nCircuit: INVALID\nMissing: [{'from': 'encoder.out', 'to': 'scope.in'}, {'from': 'source.out', 'to': 'encoder.in'}]\nUnexpected: [{'from': 'source.out', 'to': 'scope.in'}]\nscheme=ami, transitions=2, dc_component=0.0000, levels=[1.0, 1.0, 0.0, 0.0, -1.0, -1.0]\n\nAsk me to explain any of these numbers, and I'll explain them in pedagogical terms the moment the API key is configured.",
+      "confidence": 0.4,
+      "latency_ms": 3.980799578130245,
+      "http_status": 200,
+      "deterministic_oracle": {
+        "kind": "line_coding",
+        "scheme": "ami",
+        "bits": [
+          1,
+          0,
+          1
+        ],
+        "samples_per_bit": 2,
+        "levels": [
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          -1.0,
+          -1.0
+        ],
+        "dc_component": 0.0,
+        "transitions": 2
+      },
+      "retrieved_chunks": 0
+    },
+    {
+      "rank": 25,
+      "id": "w10",
+      "category": "wiring",
+      "grounded": "no_contradictions",
+      "grounding_discrepancies": [],
+      "grounding_type": "automatic",
+      "answer": "I can't load the AI tutor right now because GEMINI_API_KEY is not configured. Here is what I can tell you deterministically from the engine:\n\nCircuit: INVALID\nMissing: [{'from': 'encoder.out', 'to': 'scope.in'}]\nUnexpected: none\nscheme=nrz_unipolar, transitions=3, dc_component=0.5000, levels=[1.0, 1.0, 0.0, 0.0, 1.0, 1.0, 0.0, 0.0]\n\nAsk me to explain any of these numbers, and I'll explain them in pedagogical terms the moment the API key is configured.",
+      "confidence": 0.4,
+      "latency_ms": 3.561799880117178,
+      "http_status": 200,
+      "deterministic_oracle": {
+        "kind": "line_coding",
+        "scheme": "nrz_unipolar",
+        "bits": [
+          1,
+          0,
+          1,
+          0
+        ],
+        "samples_per_bit": 2,
+        "levels": [
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        "dc_component": 0.5,
+        "transitions": 3
+      },
+      "retrieved_chunks": 0
+    },
+    {
+      "rank": 26,
+      "id": "f1",
+      "category": "waveform",
+      "grounded": "no_contradictions",
+      "grounding_discrepancies": [],
+      "grounding_type": "automatic",
+      "answer": "I can't load the AI tutor right now because GEMINI_API_KEY is not configured. Here is what I can tell you deterministically from the engine:\n\nCircuit: VALID\nMissing: none\nUnexpected: none\nscheme=ami, transitions=4, dc_component=0.2000, levels=[1.0, 1.0, 0.0, 0.0, -1.0, -1.0, 1.0, 1.0, 0.0, 0.0]\n\nAsk me to explain any of these numbers, and I'll explain them in pedagogical terms the moment the API key is configured.",
+      "confidence": 0.4,
+      "latency_ms": 3.52279981598258,
+      "http_status": 200,
+      "deterministic_oracle": {
+        "kind": "line_coding",
+        "scheme": "ami",
+        "bits": [
+          1,
+          0,
+          1,
+          1,
+          0
+        ],
+        "samples_per_bit": 2,
+        "levels": [
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          -1.0,
+          -1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        "dc_component": 0.2,
+        "transitions": 4
+      },
+      "retrieved_chunks": 5
+    },
+    {
+      "rank": 27,
+      "id": "f2",
+      "category": "waveform",
+      "grounded": "no_contradictions",
+      "grounding_discrepancies": [],
+      "grounding_type": "automatic",
+      "answer": "I can't load the AI tutor right now because GEMINI_API_KEY is not configured. Here is what I can tell you deterministically from the engine:\n\nCircuit: INVALID\nMissing: [{'from': 'encoder.out', 'to': 'scope.in'}, {'from': 'source.out', 'to': 'encoder.in'}]\nUnexpected: none\nscheme=manchester, transitions=2, dc_component=0.0000, levels=[-1.0, 1.0, 1.0, -1.0]\n\nAsk me to explain any of these numbers, and I'll explain them in pedagogical terms the moment the API key is configured.",
+      "confidence": 0.4,
+      "latency_ms": 18.068799749016762,
+      "http_status": 200,
+      "deterministic_oracle": {
+        "kind": "line_coding",
+        "scheme": "manchester",
+        "bits": [
+          1,
+          0
+        ],
+        "samples_per_bit": 2,
+        "levels": [
+          -1.0,
+          1.0,
+          1.0,
+          -1.0
+        ],
+        "dc_component": 0.0,
+        "transitions": 2
+      },
+      "retrieved_chunks": 5
+    },
+    {
+      "rank": 28,
+      "id": "f3",
+      "category": "waveform",
+      "grounded": "no_contradictions",
+      "grounding_discrepancies": [],
+      "grounding_type": "automatic",
+      "answer": "I can't load the AI tutor right now because GEMINI_API_KEY is not configured. Here is what I can tell you deterministically from the engine:\n\nCircuit: INVALID\nMissing: [{'from': 'encoder.out', 'to': 'scope.in'}, {'from': 'source.out', 'to': 'encoder.in'}]\nUnexpected: none\nscheme=ami, transitions=4, dc_component=0.2000, levels=[1.0, 1.0, 0.0, 0.0, -1.0, -1.0, 1.0, 1.0, 0.0, 0.0]\n\nAsk me to explain any of these numbers, and I'll explain them in pedagogical terms the moment the API key is configured.",
+      "confidence": 0.4,
+      "latency_ms": 4.167799837887287,
+      "http_status": 200,
+      "deterministic_oracle": {
+        "kind": "line_coding",
+        "scheme": "ami",
+        "bits": [
+          1,
+          0,
+          1,
+          1,
+          0
+        ],
+        "samples_per_bit": 2,
+        "levels": [
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          -1.0,
+          -1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        "dc_component": 0.2,
+        "transitions": 4
+      },
+      "retrieved_chunks": 5
+    },
+    {
+      "rank": 29,
+      "id": "f4",
+      "category": "waveform",
+      "grounded": "no_contradictions",
+      "grounding_discrepancies": [],
+      "grounding_type": "automatic",
+      "answer": "I can't load the AI tutor right now because GEMINI_API_KEY is not configured. Here is what I can tell you deterministically from the engine:\n\nCircuit: INVALID\nMissing: [{'from': 'encoder.out', 'to': 'scope.in'}, {'from': 'source.out', 'to': 'encoder.in'}]\nUnexpected: none\nscheme=nrz_unipolar, transitions=3, dc_component=0.5000, levels=[1.0, 1.0, 0.0, 0.0, 1.0, 1.0, 0.0, 0.0]\n\nAsk me to explain any of these numbers, and I'll explain them in pedagogical terms the moment the API key is configured.",
+      "confidence": 0.4,
+      "latency_ms": 26.668000034987926,
+      "http_status": 200,
+      "deterministic_oracle": {
+        "kind": "line_coding",
+        "scheme": "nrz_unipolar",
+        "bits": [
+          1,
+          0,
+          1,
+          0
+        ],
+        "samples_per_bit": 2,
+        "levels": [
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        "dc_component": 0.5,
+        "transitions": 3
+      },
+      "retrieved_chunks": 5
+    },
+    {
+      "rank": 30,
+      "id": "f5",
+      "category": "waveform",
+      "grounded": "no_contradictions",
+      "grounding_discrepancies": [],
+      "grounding_type": "automatic",
+      "answer": "I can't load the AI tutor right now because GEMINI_API_KEY is not configured. Here is what I can tell you deterministically from the engine:\n\nCircuit: INVALID\nMissing: [{'from': 'encoder.out', 'to': 'scope.in'}, {'from': 'source.out', 'to': 'encoder.in'}]\nUnexpected: none\nscheme=manchester, transitions=3, dc_component=0.0000, levels=[-1.0, 1.0, 1.0, -1.0, -1.0, 1.0]\n\nAsk me to explain any of these numbers, and I'll explain them in pedagogical terms the moment the API key is configured.",
+      "confidence": 0.4,
+      "latency_ms": 4.094600211828947,
+      "http_status": 200,
+      "deterministic_oracle": {
+        "kind": "line_coding",
+        "scheme": "manchester",
+        "bits": [
+          1,
+          0,
+          1
+        ],
+        "samples_per_bit": 2,
+        "levels": [
+          -1.0,
+          1.0,
+          1.0,
+          -1.0,
+          -1.0,
+          1.0
+        ],
+        "dc_component": 0.0,
+        "transitions": 3
+      },
+      "retrieved_chunks": 5
+    },
+    {
+      "rank": 31,
+      "id": "f6",
+      "category": "waveform",
+      "grounded": "no_contradictions",
+      "grounding_discrepancies": [],
+      "grounding_type": "automatic",
+      "answer": "I can't load the AI tutor right now because GEMINI_API_KEY is not configured. Here is what I can tell you deterministically from the engine:\n\nCircuit: INVALID\nMissing: [{'from': 'encoder.out', 'to': 'scope.in'}, {'from': 'source.out', 'to': 'encoder.in'}]\nUnexpected: none\nscheme=nrz, transitions=0, dc_component=1.0000, levels=[1.0, 1.0, 1.0, 1.0, 1.0, 1.0]\n\nAsk me to explain any of these numbers, and I'll explain them in pedagogical terms the moment the API key is configured.",
+      "confidence": 0.4,
+      "latency_ms": 25.832700077444315,
+      "http_status": 200,
+      "deterministic_oracle": {
+        "kind": "line_coding",
+        "scheme": "nrz",
+        "bits": [
+          1,
+          1,
+          1
+        ],
+        "samples_per_bit": 2,
+        "levels": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          1.0
+        ],
+        "dc_component": 1.0,
+        "transitions": 0
+      },
+      "retrieved_chunks": 5
+    },
+    {
+      "rank": 32,
+      "id": "f7",
+      "category": "waveform",
+      "grounded": "no_contradictions",
+      "grounding_discrepancies": [],
+      "grounding_type": "automatic",
+      "answer": "I can't load the AI tutor right now because GEMINI_API_KEY is not configured. Here is what I can tell you deterministically from the engine:\n\nCircuit: INVALID\nMissing: [{'from': 'encoder.out', 'to': 'scope.in'}, {'from': 'source.out', 'to': 'encoder.in'}]\nUnexpected: none\nscheme=ami, transitions=4, dc_component=0.2000, levels=[1.0, 1.0, 0.0, 0.0, -1.0, -1.0, 1.0, 1.0, 0.0, 0.0]\n\nAsk me to explain any of these numbers, and I'll explain them in pedagogical terms the moment the API key is configured.",
+      "confidence": 0.4,
+      "latency_ms": 4.411700181663036,
+      "http_status": 200,
+      "deterministic_oracle": {
+        "kind": "line_coding",
+        "scheme": "ami",
+        "bits": [
+          1,
+          0,
+          1,
+          1,
+          0
+        ],
+        "samples_per_bit": 2,
+        "levels": [
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          -1.0,
+          -1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        "dc_component": 0.2,
+        "transitions": 4
+      },
+      "retrieved_chunks": 5
+    },
+    {
+      "rank": 33,
+      "id": "f8",
+      "category": "waveform",
+      "grounded": "no_contradictions",
+      "grounding_discrepancies": [],
+      "grounding_type": "automatic",
+      "answer": "I can't load the AI tutor right now because GEMINI_API_KEY is not configured. Here is what I can tell you deterministically from the engine:\n\nCircuit: INVALID\nMissing: [{'from': 'encoder.out', 'to': 'scope.in'}, {'from': 'source.out', 'to': 'encoder.in'}]\nUnexpected: none\nscheme=manchester, transitions=2, dc_component=0.0000, levels=[-1.0, 1.0, 1.0, -1.0]\n\nAsk me to explain any of these numbers, and I'll explain them in pedagogical terms the moment the API key is configured.",
+      "confidence": 0.4,
+      "latency_ms": 4.2941998690366745,
+      "http_status": 200,
+      "deterministic_oracle": {
+        "kind": "line_coding",
+        "scheme": "manchester",
+        "bits": [
+          1,
+          0
+        ],
+        "samples_per_bit": 2,
+        "levels": [
+          -1.0,
+          1.0,
+          1.0,
+          -1.0
+        ],
+        "dc_component": 0.0,
+        "transitions": 2
+      },
+      "retrieved_chunks": 5
+    },
+    {
+      "rank": 34,
+      "id": "f9",
+      "category": "waveform",
+      "grounded": "no_contradictions",
+      "grounding_discrepancies": [],
+      "grounding_type": "automatic",
+      "answer": "I can't load the AI tutor right now because GEMINI_API_KEY is not configured. Here is what I can tell you deterministically from the engine:\n\nCircuit: INVALID\nMissing: [{'from': 'encoder.out', 'to': 'scope.in'}, {'from': 'source.out', 'to': 'encoder.in'}]\nUnexpected: none\nscheme=nrz, transitions=2, dc_component=0.2000, levels=[1.0, 1.0, 1.0, 1.0, -1.0, -1.0, -1.0, -1.0, 1.0, 1.0]\n\nAsk me to explain any of these numbers, and I'll explain them in pedagogical terms the moment the API key is configured.",
+      "confidence": 0.4,
+      "latency_ms": 20.450699608772993,
+      "http_status": 200,
+      "deterministic_oracle": {
+        "kind": "line_coding",
+        "scheme": "nrz",
+        "bits": [
+          1,
+          1,
+          0,
+          0,
+          1
+        ],
+        "samples_per_bit": 2,
+        "levels": [
+          1.0,
+          1.0,
+          1.0,
+          1.0,
+          -1.0,
+          -1.0,
+          -1.0,
+          -1.0,
+          1.0,
+          1.0
+        ],
+        "dc_component": 0.2,
+        "transitions": 2
+      },
+      "retrieved_chunks": 5
+    },
+    {
+      "rank": 35,
+      "id": "f10",
+      "category": "waveform",
+      "grounded": "no_contradictions",
+      "grounding_discrepancies": [],
+      "grounding_type": "automatic",
+      "answer": "I can't load the AI tutor right now because GEMINI_API_KEY is not configured. Here is what I can tell you deterministically from the engine:\n\nCircuit: INVALID\nMissing: [{'from': 'encoder.out', 'to': 'scope.in'}, {'from': 'source.out', 'to': 'encoder.in'}]\nUnexpected: none\nscheme=rz_unipolar, transitions=3, dc_component=0.3333, levels=[1.0, 0.0, 0.0, 0.0, 1.0, 0.0]\n\nAsk me to explain any of these numbers, and I'll explain them in pedagogical terms the moment the API key is configured.",
+      "confidence": 0.4,
+      "latency_ms": 15.437399968504906,
+      "http_status": 200,
+      "deterministic_oracle": {
+        "kind": "line_coding",
+        "scheme": "rz_unipolar",
+        "bits": [
+          1,
+          0,
+          1
+        ],
+        "samples_per_bit": 2,
+        "levels": [
+          1.0,
+          0.0,
+          0.0,
+          0.0,
+          1.0,
+          0.0
+        ],
+        "dc_component": 0.3333333333333333,
+        "transitions": 3
+      },
+      "retrieved_chunks": 5
+    },
+    {
+      "rank": 36,
+      "id": "m1",
+      "category": "misconception",
+      "grounded": "no_contradictions",
+      "grounding_discrepancies": [],
+      "grounding_type": "automatic",
+      "answer": "I can't load the AI tutor right now because GEMINI_API_KEY is not configured. Here is what I can tell you deterministically from the engine:\n\nCircuit: INVALID\nMissing: [{'from': 'encoder.out', 'to': 'scope.in'}, {'from': 'source.out', 'to': 'encoder.in'}]\nUnexpected: none\nscheme=ami, transitions=4, dc_component=0.2000, levels=[1.0, 1.0, 0.0, 0.0, -1.0, -1.0, 1.0, 1.0, 0.0, 0.0]\n\nAsk me to explain any of these numbers, and I'll explain them in pedagogical terms the moment the API key is configured.",
+      "confidence": 0.4,
+      "latency_ms": 14.589000027626753,
+      "http_status": 200,
+      "deterministic_oracle": {
+        "kind": "line_coding",
+        "scheme": "ami",
+        "bits": [
+          1,
+          0,
+          1,
+          1,
+          0
+        ],
+        "samples_per_bit": 2,
+        "levels": [
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          -1.0,
+          -1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        "dc_component": 0.2,
+        "transitions": 4
+      },
+      "retrieved_chunks": 5
+    },
+    {
+      "rank": 37,
+      "id": "m2",
+      "category": "misconception",
+      "grounded": "no_contradictions",
+      "grounding_discrepancies": [],
+      "grounding_type": "automatic",
+      "answer": "I can't load the AI tutor right now because GEMINI_API_KEY is not configured. Here is what I can tell you deterministically from the engine:\n\nCircuit: INVALID\nMissing: [{'from': 'encoder.out', 'to': 'scope.in'}, {'from': 'source.out', 'to': 'encoder.in'}]\nUnexpected: none\nscheme=nrz, transitions=3, dc_component=0.0000, levels=[1.0, 1.0, -1.0, -1.0, 1.0, 1.0, -1.0, -1.0]\n\nAsk me to explain any of these numbers, and I'll explain them in pedagogical terms the moment the API key is configured.",
+      "confidence": 0.4,
+      "latency_ms": 15.218599699437618,
+      "http_status": 200,
+      "deterministic_oracle": {
+        "kind": "line_coding",
+        "scheme": "nrz",
+        "bits": [
+          1,
+          0,
+          1,
+          0
+        ],
+        "samples_per_bit": 2,
+        "levels": [
+          1.0,
+          1.0,
+          -1.0,
+          -1.0,
+          1.0,
+          1.0,
+          -1.0,
+          -1.0
+        ],
+        "dc_component": 0.0,
+        "transitions": 3
+      },
+      "retrieved_chunks": 5
+    },
+    {
+      "rank": 38,
+      "id": "m3",
+      "category": "misconception",
+      "grounded": "no_contradictions",
+      "grounding_discrepancies": [],
+      "grounding_type": "automatic",
+      "answer": "I can't load the AI tutor right now because GEMINI_API_KEY is not configured. Here is what I can tell you deterministically from the engine:\n\nCircuit: INVALID\nMissing: [{'from': 'encoder.out', 'to': 'scope.in'}, {'from': 'source.out', 'to': 'encoder.in'}]\nUnexpected: none\nscheme=manchester, transitions=2, dc_component=0.0000, levels=[-1.0, 1.0, 1.0, -1.0]\n\nAsk me to explain any of these numbers, and I'll explain them in pedagogical terms the moment the API key is configured.",
+      "confidence": 0.4,
+      "latency_ms": 4.162699915468693,
+      "http_status": 200,
+      "deterministic_oracle": {
+        "kind": "line_coding",
+        "scheme": "manchester",
+        "bits": [
+          1,
+          0
+        ],
+        "samples_per_bit": 2,
+        "levels": [
+          -1.0,
+          1.0,
+          1.0,
+          -1.0
+        ],
+        "dc_component": 0.0,
+        "transitions": 2
+      },
+      "retrieved_chunks": 5
+    },
+    {
+      "rank": 39,
+      "id": "m4",
+      "category": "misconception",
+      "grounded": "no_contradictions",
+      "grounding_discrepancies": [],
+      "grounding_type": "automatic",
+      "answer": "I can't load the AI tutor right now because GEMINI_API_KEY is not configured. Here is what I can tell you deterministically from the engine:\n\nCircuit: INVALID\nMissing: [{'from': 'encoder.out', 'to': 'scope.in'}, {'from': 'source.out', 'to': 'encoder.in'}]\nUnexpected: none\nscheme=ami, transitions=0, dc_component=0.0000, levels=[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]\n\nAsk me to explain any of these numbers, and I'll explain them in pedagogical terms the moment the API key is configured.",
+      "confidence": 0.4,
+      "latency_ms": 25.538699701428413,
+      "http_status": 200,
+      "deterministic_oracle": {
+        "kind": "line_coding",
+        "scheme": "ami",
+        "bits": [
+          0,
+          0,
+          0,
+          0
+        ],
+        "samples_per_bit": 2,
+        "levels": [
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0,
+          0.0
+        ],
+        "dc_component": 0.0,
+        "transitions": 0
+      },
+      "retrieved_chunks": 5
+    },
+    {
+      "rank": 40,
+      "id": "m5",
+      "category": "misconception",
+      "grounded": "no_contradictions",
+      "grounding_discrepancies": [],
+      "grounding_type": "automatic",
+      "answer": "I can't load the AI tutor right now because GEMINI_API_KEY is not configured. Here is what I can tell you deterministically from the engine:\n\nCircuit: INVALID\nMissing: [{'from': 'encoder.out', 'to': 'scope.in'}, {'from': 'source.out', 'to': 'encoder.in'}]\nUnexpected: none\nscheme=nrz, transitions=3, dc_component=0.0000, levels=[1.0, 1.0, -1.0, -1.0, 1.0, 1.0, -1.0, -1.0]\n\nAsk me to explain any of these numbers, and I'll explain them in pedagogical terms the moment the API key is configured.",
+      "confidence": 0.4,
+      "latency_ms": 15.944999642670155,
+      "http_status": 200,
+      "deterministic_oracle": {
+        "kind": "line_coding",
+        "scheme": "nrz",
+        "bits": [
+          1,
+          0,
+          1,
+          0
+        ],
+        "samples_per_bit": 2,
+        "levels": [
+          1.0,
+          1.0,
+          -1.0,
+          -1.0,
+          1.0,
+          1.0,
+          -1.0,
+          -1.0
+        ],
+        "dc_component": 0.0,
+        "transitions": 3
+      },
+      "retrieved_chunks": 5
+    },
+    {
+      "rank": 41,
+      "id": "m6",
+      "category": "misconception",
+      "grounded": "no_contradictions",
+      "grounding_discrepancies": [],
+      "grounding_type": "automatic",
+      "answer": "I can't load the AI tutor right now because GEMINI_API_KEY is not configured. Here is what I can tell you deterministically from the engine:\n\nCircuit: INVALID\nMissing: [{'from': 'encoder.out', 'to': 'scope.in'}, {'from': 'source.out', 'to': 'encoder.in'}]\nUnexpected: none\nscheme=nrz_unipolar, transitions=3, dc_component=0.5000, levels=[1.0, 1.0, 0.0, 0.0, 1.0, 1.0, 0.0, 0.0]\n\nAsk me to explain any of these numbers, and I'll explain them in pedagogical terms the moment the API key is configured.",
+      "confidence": 0.4,
+      "latency_ms": 6.368400063365698,
+      "http_status": 200,
+      "deterministic_oracle": {
+        "kind": "line_coding",
+        "scheme": "nrz_unipolar",
+        "bits": [
+          1,
+          0,
+          1,
+          0
+        ],
+        "samples_per_bit": 2,
+        "levels": [
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        "dc_component": 0.5,
+        "transitions": 3
+      },
+      "retrieved_chunks": 5
+    },
+    {
+      "rank": 42,
+      "id": "m7",
+      "category": "misconception",
+      "grounded": "no_contradictions",
+      "grounding_discrepancies": [],
+      "grounding_type": "automatic",
+      "answer": "I can't load the AI tutor right now because GEMINI_API_KEY is not configured. Here is what I can tell you deterministically from the engine:\n\nCircuit: INVALID\nMissing: [{'from': 'encoder.out', 'to': 'scope.in'}, {'from': 'source.out', 'to': 'encoder.in'}]\nUnexpected: none\nscheme=manchester, transitions=2, dc_component=0.0000, levels=[-1.0, 1.0, 1.0, -1.0]\n\nAsk me to explain any of these numbers, and I'll explain them in pedagogical terms the moment the API key is configured.",
+      "confidence": 0.4,
+      "latency_ms": 21.725399885326624,
+      "http_status": 200,
+      "deterministic_oracle": {
+        "kind": "line_coding",
+        "scheme": "manchester",
+        "bits": [
+          1,
+          0
+        ],
+        "samples_per_bit": 2,
+        "levels": [
+          -1.0,
+          1.0,
+          1.0,
+          -1.0
+        ],
+        "dc_component": 0.0,
+        "transitions": 2
+      },
+      "retrieved_chunks": 5
+    },
+    {
+      "rank": 43,
+      "id": "m8",
+      "category": "misconception",
+      "grounded": "no_contradictions",
+      "grounding_discrepancies": [],
+      "grounding_type": "automatic",
+      "answer": "I can't load the AI tutor right now because GEMINI_API_KEY is not configured. Here is what I can tell you deterministically from the engine:\n\nCircuit: INVALID\nMissing: [{'from': 'encoder.out', 'to': 'scope.in'}, {'from': 'source.out', 'to': 'encoder.in'}]\nUnexpected: none\nscheme=nrz_unipolar, transitions=2, dc_component=0.6667, levels=[1.0, 1.0, 0.0, 0.0, 1.0, 1.0]\n\nAsk me to explain any of these numbers, and I'll explain them in pedagogical terms the moment the API key is configured.",
+      "confidence": 0.4,
+      "latency_ms": 16.346599906682968,
+      "http_status": 200,
+      "deterministic_oracle": {
+        "kind": "line_coding",
+        "scheme": "nrz_unipolar",
+        "bits": [
+          1,
+          0,
+          1
+        ],
+        "samples_per_bit": 2,
+        "levels": [
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0
+        ],
+        "dc_component": 0.6666666666666666,
+        "transitions": 2
+      },
+      "retrieved_chunks": 5
+    },
+    {
+      "rank": 44,
+      "id": "m9",
+      "category": "misconception",
+      "grounded": "no_contradictions",
+      "grounding_discrepancies": [],
+      "grounding_type": "automatic",
+      "answer": "I can't load the AI tutor right now because GEMINI_API_KEY is not configured. Here is what I can tell you deterministically from the engine:\n\nCircuit: INVALID\nMissing: [{'from': 'encoder.out', 'to': 'scope.in'}, {'from': 'source.out', 'to': 'encoder.in'}]\nUnexpected: none\nscheme=ami, transitions=4, dc_component=0.2000, levels=[1.0, 1.0, 0.0, 0.0, -1.0, -1.0, 1.0, 1.0, 0.0, 0.0]\n\nAsk me to explain any of these numbers, and I'll explain them in pedagogical terms the moment the API key is configured.",
+      "confidence": 0.4,
+      "latency_ms": 29.110699892044067,
+      "http_status": 200,
+      "deterministic_oracle": {
+        "kind": "line_coding",
+        "scheme": "ami",
+        "bits": [
+          1,
+          0,
+          1,
+          1,
+          0
+        ],
+        "samples_per_bit": 2,
+        "levels": [
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          -1.0,
+          -1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        "dc_component": 0.2,
+        "transitions": 4
+      },
+      "retrieved_chunks": 5
+    },
+    {
+      "rank": 45,
+      "id": "m10",
+      "category": "misconception",
+      "grounded": "no_contradictions",
+      "grounding_discrepancies": [],
+      "grounding_type": "automatic",
+      "answer": "I can't load the AI tutor right now because GEMINI_API_KEY is not configured. Here is what I can tell you deterministically from the engine:\n\nCircuit: INVALID\nMissing: [{'from': 'encoder.out', 'to': 'scope.in'}, {'from': 'source.out', 'to': 'encoder.in'}]\nUnexpected: none\nscheme=ami, transitions=4, dc_component=0.2000, levels=[1.0, 1.0, 0.0, 0.0, -1.0, -1.0, 1.0, 1.0, 0.0, 0.0]\n\nAsk me to explain any of these numbers, and I'll explain them in pedagogical terms the moment the API key is configured.",
+      "confidence": 0.4,
+      "latency_ms": 5.626100115478039,
+      "http_status": 200,
+      "deterministic_oracle": {
+        "kind": "line_coding",
+        "scheme": "ami",
+        "bits": [
+          1,
+          0,
+          1,
+          1,
+          0
+        ],
+        "samples_per_bit": 2,
+        "levels": [
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          -1.0,
+          -1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        "dc_component": 0.2,
+        "transitions": 4
+      },
+      "retrieved_chunks": 5
+    },
+    {
+      "rank": 46,
+      "id": "t1",
+      "category": "what-if",
+      "grounded": "no_contradictions",
+      "grounding_discrepancies": [],
+      "grounding_type": "automatic",
+      "answer": "I can't load the AI tutor right now because GEMINI_API_KEY is not configured. Here is what I can tell you deterministically from the engine:\n\nCircuit: VALID\nMissing: none\nUnexpected: none\nscheme=ami, transitions=4, dc_component=0.2000, levels=[1.0, 1.0, 0.0, 0.0, -1.0, -1.0, 1.0, 1.0, 0.0, 0.0]\n\nAsk me to explain any of these numbers, and I'll explain them in pedagogical terms the moment the API key is configured.",
+      "confidence": 0.4,
+      "latency_ms": 23.79309991374612,
+      "http_status": 200,
+      "deterministic_oracle": {
+        "kind": "line_coding",
+        "scheme": "ami",
+        "bits": [
+          1,
+          0,
+          1,
+          1,
+          0
+        ],
+        "samples_per_bit": 2,
+        "levels": [
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          -1.0,
+          -1.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        "dc_component": 0.2,
+        "transitions": 4
+      },
+      "retrieved_chunks": 5
+    },
+    {
+      "rank": 47,
+      "id": "t2",
+      "category": "what-if",
+      "grounded": "no_contradictions",
+      "grounding_discrepancies": [],
+      "grounding_type": "automatic",
+      "answer": "I can't load the AI tutor right now because GEMINI_API_KEY is not configured. Here is what I can tell you deterministically from the engine:\n\nCircuit: INVALID\nMissing: [{'from': 'encoder.out', 'to': 'scope.in'}, {'from': 'source.out', 'to': 'encoder.in'}]\nUnexpected: none\nscheme=nrz, transitions=1, dc_component=0.0000, levels=[1.0, 1.0, -1.0, -1.0]\n\nAsk me to explain any of these numbers, and I'll explain them in pedagogical terms the moment the API key is configured.",
+      "confidence": 0.4,
+      "latency_ms": 29.71380017697811,
+      "http_status": 200,
+      "deterministic_oracle": {
+        "kind": "line_coding",
+        "scheme": "nrz",
+        "bits": [
+          1,
+          0
+        ],
+        "samples_per_bit": 2,
+        "levels": [
+          1.0,
+          1.0,
+          -1.0,
+          -1.0
+        ],
+        "dc_component": 0.0,
+        "transitions": 1
+      },
+      "retrieved_chunks": 5
+    },
+    {
+      "rank": 48,
+      "id": "t3",
+      "category": "what-if",
+      "grounded": "no_contradictions",
+      "grounding_discrepancies": [],
+      "grounding_type": "automatic",
+      "answer": "I can't load the AI tutor right now because GEMINI_API_KEY is not configured. Here is what I can tell you deterministically from the engine:\n\nCircuit: INVALID\nMissing: [{'from': 'encoder.out', 'to': 'scope.in'}, {'from': 'source.out', 'to': 'encoder.in'}]\nUnexpected: none\nscheme=ami, transitions=3, dc_component=0.0000, levels=[1.0, 1.0, 0.0, 0.0, -1.0, -1.0, 0.0, 0.0]\n\nAsk me to explain any of these numbers, and I'll explain them in pedagogical terms the moment the API key is configured.",
+      "confidence": 0.4,
+      "latency_ms": 15.193399973213673,
+      "http_status": 200,
+      "deterministic_oracle": {
+        "kind": "line_coding",
+        "scheme": "ami",
+        "bits": [
+          1,
+          0,
+          1,
+          0
+        ],
+        "samples_per_bit": 2,
+        "levels": [
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          -1.0,
+          -1.0,
+          0.0,
+          0.0
+        ],
+        "dc_component": 0.0,
+        "transitions": 3
+      },
+      "retrieved_chunks": 5
+    },
+    {
+      "rank": 49,
+      "id": "t4",
+      "category": "what-if",
+      "grounded": "no_contradictions",
+      "grounding_discrepancies": [],
+      "grounding_type": "automatic",
+      "answer": "I can't load the AI tutor right now because GEMINI_API_KEY is not configured. Here is what I can tell you deterministically from the engine:\n\nCircuit: INVALID\nMissing: [{'from': 'encoder.out', 'to': 'scope.in'}, {'from': 'source.out', 'to': 'encoder.in'}]\nUnexpected: none\nscheme=manchester, transitions=2, dc_component=0.0000, levels=[-1.0, 1.0, 1.0, -1.0]\n\nAsk me to explain any of these numbers, and I'll explain them in pedagogical terms the moment the API key is configured.",
+      "confidence": 0.4,
+      "latency_ms": 14.662399888038635,
+      "http_status": 200,
+      "deterministic_oracle": {
+        "kind": "line_coding",
+        "scheme": "manchester",
+        "bits": [
+          1,
+          0
+        ],
+        "samples_per_bit": 2,
+        "levels": [
+          -1.0,
+          1.0,
+          1.0,
+          -1.0
+        ],
+        "dc_component": 0.0,
+        "transitions": 2
+      },
+      "retrieved_chunks": 5
+    },
+    {
+      "rank": 50,
+      "id": "t5",
+      "category": "what-if",
+      "grounded": "no_contradictions",
+      "grounding_discrepancies": [],
+      "grounding_type": "automatic",
+      "answer": "I can't load the AI tutor right now because GEMINI_API_KEY is not configured. Here is what I can tell you deterministically from the engine:\n\nCircuit: INVALID\nMissing: [{'from': 'encoder.out', 'to': 'scope.in'}, {'from': 'source.out', 'to': 'encoder.in'}]\nUnexpected: none\nscheme=nrz_unipolar, transitions=3, dc_component=0.5000, levels=[1.0, 1.0, 0.0, 0.0, 1.0, 1.0, 0.0, 0.0]\n\nAsk me to explain any of these numbers, and I'll explain them in pedagogical terms the moment the API key is configured.",
+      "confidence": 0.4,
+      "latency_ms": 15.099199954420328,
+      "http_status": 200,
+      "deterministic_oracle": {
+        "kind": "line_coding",
+        "scheme": "nrz_unipolar",
+        "bits": [
+          1,
+          0,
+          1,
+          0
+        ],
+        "samples_per_bit": 2,
+        "levels": [
+          1.0,
+          1.0,
+          0.0,
+          0.0,
+          1.0,
+          1.0,
+          0.0,
+          0.0
+        ],
+        "dc_component": 0.5,
+        "transitions": 3
+      },
+      "retrieved_chunks": 5
+    }
+  ],
+  "human_only_metrics": {
+    "specificity": "requires human annotation (did the answer deepen the student's understanding?)",
+    "relevance": "requires human annotation (does the answer address the actual question?)"
+  }
+}

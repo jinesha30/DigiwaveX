@@ -1,0 +1,368 @@
+/* ==========================================================================
+   DigiWave X — AI Lab Instructor & Socratic Tutoring (LangGraph) Styling
+   ========================================================================== */
+
+.tutor-drawer {
+  display: flex;
+  flex-direction: column;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  border-radius: 14px;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  height: 100%;
+  min-height: 520px;
+}
+
+/* Tutor Header */
+.tutor-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 18px;
+  background: linear-gradient(180deg, #162032 0%, #0d1522 100%);
+  border-bottom: 1px solid #1e293b;
+}
+
+.tutor-profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.tutor-avatar {
+  width: 36px;
+  height: 36px;
+  border-radius: 10px;
+  background: linear-gradient(135deg, #0284c7, #8b5cf6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-weight: 800;
+  font-size: 14px;
+  box-shadow: 0 0 12px rgba(139, 92, 246, 0.4);
+}
+
+.tutor-meta {
+  display: flex;
+  flex-direction: column;
+}
+
+.tutor-name {
+  font-size: 14px;
+  font-weight: 700;
+  color: var(--text-primary);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.tutor-role {
+  font-size: 11px;
+  color: var(--text-muted);
+  font-family: var(--font-mono);
+}
+
+/* Verification Confidence Badge */
+.verification-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 10px;
+  background: rgba(16, 185, 129, 0.12);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  border-radius: 20px;
+  font-size: 10px;
+  font-family: var(--font-mono);
+  color: #34d399;
+}
+
+/* Chat Messages Container */
+.tutor-messages {
+  flex: 1;
+  padding: 16px;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.message {
+  display: flex;
+  flex-direction: column;
+  max-width: 92%;
+  animation: message-appear 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes message-appear {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.message.user {
+  align-self: flex-end;
+}
+
+.message.ai {
+  align-self: flex-start;
+}
+
+.message-bubble {
+  padding: 12px 16px;
+  border-radius: 12px;
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.message.user .message-bubble {
+  background: linear-gradient(135deg, #0284c7, #0369a1);
+  color: white;
+  border-bottom-right-radius: 2px;
+  box-shadow: 0 4px 12px rgba(2, 132, 199, 0.25);
+}
+
+.message.ai .message-bubble {
+  background: rgba(22, 32, 50, 0.9);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: var(--text-primary);
+  border-bottom-left-radius: 2px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+.message-meta {
+  font-size: 10px;
+  font-family: var(--font-mono);
+  color: var(--text-muted);
+  margin-top: 4px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+/* Socratic Hint Escalation Box */
+.hint-escalation-box {
+  margin-top: 10px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: rgba(245, 158, 11, 0.1);
+  border-left: 3px solid var(--warning-amber);
+}
+
+.hint-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 11px;
+  font-weight: 700;
+  color: #fbbf24;
+  margin-bottom: 4px;
+}
+
+.hint-body {
+  font-size: 12px;
+  color: #fef3c7;
+}
+
+/* Ground-Truth Oracle Verified Box */
+.ground-truth-box {
+  margin-top: 10px;
+  padding: 10px 14px;
+  border-radius: 8px;
+  background: rgba(16, 185, 129, 0.08);
+  border-left: 3px solid var(--phosphor-green);
+  font-size: 11px;
+  font-family: var(--font-mono);
+}
+
+.ground-truth-title {
+  color: #34d399;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+/* Citations & Textbook References */
+.citations-wrapper {
+  margin-top: 8px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.citation-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 2px 8px;
+  background: rgba(139, 92, 246, 0.15);
+  border: 1px solid rgba(139, 92, 246, 0.35);
+  border-radius: 4px;
+  font-size: 10px;
+  font-family: var(--font-mono);
+  color: #c084fc;
+}
+
+/* Socratic Level Selector / Escalation Toolbar */
+.socratic-controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 16px;
+  background: #0d1524;
+  border-top: 1px solid #1e293b;
+  border-bottom: 1px solid #1e293b;
+}
+
+.socratic-level-group {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.level-chip {
+  padding: 3px 8px;
+  font-size: 10px;
+  font-family: var(--font-mono);
+  border-radius: 4px;
+  border: 1px solid #334155;
+  background: #1e293b;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.level-chip:hover {
+  border-color: #38bdf8;
+  color: #38bdf8;
+}
+
+.level-chip.active {
+  background: rgba(6, 182, 212, 0.2);
+  border-color: var(--cyber-cyan);
+  color: #38bdf8;
+  font-weight: 700;
+}
+
+/* Tutor Input Area */
+.tutor-input-area {
+  padding: 12px 16px;
+  background: #0b111e;
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.tutor-input {
+  flex: 1;
+  background: #05080e;
+  border: 1px solid #1e293b;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 13px;
+  color: var(--text-primary);
+  outline: none;
+  font-family: var(--font-ui);
+  transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
+}
+
+.tutor-input:focus {
+  border-color: #38bdf8;
+  box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.2);
+}
+
+/* Suggested Question Quick Pills */
+.suggested-prompts {
+  display: flex;
+  gap: 6px;
+  overflow-x: auto;
+  padding: 8px 16px;
+  background: #090e18;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.prompt-pill {
+  font-size: 11px;
+  color: var(--text-secondary);
+  background: rgba(30, 41, 59, 0.6);
+  border: 1px solid #334155;
+  border-radius: 12px;
+  padding: 3px 10px;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.prompt-pill:hover {
+  background: rgba(56, 189, 248, 0.15);
+  border-color: #38bdf8;
+  color: #38bdf8;
+}
+
+/* Socratic Level Specific Styling & Cards */
+.socratic-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 10px;
+  margin-bottom: 10px;
+  border-radius: 6px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+}
+
+.socratic-card-header.lvl-1 {
+  background: rgba(245, 158, 11, 0.15);
+  border: 1px solid rgba(245, 158, 11, 0.35);
+  color: #fbbf24;
+}
+
+.socratic-card-header.lvl-2 {
+  background: rgba(168, 85, 247, 0.15);
+  border: 1px solid rgba(168, 85, 247, 0.35);
+  color: #c084fc;
+}
+
+.socratic-card-header.lvl-3 {
+  background: rgba(16, 185, 129, 0.15);
+  border: 1px solid rgba(16, 185, 129, 0.35);
+  color: #34d399;
+}
+
+/* Markdown Table in Tutor Message */
+.tutor-table-wrap {
+  width: 100%;
+  overflow-x: auto;
+  margin: 10px 0;
+  border-radius: 6px;
+  border: 1px solid #334155;
+}
+
+.tutor-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 10.5px;
+  font-family: var(--font-mono);
+  background: rgba(15, 23, 42, 0.7);
+}
+
+.tutor-table th {
+  background: #1e293b;
+  color: #38bdf8;
+  padding: 6px 8px;
+  text-align: left;
+  border-bottom: 1px solid #334155;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+.tutor-table td {
+  padding: 5px 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  color: var(--text-secondary);
+  white-space: nowrap;
+}
+
+.tutor-table tr:hover td {
+  background: rgba(56, 189, 248, 0.06);
+}

@@ -1,0 +1,51 @@
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+
+# Archives
+*.zip
+*.tar.gz
+*.rar
+
+# Virtual environment
+.venv/
+venv/
+env/
+
+# Environment variables / secrets
+.env
+.env.*
+!.env.example
+
+# IDE
+.vscode/
+.idea/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Node
+node_modules/
+
+# Build files
+dist/
+build/
+*.egg-info/
+
+# Logs
+*.log
+# Generated Chroma database
+backend/.chroma/
+
+# Python environment
+.venv/
+
+# Environment secrets
+.env

@@ -1,0 +1,362 @@
+{
+    "gen_wk":  {
+                   "scheme":  null,
+                   "bit_index":  null,
+                   "y":  215,
+                   "type":  "output",
+                   "x":  353,
+                   "label":  "WK (Word Clock)",
+                   "top":  "28.67%",
+                   "left":  "39.93%"
+               },
+    "dec_sw":  {
+                   "scheme":  null,
+                   "bit_index":  null,
+                   "y":  436,
+                   "type":  "switch",
+                   "x":  695,
+                   "label":  "Decoder SW (1 \u003c-\u003e 2)",
+                   "top":  "58.13%",
+                   "left":  "78.62%"
+               },
+    "dec_ip":  {
+                   "scheme":  null,
+                   "bit_index":  null,
+                   "y":  518,
+                   "type":  "input",
+                   "x":  685,
+                   "label":  "Decoder I/P",
+                   "top":  "69.07%",
+                   "left":  "77.49%"
+               },
+    "sw_d3":  {
+                  "scheme":  null,
+                  "bit_index":  2,
+                  "y":  420,
+                  "type":  "dip_switch",
+                  "x":  170,
+                  "label":  "Switch D3 (Bit 5)",
+                  "top":  "56%",
+                  "left":  "19.23%"
+              },
+    "dec_gnd":  {
+                    "scheme":  null,
+                    "bit_index":  null,
+                    "y":  518,
+                    "type":  "ground",
+                    "x":  805,
+                    "label":  "Decoder GND",
+                    "top":  "69.07%",
+                    "left":  "91.06%"
+                },
+    "comp_gnd":  {
+                     "scheme":  null,
+                     "bit_index":  null,
+                     "y":  248,
+                     "type":  "ground",
+                     "x":  668,
+                     "label":  "Comparator GND",
+                     "top":  "33.07%",
+                     "left":  "75.57%"
+                 },
+    "gen_bk":  {
+                   "scheme":  null,
+                   "bit_index":  null,
+                   "y":  168,
+                   "type":  "output",
+                   "x":  353,
+                   "label":  "BK (Bit Clock)",
+                   "top":  "22.4%",
+                   "left":  "39.93%"
+               },
+    "rec_bk_op":  {
+                      "scheme":  null,
+                      "bit_index":  null,
+                      "y":  624,
+                      "type":  "output",
+                      "x":  805,
+                      "label":  "Recovered BK O/P",
+                      "top":  "83.2%",
+                      "left":  "91.06%"
+                  },
+    "line_biphase_mark":  {
+                              "scheme":  "manchester",
+                              "bit_index":  null,
+                              "y":  535,
+                              "type":  "output",
+                              "x":  625,
+                              "label":  "Bi-Phase Mark",
+                              "top":  "71.33%",
+                              "left":  "70.7%"
+                          },
+    "line_nrz_bipolar":  {
+                             "scheme":  "nrz",
+                             "bit_index":  null,
+                             "y":  277,
+                             "type":  "output",
+                             "x":  625,
+                             "label":  "NRZ Bipolar / Polar",
+                             "top":  "36.93%",
+                             "left":  "70.7%"
+                         },
+    "line_nrz_unipolar":  {
+                              "scheme":  "nrz_unipolar",
+                              "bit_index":  null,
+                              "y":  135,
+                              "type":  "output",
+                              "x":  625,
+                              "label":  "NRZ Unipolar",
+                              "top":  "18%",
+                              "left":  "70.7%"
+                          },
+    "comp_op1":  {
+                     "scheme":  null,
+                     "bit_index":  null,
+                     "y":  264,
+                     "type":  "output",
+                     "x":  805,
+                     "label":  "Comparator O/P 1",
+                     "top":  "35.2%",
+                     "left":  "91.06%"
+                 },
+    "line_ami_bipolar":  {
+                             "scheme":  "ami",
+                             "bit_index":  null,
+                             "y":  595,
+                             "type":  "output",
+                             "x":  625,
+                             "label":  "AMI Bipolar",
+                             "top":  "79.33%",
+                             "left":  "70.7%"
+                         },
+    "sw_d4":  {
+                  "scheme":  null,
+                  "bit_index":  3,
+                  "y":  420,
+                  "type":  "dip_switch",
+                  "x":  208,
+                  "label":  "Switch D4 (Bit 4)",
+                  "top":  "56%",
+                  "left":  "23.53%"
+              },
+    "pwr_on_led":  {
+                       "scheme":  null,
+                       "bit_index":  null,
+                       "y":  652,
+                       "type":  "power_led",
+                       "x":  115,
+                       "label":  "Power ON Indicator",
+                       "top":  "86.93%",
+                       "left":  "13.01%"
+                   },
+    "line_rz_bipolar":  {
+                            "scheme":  "bipolar_rz",
+                            "bit_index":  null,
+                            "y":  414,
+                            "type":  "output",
+                            "x":  625,
+                            "label":  "RZ Bipolar / Polar",
+                            "top":  "55.2%",
+                            "left":  "70.7%"
+                        },
+    "sw_d5":  {
+                  "scheme":  null,
+                  "bit_index":  4,
+                  "y":  420,
+                  "type":  "dip_switch",
+                  "x":  246,
+                  "label":  "Switch D5 (Bit 3)",
+                  "top":  "56%",
+                  "left":  "27.83%"
+              },
+    "gen_nrz":  {
+                    "scheme":  null,
+                    "bit_index":  null,
+                    "y":  264,
+                    "type":  "output",
+                    "x":  353,
+                    "label":  "NRZ (Data Output)",
+                    "top":  "35.2%",
+                    "left":  "39.93%"
+                },
+    "line_biphase_manchester":  {
+                                    "scheme":  "manchester",
+                                    "bit_index":  null,
+                                    "y":  448,
+                                    "type":  "output",
+                                    "x":  625,
+                                    "label":  "Bi-Phase Manchester",
+                                    "top":  "59.73%",
+                                    "left":  "70.7%"
+                                },
+    "comp_ip2":  {
+                     "scheme":  null,
+                     "bit_index":  null,
+                     "y":  205,
+                     "type":  "input",
+                     "x":  668,
+                     "label":  "Comparator I/P 2",
+                     "top":  "27.33%",
+                     "left":  "75.57%"
+                 },
+    "rec_ip":  {
+                   "scheme":  null,
+                   "bit_index":  null,
+                   "y":  624,
+                   "type":  "input",
+                   "x":  668,
+                   "label":  "Clock Recovery I/P",
+                   "top":  "83.2%",
+                   "left":  "75.57%"
+               },
+    "gen_ck":  {
+                   "scheme":  null,
+                   "bit_index":  null,
+                   "y":  118,
+                   "type":  "output",
+                   "x":  353,
+                   "label":  "CK (Master Clock)",
+                   "top":  "15.73%",
+                   "left":  "39.93%"
+               },
+    "pwr_s1":  {
+                   "scheme":  null,
+                   "bit_index":  null,
+                   "y":  575,
+                   "type":  "power_switch",
+                   "x":  70,
+                   "label":  "230V AC Mains Switch S1",
+                   "top":  "76.67%",
+                   "left":  "7.92%"
+               },
+    "line_rz_unipolar":  {
+                             "scheme":  "rz_unipolar",
+                             "bit_index":  null,
+                             "y":  346,
+                             "type":  "output",
+                             "x":  625,
+                             "label":  "RZ Unipolar",
+                             "top":  "46.13%",
+                             "left":  "70.7%"
+                         },
+    "line_nrz_m":  {
+                       "scheme":  "nrzm",
+                       "bit_index":  null,
+                       "y":  205,
+                       "type":  "output",
+                       "x":  625,
+                       "label":  "NRZ-M (Differential)",
+                       "top":  "27.33%",
+                       "left":  "70.7%"
+                   },
+    "comp_op2":  {
+                     "scheme":  null,
+                     "bit_index":  null,
+                     "y":  322,
+                     "type":  "output",
+                     "x":  805,
+                     "label":  "Comparator O/P 2",
+                     "top":  "42.93%",
+                     "left":  "91.06%"
+                 },
+    "sw_d6":  {
+                  "scheme":  null,
+                  "bit_index":  5,
+                  "y":  420,
+                  "type":  "dip_switch",
+                  "x":  284,
+                  "label":  "Switch D6 (Bit 2)",
+                  "top":  "56%",
+                  "left":  "32.13%"
+              },
+    "gen_gnd":  {
+                    "scheme":  null,
+                    "bit_index":  null,
+                    "y":  320,
+                    "type":  "ground",
+                    "x":  353,
+                    "label":  "GND",
+                    "top":  "42.67%",
+                    "left":  "39.93%"
+                },
+    "comp_op3":  {
+                     "scheme":  null,
+                     "bit_index":  null,
+                     "y":  356,
+                     "type":  "output",
+                     "x":  805,
+                     "label":  "Comparator O/P 3",
+                     "top":  "47.47%",
+                     "left":  "91.06%"
+                 },
+    "sw_d7":  {
+                  "scheme":  null,
+                  "bit_index":  6,
+                  "y":  420,
+                  "type":  "dip_switch",
+                  "x":  322,
+                  "label":  "Switch D7 (Bit 1)",
+                  "top":  "56%",
+                  "left":  "36.43%"
+              },
+    "sw_d8":  {
+                  "scheme":  null,
+                  "bit_index":  7,
+                  "y":  420,
+                  "type":  "dip_switch",
+                  "x":  360,
+                  "label":  "Switch D8 (Bit 0)",
+                  "top":  "56%",
+                  "left":  "40.72%"
+              },
+    "sw_d1":  {
+                  "scheme":  null,
+                  "bit_index":  0,
+                  "y":  420,
+                  "type":  "dip_switch",
+                  "x":  94,
+                  "label":  "Switch D1 (Bit 7)",
+                  "top":  "56%",
+                  "left":  "10.63%"
+              },
+    "sw_d2":  {
+                  "scheme":  null,
+                  "bit_index":  1,
+                  "y":  420,
+                  "type":  "dip_switch",
+                  "x":  132,
+                  "label":  "Switch D2 (Bit 6)",
+                  "top":  "56%",
+                  "left":  "14.93%"
+              },
+    "dec_nrz_op":  {
+                       "scheme":  null,
+                       "bit_index":  null,
+                       "y":  436,
+                       "type":  "output",
+                       "x":  805,
+                       "label":  "Decoder NRZ O/P",
+                       "top":  "58.13%",
+                       "left":  "91.06%"
+                   },
+    "rec_gnd":  {
+                    "scheme":  null,
+                    "bit_index":  null,
+                    "y":  680,
+                    "type":  "ground",
+                    "x":  805,
+                    "label":  "Recovery GND",
+                    "top":  "90.67%",
+                    "left":  "91.06%"
+                },
+    "comp_ip1":  {
+                     "scheme":  null,
+                     "bit_index":  null,
+                     "y":  140,
+                     "type":  "input",
+                     "x":  668,
+                     "label":  "Comparator I/P 1",
+                     "top":  "18.67%",
+                     "left":  "75.57%"
+                 }
+}

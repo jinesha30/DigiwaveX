@@ -1,0 +1,141 @@
+{
+  "id": "am_modulation",
+  "title": "EXPT 1: Amplitude Modulation (DSB-FC) & Trapezoidal Measurement",
+  "objective": "Generate AM (DSB-FC), calculate modulation index by graphical and trapezoidal methods, calculate power of AM wave, and observe spectrum.",
+  "theory_tags": ["AM", "DSB-FC", "Modulation Index", "Trapezoidal Pattern", "Sidebands", "Power", "Balanced Modulator 1496"],
+
+  "blocks": [
+    {
+      "id": "audio_gen",
+      "label": "Audio Generator (IC 8038)",
+      "position": { "x": 20, "y": 30 },
+      "ports": [
+        { "id": "sine_out", "type": "output", "signal": "audio_signal" }
+      ],
+      "inputs": [
+        {
+          "id": "frequency",
+          "label": "Audio Frequency fm (Hz)",
+          "type": "number",
+          "default": 1000,
+          "min": 300,
+          "max": 3400,
+          "step": 100
+        },
+        {
+          "id": "amplitude",
+          "label": "Audio Amplitude Em (V)",
+          "type": "number",
+          "default": 2.5,
+          "min": 0.0,
+          "max": 5.0,
+          "step": 0.5
+        }
+      ]
+    },
+    {
+      "id": "rf_osc",
+      "label": "RF Carrier Oscillator",
+      "position": { "x": 20, "y": 170 },
+      "ports": [
+        { "id": "carrier_out", "type": "output", "signal": "rf_carrier" }
+      ],
+      "inputs": [
+        {
+          "id": "frequency",
+          "label": "Carrier Frequency fc (kHz)",
+          "type": "number",
+          "default": 455,
+          "min": 400,
+          "max": 1000,
+          "step": 10
+        },
+        {
+          "id": "amplitude",
+          "label": "Carrier Amplitude Ec (V)",
+          "type": "number",
+          "default": 5.0,
+          "min": 0.5,
+          "max": 10.0,
+          "step": 0.5
+        }
+      ]
+    },
+    {
+      "id": "balanced_mod",
+      "label": "Balanced Modulator (IC 1496)",
+      "position": { "x": 300, "y": 70 },
+      "ports": [
+        { "id": "mod_in", "type": "input", "signal": "audio_signal" },
+        { "id": "carrier_in", "type": "input", "signal": "rf_carrier" },
+        { "id": "am_out", "type": "output", "signal": "am_waveform" }
+      ],
+      "inputs": [
+        {
+          "id": "rf_link",
+          "label": "RF Link (DSB-FC Carrier Insertion)",
+          "type": "select",
+          "options": ["closed_dsbfc", "open_dsbsc"],
+          "default": "closed_dsbfc"
+        }
+      ]
+    },
+    {
+      "id": "diode_detector",
+      "label": "Diode Envelope Detector (OA79)",
+      "position": { "x": 560, "y": 70 },
+      "ports": [
+        { "id": "det_in", "type": "input", "signal": "am_waveform" },
+        { "id": "det_out", "type": "output", "signal": "audio_signal" }
+      ]
+    },
+    {
+      "id": "cro",
+      "label": "Dual-Trace CRO / Trapezoid (Philips OS-9020B)",
+      "position": { "x": 800, "y": 70 },
+      "ports": [
+        { "id": "ch1_x", "type": "input", "signal": "audio_signal" },
+        { "id": "ch2_y", "type": "input", "signal": "am_waveform" }
+      ],
+      "display": "am_oscilloscope_and_trapezoid"
+    }
+  ],
+
+  "required_connections": [
+    { "from": "audio_gen.sine_out", "to": "balanced_mod.mod_in" },
+    { "from": "rf_osc.carrier_out", "to": "balanced_mod.carrier_in" },
+    { "from": "balanced_mod.am_out", "to": "cro.ch2_y" }
+  ],
+
+  "oracle": {
+    "function": "am_calculate",
+    "args": {
+      "Em": "audio_gen.amplitude",
+      "fm": "audio_gen.frequency",
+      "Ec": "rf_osc.amplitude",
+      "fc": "rf_osc.frequency",
+      "rf_link": "balanced_mod.rf_link"
+    }
+  },
+
+  "misconceptions": [
+    {
+      "id": "overmodulation_distortion",
+      "name": "Envelope Detector distortion when m > 1",
+      "description": "When m > 1 (overmodulation), the envelope crosses zero resulting in 180° carrier phase reversal. Diode envelope detectors cannot track phase and clip the negative peak, creating severe audio harmonic distortion.",
+      "detect": "m_greater_than_1"
+    },
+    {
+      "id": "trapezoid_triangle_identity",
+      "name": "Trapezoid vertex collapse at critical modulation (m = 1)",
+      "description": "At m = 1.0, the minimum envelope L2 = 0. The trapezoid degenerates into an exact triangle. If m > 1, the shape crosses over into a bow-tie.",
+      "detect": "m_equals_1_triangle"
+    },
+    {
+      "id": "dsb_fc_efficiency_limit",
+      "name": "AM DSB-FC maximum theoretical efficiency is 33.3%",
+      "description": "At m = 1.0 (sinusoidal modulation), carrier power is 66.7% of total power while both sidebands contain only 33.3% of total power. Carrier contains no information.",
+      "detect": "efficiency_check"
+    }
+  ]
+}
